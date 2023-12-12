@@ -1,0 +1,46 @@
+<div class="search-results"
+     infinite-scroll
+     [infiniteScrollDistance]= "scrollDistance"
+     [infiniteScrollThrottle]="300"
+     (scrolled)="onScrollDown()">
+  <div class="row">
+    <h2 style="text-align: center; padding:50px 0" *ngIf="noBlog">No Blog Found....!!</h2>
+    <div *ngIf="!noBlog">
+      <div class="col-md-9 col-sm-6 col-xs-12" *ngFor="let blog of blogData" (mouseenter)="blogId(blog.slug)" >
+        <article class="tg-post ">
+          <a [routerLink] = "['/press-release', blog.slug]" class="tg-box">
+            <figure class="tg-feature-img press-release-img-container">
+              <span class="blog-img press-release-img" [ngStyle]="{ 'background-image': 'url('+ imagePath + '/' + blog.thumbnail + ')'}"></span>
+              <ul class="tg-metadata">
+                <li><i class="fa fa-clock-o"></i><time date="">{{blog.date | date: 'yyyy dd MM '}}</time> </li>
+                <!--<li><i class="fa fa-comment-o"></i>{{blog.comments}} Comments</li>-->
+              </ul>
+            </figure>
+            <div class="tg-contentbox press-release-checkbox">
+              <div class="tg-displaytable">
+                <div class="tg-displaytablecell">
+                  <div class="tg-heading-border tg-small">
+                    <h3><a [routerLink] = "['/press-release', blog.slug]">{{blog.title}} </a></h3>
+                  </div>
+                  <div class="tg-description blog-listing-desc">
+                    <p [innerHTML] = blog.description></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <span class="social-links hide" style="display:none;">
+          <ul>
+            <li class="facebook"><a class="fb-share-button" href="javascript:void(0)" title="Facebook Share" onclick="javascript:genericSocialShare('http://www.facebook.com/sharer.php?u=https://hayaat.pk/blog/detail/17')"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+            <li class="twitter"><a href="www.test.com"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+            <li class="google-plus"><a href="www.test.com"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
+            <li class="linkedin"><a href="www.test.com"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+          </ul>
+        </span>
+          </a>
+
+        </article>
+      </div>
+    </div>
+  </div>
+</div>

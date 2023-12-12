@@ -1,0 +1,44 @@
+.order-listing-tabs li.nav-item {
+  width: 33% !important;
+
+}
+.order-listing-tabs li.nav-item:last-child a{
+  border-bottom: none !important;
+}
+.order-listing-tabs .nav-tabs {
+  float: none !important;
+  width: 100% !important;
+}
+.order-listing-tabs .tab-content{
+  width: 100% !important;
+}
+#order-list{
+  background: #fff;
+  padding: 0 20px 23px;
+}
+.order-listing-tabs li.nav-item a.active {
+  background: #fff none repeat scroll 0 0;
+  border-color: currentcolor currentcolor currentcolor #1a237e;
+  border-radius: 0;
+  border-style: solid none none none;
+  border-width: medium medium medium 3px;
+  color: #1a237e;
+}
+.pharmacy-records {
+  padding:30px 0;
+}
+.orders-listing-card li {
+  position: relative;
+}
+.orders-listing-card li i {
+  position: absolute;
+  top: 14px;
+  right: 12px;
+  font-size: 30px;
+  color: #c14f4f;
+  cursor: pointer;
+}
+.cancel-order {
+  color: red;
+  cursor: pointer;
+}

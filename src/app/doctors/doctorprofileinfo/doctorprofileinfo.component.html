@@ -1,0 +1,721 @@
+<main id="main" class="tg-main-section tg-haslayout user-detail-content doctor-profile-view" style="background-color:#f7f7f7;min-height:500px;">
+  <div class="container">
+    <div class="row">
+      <div class=" col-md-12 col-sm-12 col-xs-12 tg-verticalmiddle">
+        <ngb-tabset class="nav nav-tabs doctor-detail-tab user-tab-content">
+          <ngb-tab>
+            <ng-template ngbTabTitle>
+                <div >
+                    Appointments
+                </div>
+            </ng-template>
+            <ng-template ngbTabContent>
+              <h4 class="title">Appointments</h4>
+
+                <div class="table-responsive">
+                  <table class="table table-hover table-striped appointments-tables" cellspacing="0" width="100%">
+                    <thead>
+                    <tr>
+                      <th>Name</th>
+                      <th>Address</th>
+                      <th>Date/Time</th>
+                      <th>Status</th>
+                      <th>Archive</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr><td colspan="6">No Recoed Found!</td></tr>
+                    </tbody>
+                  </table>
+                </div>
+
+            </ng-template>
+          </ngb-tab>
+          <ngb-tab>
+            <ng-template ngbTabTitle>
+              <div>
+                 Appointments History
+              </div>
+            </ng-template>
+
+            <ng-template ngbTabContent >
+              <h4 class="title">Appointments History</h4>
+
+                <div class="table-responsive">
+                  <table class="table table-hover table-striped appointments-tables" cellspacing="0" width="100%">
+                    <thead>
+                    <tr>
+                      <th>Name</th>
+                      <th>Address</th>
+                      <th>Date/Time</th>
+                      <th>Status</th>
+                      <th>Archive</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr><td colspan="6">No Recoed Found!</td></tr>
+                    </tbody>
+                  </table>
+                </div>
+
+            </ng-template>
+
+          </ngb-tab>
+          <ngb-tab>
+            <ng-template ngbTabTitle>
+              <div >
+                 Calendar
+              </div>
+            </ng-template>
+
+            <ng-template ngbTabContent>
+                  <app-appointmentcalender></app-appointmentcalender>
+            </ng-template>
+
+          </ngb-tab>
+          <ngb-tab>
+            <ng-template ngbTabTitle>
+              <div >
+                Profile
+              </div>
+            </ng-template>
+
+            <ng-template ngbTabContent>
+              <div class="tab-content user-tab-content">
+                <div class="tab-pane  fc fc-unthemed fc-ltr" id="calendar" style="min-height:700px;" role="tabpanel"><div class="fc-toolbar fc-header-toolbar"><div class="fc-left"><div class="fc-button-group"><button type="button" class="fc-prev-button fc-button fc-state-default fc-corner-left"><span class="fc-icon fc-icon-left-single-arrow"></span></button><button type="button" class="fc-next-button fc-button fc-state-default"><span class="fc-icon fc-icon-right-single-arrow"></span></button><button type="button" class="fc-today-button fc-button fc-state-default fc-corner-right fc-state-disabled" disabled="">today</button></div></div><div class="fc-right"><button type="button" class="fc-month-button fc-button fc-state-default fc-corner-left fc-corner-right fc-state-active">month</button><button type="button" class="fc-agendaWeek-button fc-button fc-state-default fc-corner-left fc-corner-right">week</button><button type="button" class="fc-agendaDay-button fc-button fc-state-default fc-corner-left fc-corner-right">day</button></div><div class="fc-center"><h2>November 2017</h2></div><div class="fc-clear"></div></div><div class="fc-view-container" style=""><div class="fc-view fc-month-view fc-basic-view" style=""><table class=""><thead class="fc-head"><tr><td class="fc-head-container fc-widget-header"><div class="fc-row fc-widget-header" style=""><table class=""><thead><tr><th class="fc-day-header fc-widget-header fc-sun"><span>Sun</span></th><th class="fc-day-header fc-widget-header fc-mon"><span>Mon</span></th><th class="fc-day-header fc-widget-header fc-tue"><span>Tue</span></th><th class="fc-day-header fc-widget-header fc-wed"><span>Wed</span></th><th class="fc-day-header fc-widget-header fc-thu"><span>Thu</span></th><th class="fc-day-header fc-widget-header fc-fri"><span>Fri</span></th><th class="fc-day-header fc-widget-header fc-sat"><span>Sat</span></th></tr></thead></table></div></td></tr></thead><tbody class="fc-body"><tr><td class="fc-widget-content"><div class="fc-scroller fc-day-grid-container" style="overflow: hidden; height: 822px;"><div class="fc-day-grid fc-unselectable"><div class="fc-row fc-week fc-widget-content" style="height: 137px;"><div class="fc-bg"><table class=""><tbody><tr><td class="fc-day fc-widget-content fc-sun fc-other-month fc-past" data-date="2017-10-29"></td><td class="fc-day fc-widget-content fc-mon fc-other-month fc-past" data-date="2017-10-30"></td><td class="fc-day fc-widget-content fc-tue fc-other-month fc-past" data-date="2017-10-31"></td><td class="fc-day fc-widget-content fc-wed fc-past" data-date="2017-11-01"></td><td class="fc-day fc-widget-content fc-thu fc-past" data-date="2017-11-02"></td><td class="fc-day fc-widget-content fc-fri fc-past" data-date="2017-11-03"></td><td class="fc-day fc-widget-content fc-sat fc-past" data-date="2017-11-04"></td></tr></tbody></table></div><div class="fc-content-skeleton"><table><thead><tr><td class="fc-day-top fc-sun fc-other-month fc-past" data-date="2017-10-29"><span class="fc-day-number">29</span></td><td class="fc-day-top fc-mon fc-other-month fc-past" data-date="2017-10-30"><span class="fc-day-number">30</span></td><td class="fc-day-top fc-tue fc-other-month fc-past" data-date="2017-10-31"><span class="fc-day-number">31</span></td><td class="fc-day-top fc-wed fc-past" data-date="2017-11-01"><span class="fc-day-number">1</span></td><td class="fc-day-top fc-thu fc-past" data-date="2017-11-02"><span class="fc-day-number">2</span></td><td class="fc-day-top fc-fri fc-past" data-date="2017-11-03"><span class="fc-day-number">3</span></td><td class="fc-day-top fc-sat fc-past" data-date="2017-11-04"><span class="fc-day-number">4</span></td></tr></thead><tbody><tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr></tbody></table></div></div><div class="fc-row fc-week fc-widget-content" style="height: 137px;"><div class="fc-bg"><table class=""><tbody><tr><td class="fc-day fc-widget-content fc-sun fc-past" data-date="2017-11-05"></td><td class="fc-day fc-widget-content fc-mon fc-past" data-date="2017-11-06"></td><td class="fc-day fc-widget-content fc-tue fc-past" data-date="2017-11-07"></td><td class="fc-day fc-widget-content fc-wed fc-past" data-date="2017-11-08"></td><td class="fc-day fc-widget-content fc-thu fc-past" data-date="2017-11-09"></td><td class="fc-day fc-widget-content fc-fri fc-past" data-date="2017-11-10"></td><td class="fc-day fc-widget-content fc-sat fc-past" data-date="2017-11-11"></td></tr></tbody></table></div><div class="fc-content-skeleton"><table><thead><tr><td class="fc-day-top fc-sun fc-past" data-date="2017-11-05"><span class="fc-day-number">5</span></td><td class="fc-day-top fc-mon fc-past" data-date="2017-11-06"><span class="fc-day-number">6</span></td><td class="fc-day-top fc-tue fc-past" data-date="2017-11-07"><span class="fc-day-number">7</span></td><td class="fc-day-top fc-wed fc-past" data-date="2017-11-08"><span class="fc-day-number">8</span></td><td class="fc-day-top fc-thu fc-past" data-date="2017-11-09"><span class="fc-day-number">9</span></td><td class="fc-day-top fc-fri fc-past" data-date="2017-11-10"><span class="fc-day-number">10</span></td><td class="fc-day-top fc-sat fc-past" data-date="2017-11-11"><span class="fc-day-number">11</span></td></tr></thead><tbody><tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr></tbody></table></div></div><div class="fc-row fc-week fc-widget-content" style="height: 137px;"><div class="fc-bg"><table class=""><tbody><tr><td class="fc-day fc-widget-content fc-sun fc-past" data-date="2017-11-12"></td><td class="fc-day fc-widget-content fc-mon fc-past" data-date="2017-11-13"></td><td class="fc-day fc-widget-content fc-tue fc-today " data-date="2017-11-14"></td><td class="fc-day fc-widget-content fc-wed fc-future" data-date="2017-11-15"></td><td class="fc-day fc-widget-content fc-thu fc-future" data-date="2017-11-16"></td><td class="fc-day fc-widget-content fc-fri fc-future" data-date="2017-11-17"></td><td class="fc-day fc-widget-content fc-sat fc-future" data-date="2017-11-18"></td></tr></tbody></table></div><div class="fc-content-skeleton"><table><thead><tr><td class="fc-day-top fc-sun fc-past" data-date="2017-11-12"><span class="fc-day-number">12</span></td><td class="fc-day-top fc-mon fc-past" data-date="2017-11-13"><span class="fc-day-number">13</span></td><td class="fc-day-top fc-tue fc-today " data-date="2017-11-14"><span class="fc-day-number">14</span></td><td class="fc-day-top fc-wed fc-future" data-date="2017-11-15"><span class="fc-day-number">15</span></td><td class="fc-day-top fc-thu fc-future" data-date="2017-11-16"><span class="fc-day-number">16</span></td><td class="fc-day-top fc-fri fc-future" data-date="2017-11-17"><span class="fc-day-number">17</span></td><td class="fc-day-top fc-sat fc-future" data-date="2017-11-18"><span class="fc-day-number">18</span></td></tr></thead><tbody><tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr></tbody></table></div></div><div class="fc-row fc-week fc-widget-content" style="height: 137px;"><div class="fc-bg"><table class=""><tbody><tr><td class="fc-day fc-widget-content fc-sun fc-future" data-date="2017-11-19"></td><td class="fc-day fc-widget-content fc-mon fc-future" data-date="2017-11-20"></td><td class="fc-day fc-widget-content fc-tue fc-future" data-date="2017-11-21"></td><td class="fc-day fc-widget-content fc-wed fc-future" data-date="2017-11-22"></td><td class="fc-day fc-widget-content fc-thu fc-future" data-date="2017-11-23"></td><td class="fc-day fc-widget-content fc-fri fc-future" data-date="2017-11-24"></td><td class="fc-day fc-widget-content fc-sat fc-future" data-date="2017-11-25"></td></tr></tbody></table></div><div class="fc-content-skeleton"><table><thead><tr><td class="fc-day-top fc-sun fc-future" data-date="2017-11-19"><span class="fc-day-number">19</span></td><td class="fc-day-top fc-mon fc-future" data-date="2017-11-20"><span class="fc-day-number">20</span></td><td class="fc-day-top fc-tue fc-future" data-date="2017-11-21"><span class="fc-day-number">21</span></td><td class="fc-day-top fc-wed fc-future" data-date="2017-11-22"><span class="fc-day-number">22</span></td><td class="fc-day-top fc-thu fc-future" data-date="2017-11-23"><span class="fc-day-number">23</span></td><td class="fc-day-top fc-fri fc-future" data-date="2017-11-24"><span class="fc-day-number">24</span></td><td class="fc-day-top fc-sat fc-future" data-date="2017-11-25"><span class="fc-day-number">25</span></td></tr></thead><tbody><tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr></tbody></table></div></div><div class="fc-row fc-week fc-widget-content" style="height: 137px;"><div class="fc-bg"><table class=""><tbody><tr><td class="fc-day fc-widget-content fc-sun fc-future" data-date="2017-11-26"></td><td class="fc-day fc-widget-content fc-mon fc-future" data-date="2017-11-27"></td><td class="fc-day fc-widget-content fc-tue fc-future" data-date="2017-11-28"></td><td class="fc-day fc-widget-content fc-wed fc-future" data-date="2017-11-29"></td><td class="fc-day fc-widget-content fc-thu fc-future" data-date="2017-11-30"></td><td class="fc-day fc-widget-content fc-fri fc-other-month fc-future" data-date="2017-12-01"></td><td class="fc-day fc-widget-content fc-sat fc-other-month fc-future" data-date="2017-12-02"></td></tr></tbody></table></div><div class="fc-content-skeleton"><table><thead><tr><td class="fc-day-top fc-sun fc-future" data-date="2017-11-26"><span class="fc-day-number">26</span></td><td class="fc-day-top fc-mon fc-future" data-date="2017-11-27"><span class="fc-day-number">27</span></td><td class="fc-day-top fc-tue fc-future" data-date="2017-11-28"><span class="fc-day-number">28</span></td><td class="fc-day-top fc-wed fc-future" data-date="2017-11-29"><span class="fc-day-number">29</span></td><td class="fc-day-top fc-thu fc-future" data-date="2017-11-30"><span class="fc-day-number">30</span></td><td class="fc-day-top fc-fri fc-other-month fc-future" data-date="2017-12-01"><span class="fc-day-number">1</span></td><td class="fc-day-top fc-sat fc-other-month fc-future" data-date="2017-12-02"><span class="fc-day-number">2</span></td></tr></thead><tbody><tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr></tbody></table></div></div><div class="fc-row fc-week fc-widget-content" style="height: 137px;"><div class="fc-bg"><table class=""><tbody><tr><td class="fc-day fc-widget-content fc-sun fc-other-month fc-future" data-date="2017-12-03"></td><td class="fc-day fc-widget-content fc-mon fc-other-month fc-future" data-date="2017-12-04"></td><td class="fc-day fc-widget-content fc-tue fc-other-month fc-future" data-date="2017-12-05"></td><td class="fc-day fc-widget-content fc-wed fc-other-month fc-future" data-date="2017-12-06"></td><td class="fc-day fc-widget-content fc-thu fc-other-month fc-future" data-date="2017-12-07"></td><td class="fc-day fc-widget-content fc-fri fc-other-month fc-future" data-date="2017-12-08"></td><td class="fc-day fc-widget-content fc-sat fc-other-month fc-future" data-date="2017-12-09"></td></tr></tbody></table></div><div class="fc-content-skeleton"><table><thead><tr><td class="fc-day-top fc-sun fc-other-month fc-future" data-date="2017-12-03"><span class="fc-day-number">3</span></td><td class="fc-day-top fc-mon fc-other-month fc-future" data-date="2017-12-04"><span class="fc-day-number">4</span></td><td class="fc-day-top fc-tue fc-other-month fc-future" data-date="2017-12-05"><span class="fc-day-number">5</span></td><td class="fc-day-top fc-wed fc-other-month fc-future" data-date="2017-12-06"><span class="fc-day-number">6</span></td><td class="fc-day-top fc-thu fc-other-month fc-future" data-date="2017-12-07"><span class="fc-day-number">7</span></td><td class="fc-day-top fc-fri fc-other-month fc-future" data-date="2017-12-08"><span class="fc-day-number">8</span></td><td class="fc-day-top fc-sat fc-other-month fc-future" data-date="2017-12-09"><span class="fc-day-number">9</span></td></tr></thead><tbody><tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr></tbody></table></div></div></div></div></td></tr></tbody></table></div></div>
+                  <div id="calendar"></div>
+                </div>
+                <div class="tab-pane" id="appointment" role="tabpanel">
+                  <h4 class="title">Appointments</h4>
+                  <style type="text/css">
+                    #dataTable_length, #dataTable_filter {
+                      display: none;
+                    }
+                    #doctor-search{
+                      border:none;
+                      border-radius:5px;
+                    }
+                    .appointments-tables td {
+                      padding: 5px;
+                      text-align:center;
+                      vertical-align: middle !important;
+                    }
+                  </style>
+                  <div class="col-sm-12">
+                    <div class="table-responsive">
+                      <table class="table table-hover table-striped appointments-tables dataTable no-footer" cellspacing="0" width="100%" id="DataTables_Table_0">
+                        <thead>
+                        <tr>
+                          <th>Name</th>
+                          <th>Address</th>
+                          <th>Date/Time</th>
+                          <th>Status</th>
+                          <th>Change Status</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr><td colspan="6">No Recoed Found!</td></tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+                <div class="tab-pane" id="history" role="tabpanel">
+                  <h4 class="title">Appointments History</h4>
+                  <style type="text/css">
+                    #dataTable_length, #dataTable_filter {
+                      display: none;
+                    }
+                    #doctor-search{
+                      border:none;
+                      border-radius:5px;
+                    }
+                    .appointments-tables td {
+                      padding: 5px;
+                      text-align:center;
+                      vertical-align: middle !important;
+                    }
+                  </style>
+                  <div class="col-sm-12">
+                    <div class="table-responsive">
+                      <table class="table table-hover table-striped appointments-tables" cellspacing="0" width="100%">
+                        <thead>
+                        <tr>
+                          <th>Name</th>
+                          <th>Address</th>
+                          <th>Date/Time</th>
+                          <th>Status</th>
+                          <th>Archive</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr><td colspan="6">No Recoed Found!</td></tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+                <div class="tab-pane active" id="section-flip-1" role="tabpanel">
+                  <form class="form-material form-horizontal" id="save-doctor-form" action="https://medscure-mudassar-becreative.c9users.io/hayaatweb/doctors/save_doctor" method="POST" enctype="multipart/form-data">
+                    <input type="hidden" name="hayaat_csrf_tokens" value="3c9c301d2c032b545d4aa0a60734ca1a">
+                    <div class="col-md-xs">
+                      <button type="submit" class="btn btn-info doc-form-btn waves-effect pull-right waves-light" onclick="return onSubmit();">Save</button>
+                      <a href="https://medscure-mudassar-becreative.c9users.io/hayaatweb/home" class="btn doc-form-btn btn-warning pull-right">Cancel</a>
+                    </div>
+                    <h3 class="box-title col-md-6">Basic Information</h3>
+                    <div class="col-xs-12">
+                      <div class="form-material">
+                        <div class="panel-group" id="accordion1" role="tablist" aria-multiselectable="true">
+                          <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="headingmain">
+                              <h4 class="panel-title">
+                                <a role="button" data-toggle="collapse" data-parent="#accordion" href="#basicinfo" aria-expanded="true" aria-controls="basicinfo">
+                                  Basic Information
+                                </a>
+                              </h4>
+                            </div>
+                            <div id="basicinfo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingmain">
+                              <div class="panel-body">
+                                <div class="form-group">
+                                  <label class="col-md-12" for="example-text">Name</label>
+                                  <div class="col-md-12">
+                                    <input type="text" name="doctor_name" value="saqib" class="form-control" placeholder="Doctor Name" required="">
+                                  </div>
+                                </div>
+                                <div class="form-group">
+                                  <label class="col-md-12" for="designation">Designation</label>
+                                  <div class="col-md-12">
+                                    <input type="text" name="designation" class="form-control" value="" placeholder="e.g. Surgeon" required="required">
+                                  </div>
+                                </div>
+                                <div class="form-group">
+                                  <label class="col-sm-12">Gender</label>
+                                  <div class="col-sm-12">
+                                    <select class="form-control" name="gender" required="required">
+                                      <option value="">Select Gender</option>
+                                      <option value="male" selected="">Male</option>
+                                      <option value="female">Female</option>
+                                    </select>
+                                  </div>
+                                </div>
+                                <div class="form-group">
+                                  <label class="col-md-12" for="special">Speciality</label>
+                                  <div class="col-md-12">
+                                    <select multiple="" class="select_multi select2-hidden-accessible" placeholder="e.g. Dentist" name="speciality[]" required="required" tabindex="-1" aria-hidden="true">
+                                      <option value="1">Androurologist</option>
+                                      <option value="2"> Anesthesiology</option>
+                                      <option value="3">Cardiologist</option>
+                                      <option value="4">Chiropractor</option>
+                                      <option value="5">Dermatologist</option>
+                                      <option value="6">Dietetics / Nutritionist</option>
+                                      <option value="7">Cosmetology</option>
+                                      <option value="8">Dentist</option>
+                                      <option value="9">ENT physician</option>
+                                      <option value="10">Eye specialist</option>
+                                      <option value="11">Endocrinologist</option>
+                                    </select><span class="select2 select2-container select2-container--bootstrap" dir="ltr" style="width: 100px;"><span class="selection"><span class="select2-selection select2-selection--multiple" role="combobox" aria-autocomplete="list" aria-haspopup="true" aria-expanded="false" tabindex="0"><ul class="select2-selection__rendered"><li class="select2-search select2-search--inline"><input class="select2-search__field" type="search" tabindex="-1" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" role="textbox" placeholder="" style="width: 0.75em;"></li></ul></span></span><span class="dropdown-wrapper" aria-hidden="true"></span></span>
+                                  </div>
+                                </div>
+                                <div class="form-group">
+                                  <label class="col-md-12" for="special">Education</label>
+                                  <div class="col-md-12">
+                                    <input type="text" id="education" value="" name="education" class="form-control" placeholder="e.g. M.phill" data-role="tagsinput" required="required">
+                                  </div>
+                                </div>
+                                <div class="form-group">
+                                  <label class="col-md-12" for="services">Services</label>
+                                  <div class="col-md-12">
+                                    <input type="text" id="services" value="" name="services" class="form-control" placeholder="Services" data-role="tagsinput">
+                                  </div>
+                                </div>
+                                <div class="form-group">
+                                  <label class="col-md-12">Doctor Fee</label>
+                                  <div class="col-md-12">
+                                    <input type="number" id="url" name="min_range" value="" class="form-control" placeholder="Doctor Fee" required="required">
+                                  </div>
+                                  <div class="col-md-6 hide">
+                                    <input type="number" id="url" value="" name="max_range" class="form-control" placeholder="Max Range">
+                                  </div>
+                                </div>
+                                <div class="form-group">
+                                  <label class="col-md-12" for="example-email">Email</label>
+                                  <div class="col-md-12">
+                                    <input type="email" id="example-email" value="saqibtalib2324@gmail.com" class="form-control" placeholder="Enter your email" required="required">
+                                  </div>
+                                </div>
+                                <div class="form-group">
+                                  <label class="col-md-12" for="example-phone">Phone</label>
+                                  <div class="col-md-12">
+                                    <input type="text" id="example-phone" value="" name="phone" class="form-control" placeholder="Enter your phone">
+                                  </div>
+                                </div>
+                                <div class="form-group">
+                                  <label class="col-md-12" for="example-mobile">Mobile</label>
+                                  <div class="col-md-12">
+                                    <input type="text" id="example-mobile" value="03218404418" name="mobile" class="form-control" placeholder="Enter your Mobile">
+                                  </div>
+                                </div>
+                                <div class="form-group">
+                                  <label class="col-md-12">Bio</label>
+                                  <div class="col-md-12">
+                                    <textarea class="form-control" rows="4" name="bio" placeholder="Type Bio..."></textarea>
+                                  </div>
+                                </div>
+                                <div class="form-group">
+                                  <label class="col-sm-12">Update Profile Image</label>
+                                  <div class="col-sm-12">
+                                    <input type="file" name="image">
+                                    <input type="hidden" name="old_image" value="">
+                                  </div>
+                                </div>
+                                <div class="form-group">
+                                  <label class="col-md-12" for="website">Website URL</label>
+                                  <div class="col-md-12">
+                                    <input type="text" name="website" value="" class="form-control" placeholder="Your website">
+                                  </div>
+                                </div>
+                                <div class="form-group">
+                                  <label class="col-md-12" for="facebook">Facebook URL</label>
+                                  <div class="col-md-12">
+                                    <input type="text" value="" name="facebook" class="form-control">
+                                  </div>
+                                </div>
+                                <div class="form-group">
+                                  <label class="col-md-12" for="twitter">Twitter URL</label>
+                                  <div class="col-md-12">
+                                    <input type="text" value="" name="twitter" class="form-control">
+                                  </div>
+                                </div>
+                                <div class="form-group">
+                                  <label class="col-md-12" for="google_plus">Google Plus URL</label>
+                                  <div class="col-md-12">
+                                    <input type="text" value="" name="google_plus" class="form-control">
+                                  </div>
+                                </div>
+                                <div class="form-group">
+                                  <label class="col-md-12" for="linked_in">LinkedIN URL</label>
+                                  <div class="col-md-12">
+                                    <input type="text" value="" name="linked_in" class="form-control">
+                                  </div>
+                                </div>                                            </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-xs-12">
+                          <h3 class="box-title col-md-6">Address Information</h3>
+                          <button class="btn bt-md btn-primary pull-right" id="add_locations" type="button"><i class="fa fa-plus-circle"></i> Add Location</button>
+                        </div>
+                        <div class="col-xs-12">
+                          <style>
+                            .form-horizontal .form-group {
+                              margin-left: 0;
+                              margin-right: 0;
+                            }
+                            .areas-select,.select2-container{
+                              width:100% !important;
+                            }
+                          </style>
+
+                          <div class="form-material location-criteria">
+                            <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                              <div class="panel panel-default">
+                                <input name="counts[]" type="hidden">
+                                <div class="panel-heading" role="tab" id="headingOne">
+                                  <h4 class="panel-title">
+                                    <a role="button" data-map="google-map1" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                      Location # 1
+                                    </a>
+                                  </h4>
+                                </div>
+                                <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+                                  <div class="panel-body">
+                                    <div class="col-sm-6">
+                                      <h3 class="box-title">Doctor Address</h3>
+                                      <div class="form-material form-horizontal location-criteria">
+                                        <div class="form-group">
+                                          <label class="col-md-12">Cities</label>
+                                          <div class="col-md-12">
+                                            <select class="form-control multi-cities" name="cities">
+                                              <option value="">Select City</option>
+                                              <option value="1">Lahore</option>
+                                              <option value="2">Karachi (Coming Soon)</option>
+                                              <option value="3">Islamabad (Coming Soon)</option>
+                                              <option value="4">Gujranwala (Coming Soon)</option>
+                                            </select>
+                                          </div>
+                                        </div>
+                                        <div class="form-group">
+                                          <label class="col-md-12" for="areas">Areas</label>
+                                          <div class="col-md-12">
+                                            <select class="select_box areas-select select2-hidden-accessible" name="areas" multiple="" tabindex="-1" aria-hidden="true">
+                                              <optgroup class="all" label="All Areas">
+                                                <option value="">Select Area</option>
+                                              </optgroup>
+                                            </select><span class="select2 select2-container select2-container--bootstrap" dir="ltr" style="width: 100px;"><span class="selection"><span class="select2-selection select2-selection--multiple" role="combobox" aria-autocomplete="list" aria-haspopup="true" aria-expanded="false" tabindex="0"><ul class="select2-selection__rendered"><li class="select2-search select2-search--inline"><input class="select2-search__field" type="search" tabindex="-1" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" role="textbox" placeholder="" style="width: 0.75em;"></li></ul></span></span><span class="dropdown-wrapper" aria-hidden="true"></span></span>
+                                          </div>
+                                        </div>
+                                        <div class="form-group">
+                                          <label class="col-md-12" for="address">Address</label>
+                                          <div class="col-md-12">
+                                            <input type="text" name="address" class="form-control" value="" placeholder="Type Address...">
+                                          </div>
+                                        </div>
+                                        <div class="form-group">
+                                          <label class="col-md-12" for="address">Search Address</label>
+                                          <div class="col-md-12">
+                                            <input type="text" class="form-control search_address" name="search_address" placeholder="Search">
+                                          </div>
+                                        </div>
+                                        <div class="form-group">
+                                          <div id="google-map1" style="width: 100%; height: 240px;"></div>
+                                          <div class="col-md-12">
+                                            <input type="hidden" name="latitude" class="us2-lat">
+                                            <input type="hidden" name="longitude" class="us2-lon">
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                      <h3 class="box-title">Doctor Timing</h3>
+                                      <div class="form-material form-horizontal location-criteria">
+                                        <div class="timings">
+                                          <div class="form-group timing-rows">
+                                            <label class="col-md-12">Monday</label>
+                                            <div class="col-md-5">
+                                              <input type="text" name="monday_start" value="" data-format="hh:mm" class="form-control datetimepicker3" placeholder="Start Timing">
+                                            </div>
+                                            <div class="col-md-5">
+                                              <input type="text" name="monday_end" value="" data-format="hh:mm" class="form-control datetimepicker3" placeholder="End Timing">
+                                            </div>
+                                            <div class="col-md-2">
+                                              <div class="toggle btn btn-default off" data-toggle="toggle" style="width: 0px; height: 0px;"><input data-toggle="toggle" name="monday_status" type="checkbox" class="timing-toggle-btn"><div class="toggle-group"><label class="btn btn-primary toggle-on">On</label><label class="btn btn-default active toggle-off">Off</label><span class="toggle-handle btn btn-default"></span></div></div>
+                                            </div>
+                                          </div>
+
+                                          <div class="form-group timing-rows">
+                                            <label class="col-md-12">Tuesday</label>
+                                            <div class="col-md-5">
+                                              <input type="text" name="tuesday_start" value="" data-format="hh:mm" class="form-control datetimepicker3" placeholder="Start Timing">
+                                            </div>
+                                            <div class="col-md-5">
+                                              <input type="text" name="tuesday_end" value="" data-format="hh:mm" class="form-control datetimepicker3" placeholder="End Timing">
+                                            </div>
+                                            <div class="col-md-2">
+                                              <div class="toggle btn btn-default off" data-toggle="toggle" style="width: 0px; height: 0px;"><input data-toggle="toggle" name="tuesday_status" type="checkbox" class="timing-toggle-btn"><div class="toggle-group"><label class="btn btn-primary toggle-on">On</label><label class="btn btn-default active toggle-off">Off</label><span class="toggle-handle btn btn-default"></span></div></div>
+                                            </div>
+                                          </div>
+
+                                          <div class="form-group timing-rows">
+                                            <label class="col-md-12">Wednesday</label>
+                                            <div class="col-md-5">
+                                              <input type="text" name="wednesday_start" value="" data-format="hh:mm" class="form-control datetimepicker3" placeholder="Start Timing">
+                                            </div>
+                                            <div class="col-md-5">
+                                              <input type="text" name="wednesday_end" value="" data-format="hh:mm" class="form-control datetimepicker3" placeholder="End Timing">
+                                            </div>
+                                            <div class="col-md-2">
+                                              <div class="toggle btn btn-default off" data-toggle="toggle" style="width: 0px; height: 0px;"><input data-toggle="toggle" name="wednesday_status" type="checkbox" class="timing-toggle-btn"><div class="toggle-group"><label class="btn btn-primary toggle-on">On</label><label class="btn btn-default active toggle-off">Off</label><span class="toggle-handle btn btn-default"></span></div></div>
+                                            </div>
+                                          </div>
+
+                                          <div class="form-group timing-rows">
+                                            <label class="col-md-12">Thursday</label>
+                                            <div class="col-md-5">
+                                              <input type="text" name="thursday_start" value="" data-format="hh:mm" class="form-control datetimepicker3" placeholder="Start Timing">
+                                            </div>
+                                            <div class="col-md-5">
+                                              <input type="text" name="thursday_end" value="" data-format="hh:mm" class="form-control datetimepicker3" placeholder="End Timing">
+                                            </div>
+                                            <div class="col-md-2">
+                                              <div class="toggle btn btn-default off" data-toggle="toggle" style="width: 0px; height: 0px;"><input data-toggle="toggle" name="thursday_status" type="checkbox" class="timing-toggle-btn"><div class="toggle-group"><label class="btn btn-primary toggle-on">On</label><label class="btn btn-default active toggle-off">Off</label><span class="toggle-handle btn btn-default"></span></div></div>
+                                            </div>
+                                          </div>
+
+                                          <div class="form-group timing-rows">
+                                            <label class="col-md-12">Friday</label>
+                                            <div class="col-md-5">
+                                              <input type="text" name="friday_start" value="" data-format="hh:mm" class="form-control datetimepicker3" placeholder="Start Timing">
+                                            </div>
+                                            <div class="col-md-5">
+                                              <input type="text" name="friday_end" value="" data-format="hh:mm" class="form-control datetimepicker3" placeholder="End Timing">
+                                            </div>
+                                            <div class="col-md-2">
+                                              <div class="toggle btn btn-default off" data-toggle="toggle" style="width: 0px; height: 0px;"><input data-toggle="toggle" name="friday_status" type="checkbox" class="timing-toggle-btn"><div class="toggle-group"><label class="btn btn-primary toggle-on">On</label><label class="btn btn-default active toggle-off">Off</label><span class="toggle-handle btn btn-default"></span></div></div>
+                                            </div>
+                                          </div>
+
+                                          <div class="form-group timing-rows">
+                                            <label class="col-md-12">Saturday</label>
+                                            <div class="col-md-5">
+                                              <input type="text" name="saturday_start" value="" data-format="hh:mm" class="form-control datetimepicker3" placeholder="Start Timing">
+                                            </div>
+                                            <div class="col-md-5">
+                                              <input type="text" name="saturday_end" value="" data-format="hh:mm" class="form-control datetimepicker3" placeholder="End Timing">
+                                            </div>
+                                            <div class="col-md-2">
+                                              <div class="toggle btn btn-default off" data-toggle="toggle" style="width: 0px; height: 0px;"><input data-toggle="toggle" name="saturday_status" type="checkbox" class="timing-toggle-btn"><div class="toggle-group"><label class="btn btn-primary toggle-on">On</label><label class="btn btn-default active toggle-off">Off</label><span class="toggle-handle btn btn-default"></span></div></div>
+                                            </div>
+                                          </div>
+
+                                          <div class="form-group timing-rows">
+                                            <label class="col-md-12">Sunday</label>
+                                            <div class="col-md-5">
+                                              <input type="text" name="sunday_start" value="" data-format="hh:mm" class="form-control datetimepicker3" placeholder="Start Timing">
+                                            </div>
+                                            <div class="col-md-5">
+                                              <input type="text" name="sunday_end" value="" data-format="hh:mm" class="form-control datetimepicker3" placeholder="End Timing">
+                                            </div>
+                                            <div class="col-md-2">
+                                              <div class="toggle btn btn-default off" data-toggle="toggle" style="width: 0px; height: 0px;"><input data-toggle="toggle" name="sunday_status" type="checkbox" class="timing-toggle-btn"><div class="toggle-group"><label class="btn btn-primary toggle-on">On</label><label class="btn btn-default active toggle-off">Off</label><span class="toggle-handle btn btn-default"></span></div></div>
+                                            </div>
+                                          </div>
+
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div><!-- panel-group -->
+
+                          <!--<script src="//maps.google.com/maps/api/js?key=AIzaSyADwGydHds-7v19hXMf73T6KuI0kd1ZxhY"></script>-->
+                          <!--<script type="text/javascript">-->
+
+                            <!--$(document).on('change','.multi-cities',function(){-->
+                              <!--var $this = $(this);-->
+                              <!--var cities = $(this).val();-->
+                              <!--if(cities != ''){-->
+                                <!--$.ajax({-->
+                                  <!--type:"POST",-->
+                                  <!--url: "https://medscure-mudassar-becreative.c9users.io/hayaatweb/doctors/get_areas",-->
+                                  <!--data:{cities:cities,hayaat_csrf_tokens:'3c9c301d2c032b545d4aa0a60734ca1a'},-->
+                                  <!--success: function(result){-->
+                                    <!--var obj = JSON.parse(result);-->
+                                    <!--$this.parents('.panel.panel-default').find('.areas-select .all option').remove();-->
+                                    <!--$.each(obj,function(i,v){-->
+                                      <!--$this.parents('.panel.panel-default').find('.areas-select .all').append('<option value="'+v.areas_id+'">'+v.areas_name+'</option>');-->
+                                    <!--});-->
+                                    <!--$this.parents('.panel.panel-default').find('.areas-select').select2();-->
+                                  <!--}-->
+                                <!--});-->
+                              <!--}-->
+                            <!--});-->
+
+                            <!--var $htmladdress = $('#c-address-p').html();-->
+                            <!--var $htmlTimings = $('#timings-c').html();-->
+                            <!--$('#add_locations').click(function(){-->
+                              <!--var location_count = $(document).find('#accordion .panel.panel-default').length ;-->
+                              <!--var html = '';-->
+                              <!--html += '<div class="panel panel-default">';-->
+                              <!--html += '<div class="panel-heading" role="tab" id="heading'+ location_count++ +'">';-->
+                              <!--html += '<h4 class="panel-title"><a class="collapsed" data-map="google-map'+ location_count +'" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse'+ location_count +'" aria-expanded="false" aria-controls="collapse'+ location_count +'">Location # '+ location_count +' <i class="fa fa-trash pull-right delete_location"  style="font-size:19px;" aria-hidden="true"></i></a></h4></div>';-->
+                              <!--html += '<div id="collapse'+ location_count +'" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading'+ location_count +'"><div class="panel-body">';-->
+                              <!--// Starting Map Content-->
+                              <!--html += '<div class="col-md-6"><div class="form-material form-horizontal location-criteria">';-->
+                              <!--html += $htmladdress;-->
+                              <!--html += '<div class="form-group"><div id="google-map'+ location_count +'" style="width: 100%; height: 250px;"></div><input type="hidden" name="latitude" class="us2-lat"/><input type="hidden" name="longitude" class="us2-lon"/></div>';-->
+                              <!--html += '</div></div>';-->
+                              <!--html += '<div class="col-md-6">';-->
+                              <!--html += $htmlTimings;-->
+                              <!--html += '</div></div></div></div>';-->
+                              <!--$('#accordion').append(html);-->
+                              <!--$('#accordion .panel.panel-default').last().find('.areas-select').select2();-->
+                              <!--$("#accordion .panel.panel-default").last().find("[data-toggle='toggle']").bootstrapToggle();-->
+                              <!--$('.datetimepicker3').datetimepicker({-->
+                                <!--format: 'LT'-->
+                              <!--});-->
+                              <!--initialize(location_count);-->
+                            <!--});-->
+                            <!--$(document).on('click','#accordion .panel-heading a', function(){-->
+                              <!--$("[data-toggle='toggle']").change();-->
+                              <!--var $this = $(this);-->
+                              <!--var $map = $(this).data('map');-->
+                              <!--if($(this).parents('.panel.panel-default').find('.us2-lat').val() == '' && $(this).parents('.panel.panel-default').find('.us2-lon').val() == ''){-->
+                                <!--setTimeout(function() {-->
+                                  <!--var mapOptions = {-->
+                                    <!--zoom: 12,-->
+                                    <!--center: new google.maps.LatLng(31.55460609999999,74.35715809999999),-->
+                                    <!--mapTypeId: google.maps.MapTypeId.ROADMAP-->
+                                  <!--};-->
+                                  <!--map = new google.maps.Map(document.getElementById($map), mapOptions);-->
+                                  <!--var marker = new google.maps.Marker({-->
+                                    <!--position: new google.maps.LatLng($this.parents('.panel.panel-default').find('.us2-lat').val(),$this.parents('.panel.panel-default').find('.us2-lon').val()),-->
+                                    <!--title: 'Marker',-->
+                                    <!--map: map,-->
+                                    <!--draggable: true-->
+                                  <!--});-->
+                                <!--},100);-->
+                              <!--}else{-->
+                                <!--setTimeout(function() {-->
+                                  <!--var mapOptions = {-->
+                                    <!--zoom: 12,-->
+                                    <!--center: new google.maps.LatLng($this.parents('.panel.panel-default').find('.us2-lat').val(),$this.parents('.panel.panel-default').find('.us2-lon').val()),-->
+                                    <!--mapTypeId: google.maps.MapTypeId.ROADMAP-->
+                                  <!--};-->
+                                  <!--map = new google.maps.Map(document.getElementById($map), mapOptions);-->
+                                  <!--var marker = new google.maps.Marker({-->
+                                    <!--position: new google.maps.LatLng($this.parents('.panel.panel-default').find('.us2-lat').val(),$this.parents('.panel.panel-default').find('.us2-lon').val()),-->
+                                    <!--title: 'Marker',-->
+                                    <!--map: map,-->
+                                    <!--draggable: true-->
+                                  <!--});-->
+                                <!--},100);-->
+                              <!--}-->
+                            <!--});-->
+
+                            <!--$(document).on('keyup','.search_address',function (e) {-->
+                              <!--e.preventDefault();-->
+                              <!--if (e.keyCode == 13) {-->
+                                <!--var $this = $(this);-->
+                                <!--var address = this.value;-->
+                                <!--var mapName = $(this).parents('.panel.panel-default').find('.panel-title > a').data('map');-->
+                                <!--var mapOptions = {-->
+                                  <!--mapTypeId: google.maps.MapTypeId.ROADMAP-->
+                                <!--};-->
+                                <!--map = new google.maps.Map(document.getElementById(mapName), mapOptions);-->
+                                <!--map.setZoom(12);-->
+                                <!--var geocoder = new google.maps.Geocoder();-->
+                                <!--var addressarray = geocodeAddress(address, geocoder, map,$this);-->
+                              <!--}-->
+                            <!--});-->
+
+                            <!--var map,-->
+                              <!--bounds,-->
+                              <!--geocoder,-->
+                              <!--marker,-->
+                              <!--markersArray = Array();-->
+                            <!--function initialize(map_id) {-->
+                              <!--// geocoder = new google.maps.Geocoder();-->
+                              <!--var mapOptions = {-->
+                                <!--center: new google.maps.LatLng(31.55460609999999,74.35715809999999),-->
+                                <!--mapTypeId: google.maps.MapTypeId.ROADMAP-->
+                              <!--};-->
+                              <!--map = new google.maps.Map(document.getElementById('google-map'+map_id), mapOptions);-->
+                              <!--var marker = new google.maps.Marker({-->
+                                <!--position: new google.maps.LatLng(31.55460609999999,74.35715809999999),-->
+                                <!--title: 'Marker',-->
+                                <!--map: map,-->
+                                <!--draggable: true-->
+                              <!--});-->
+                              <!--map.setZoom(12);-->
+
+                            <!--}-->
+
+                            <!--function geocodeAddress(address, geocoder, resultsMap,$this) {-->
+                              <!--geocoder.geocode({-->
+                                <!--'address': address-->
+                              <!--}, function(results, status) {-->
+                                <!--if (status === google.maps.GeocoderStatus.OK) {-->
+                                  <!--resultsMap.fitBounds(results[0].geometry.viewport);-->
+                                  <!--$this.parents('.form-material.form-horizontal.location-criteria').find(".us2-lat").val(results[0].geometry.location.lat());-->
+                                  <!--$this.parents('.form-material.form-horizontal.location-criteria').find(".us2-lon").val(results[0].geometry.location.lng());-->
+                                  <!--var marker = new google.maps.Marker({-->
+                                    <!--position: new google.maps.LatLng(results[0].geometry.location.lat(),results[0].geometry.location.lng()),-->
+                                    <!--title: 'Marker',-->
+                                    <!--map: map,-->
+                                    <!--draggable: true-->
+                                  <!--});-->
+                                  <!--// adding value in longitude and latitude fields        -->
+                                  <!--google.maps.event.addListener(marker, 'dragend', function (event) {-->
+                                    <!--$this.parents('.form-material.form-horizontal.location-criteria').find(".us2-lat").val(this.getPosition().lat());-->
+                                    <!--$this.parents('.form-material.form-horizontal.location-criteria').find(".us2-lon").val(this.getPosition().lng());-->
+                                  <!--});-->
+                                <!--} else {-->
+                                  <!--alert('Geocode was not successful for the following reason: ' + status);-->
+                                <!--}-->
+                              <!--});-->
+                            <!--}-->
+
+                            <!--$(document).on('click','.delete_location',function(){-->
+                              <!--var $this = $(this);-->
+                              <!--var location = $(this).data('address');-->
+                              <!--if(location !== ''){-->
+                                <!--if(confirm('Your location will permanently deleted.')){-->
+                                  <!--$.ajax({-->
+                                    <!--type:"POST",-->
+                                    <!--url: "https://medscure-mudassar-becreative.c9users.io/hayaatweb/doctors/delete_locations",-->
+                                    <!--data:{location:location,hayaat_csrf_tokens:'3c9c301d2c032b545d4aa0a60734ca1a'},-->
+                                    <!--success: function(result){-->
+                                      <!--var obj = JSON.parse(result);-->
+                                      <!--$this.parents('.panel.panel-default').remove();-->
+                                    <!--}-->
+                                  <!--});-->
+                                <!--}-->
+                              <!--}else{-->
+                                <!--if(confirm('Are you sure')){-->
+                                  <!--$this.parents('.panel.panel-default').remove();-->
+                                <!--}-->
+                              <!--}-->
+                            <!--});-->
+
+                          <!--</script> -->
+                          </div>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </ng-template>
+
+          </ngb-tab>
+        </ngb-tabset>
+      </div>
+    </div>
+  </div>
+</main>
+
+
+
+
+<!--<div class="col-md-12 col-sm-12 col-xs-12 tg-verticalmiddle">-->
+  <!--<div class="row">-->
+    <!--<ngb-tabset class="tg-tabs-nav">-->
+      <!--<ngb-tab>-->
+        <!--<ng-template ngbTabTitle>-->
+          <!---->
+        <!--</ng-template>-->
+        <!--<ng-template ngbTabContent>-->
+          <!---->
+
+        <!--</ng-template>-->
+      <!--</ngb-tab>-->
+      <!--<ngb-tab>-->
+        <!--<ng-template ngbTabTitle>-->
+          <!---->
+        <!--</ng-template>-->
+        <!--<ng-template ngbTabContent>-->
+         <!---->
+        <!--</ng-template>-->
+      <!--</ngb-tab>-->
+      <!--<ngb-tab>-->
+        <!--<ng-template ngbTabTitle>-->
+          <!---->
+        <!--</ng-template>-->
+        <!--<ng-template ngbTabContent>-->
+          <!---->
+        <!--</ng-template>-->
+      <!--</ngb-tab>-->
+      <!--<ngb-tab>-->
+        <!--<ng-template ngbTabTitle>-->
+          <!---->
+        <!--</ng-template>-->
+        <!--<ng-template ngbTabContent>-->
+         <!---->
+        <!--</ng-template>-->
+      <!--</ngb-tab>-->
+    <!--</ngb-tabset>-->
+  <!--</div>-->
+<!--</div>-->
+
+
+
+
+
+
+
+
+
+

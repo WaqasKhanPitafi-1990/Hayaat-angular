@@ -1,0 +1,10 @@
+.speciality-filter .mat-form-field-infix{
+  padding: 0;
+  border: 0;
+}
+.speciality-filter .mat-form-field-infix input{
+  border:none;
+}
+.speciality-filter{
+  width: 100% !important;
+}

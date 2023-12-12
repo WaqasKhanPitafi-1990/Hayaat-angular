@@ -1,0 +1,96 @@
+<!-- START NewsLetter -->
+<div class="container-fluid newsletter">
+    <div class="container">
+        <div class="col-md-4 col-sm-12 col-xs-12 newsletter-info text-center">
+            <h3>Subscribe Now</h3>
+            <p>For best food, fitness and happiness blogs.</p>
+          &nbsp;
+        </div>
+        <div class="col-md-8 col-sm-12 col-xs-12 ">
+            <form [formGroup]="form" (submit)="subscribeEmail(form.value)">
+                <input type="text" id="newsletter-email" placeholder="Type Your Email..." class="form-control" formControlName="email"/>
+                <button type="submit" id="newsletter-btn"><i class="fa fa-paper-plane-o" aria-hidden="true"></i> Join Us</button>
+            </form>
+        </div>
+    </div>
+</div>
+<!-- End NewsLetter -->
+    <!-- START FOOTER -->
+     <footer id="footer" class="tg-haslayout">
+            <div class="tg-threecolumn">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-4 col-sm-6 col-xs-12 pull-left">
+                                <div class="tg-footercol">
+                                    <strong class="logo">
+                                        <a routerLink="/">
+                                            <img src="assets/images/white-logo.svg" alt="Hayaat.pk - Find doctor, Find Blood donor & Nearest Emergency Center">
+                                        </a>
+                                    </strong>
+                                    <div class="tg-description">
+                                        <p style="padding: 0 0 5px; display: inline;">Hayaat.pk offers you a platform where you can find doctor and setup an appointment online, connect to thousands of volunteer blood donors and search nearest emergency center. Hayaat.pk family is committed around the clock to save your time and physical hustle when visit a doctor.</p>
+                                    </div>
+                                    <ul class="tg-info hide">
+                                        <li>
+                                            <i class="fa fa-home"></i>
+                                            <address>26A, Block J3, Johar Town Near Expo Center, Lahore, Pakistan</address>
+                                        </li>
+                                        <li>
+                                            <i class="fa fa-envelope"></i>
+                                            <em><a href="#">info@hayaat.pk</a></em>
+                                        </li>
+                                        <li>
+                                            <i class="fa fa-phone"></i>
+                                            <em><a href="#">0323 4120042</a></em>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-sm-6 col-xs-12 pull-right">
+                                <div class="tg-footercol">
+                                    <div class="tg-heading-border tg-small">
+                                        <h4>Learn More</h4>
+                                    </div>
+                                    <div class="tg-widget tg-usefullinks">
+                                        <ul>
+                                            <li><a routerLink="/pharmacy" (click)="scrollup()">Pharmacies</a></li>
+                                            <li><a routerLink="/about-us" (click)="scrollup()">About Us</a></li>
+                                            <li class="hide"><a href="#" (click)="scrollup()">Terms and Conditions</a></li>
+                                            <li><a routerLink="/privacy-policy" (click)="scrollup()">Policies</a></li>
+                                            <li><a routerLink="/contact-us" (click)="scrollup()">Contact</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-sm-12 col-xs-12">
+                                <div class="tg-footercol">
+                                    <div class="tg-heading-border tg-small">
+                                        <h4>Latest Blog</h4>
+                                    </div>
+                                    <div class="tg-widget tg-featured-doctore">
+                                        <ul>
+                                          <li (click)="scrollup()" *ngFor="let blog of recentBlog">
+                                                <figure class="tg-imgdoc">
+                                                    <img src="{{imagePath}}/{{blog.thumbnail}}" alt="How to Prepare Coffee While on a Diet" width="100px" height="60px">
+                                                    <div class="tg-img-hover">
+                                                        <a routerLink="/blog/{{blog.slug}}"><i class="icon-zoom"></i></a>
+                                                    </div>
+                                                </figure>
+                                                <div class="tg-docinfo">
+                                                    <a [routerLink]="['/blog', blog.slug]"><b><span class="tg-docname">{{blog.title}}</span></b></a>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tg-footerbar tg-haslayout">
+                    <div class="tg-copyrights">
+                        <p>2018 All Rights Reserved © Hayaat.pk</p>
+                    </div>
+                </div>
+            </footer>
+<app-stickysocial></app-stickysocial>

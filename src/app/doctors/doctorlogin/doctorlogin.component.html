@@ -1,0 +1,41 @@
+<main class="tg-main-section tg-haslayout doctor-login-main-section" id="main">
+  <!--<div class="container">-->
+    <div class="row">
+      <div class="login-page-content">
+        <div class="col-sm-6" style="padding-left:0">
+          <div class="healthy-life-doctor">
+            <h2>A Way To Healthy Life!</h2>
+            <p>Find Doctor and setup an appointment online, find blood donor & nearest emergency center for free with Hayaat.pk</p>
+            <a routerLink="/join-hayaat">join hayaat</a>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="login-section">
+            <h2>Doctor Login</h2>
+            <span class="fill-info">Please fill your infomation bellow</span>
+            <form class="login-form" id="login-doctor-form" [formGroup] = "form" (submit)="doctorLogin(form.value)">
+              <fieldset>
+                <mat-form-field>
+                  <input matInput  type="text"  formControlName="name" placeholder="Mobile Number or Email">
+                </mat-form-field>
+
+                <mat-form-field>
+                  <input matInput type="password"  formControlName="password"  placeholder="Password">
+                </mat-form-field>
+
+                <div class="form-group tg-checkbox">
+                  <label>
+                    <input type="checkbox" class="form-control">
+                    Remember Me
+                  </label>
+                  <app-forgetpassword></app-forgetpassword>
+                </div>
+                <button class="tg-btn tg-btn-lg" type="submit" id="login-button"><img *ngIf="loginGif" src="../../../assets/images/loader.gif" style="width: 28px">Login</button>
+              </fieldset>
+            </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--</div>-->
+</main>

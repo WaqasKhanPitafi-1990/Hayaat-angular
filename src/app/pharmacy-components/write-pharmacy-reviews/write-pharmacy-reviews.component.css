@@ -1,0 +1,49 @@
+.write-feedback-btn {
+  float: left;
+  width: 100%;
+  margin-top: 15px;
+}
+.write-feedback-btn a {
+  border-color: #fff;
+  min-height: 50px;
+  line-height: 49px;
+  display: block;
+  text-align: center;
+  width: 180px;
+  border: 2px solid;
+}
+.write-feedback-btn a:hover {
+  color:#fff !important;
+  background-color:#1A237E !important;
+}
+#write-feedback-form .mat-form-field-infix,
+#write-feedback-form .mat-form-field{
+  width: 100%;
+}
+#write-feedback-form star-rating-comp{
+  float: left;
+}
+#write-feedback-form .rating-text {
+  display: block;
+  font-size: 14px;
+  margin: 0 0 6px 2px;
+}
+#write-feedback-form star-rating-comp .star-container {
+  width: 100px;
+  margin: 0 0 8px;
+}
+.pharmacy-detail-blocks
+{
+  color: #5f859e;
+  padding: 12px 55px;
+  background: #cee7f8;
+  display: inline-block;
+  border-radius: 30px;
+  font-size: 15px;
+  text-transform: uppercase;
+}
+
+.pharmacy-detail-blocks:hover{
+  background: #263d88;
+  color: #fff;
+}

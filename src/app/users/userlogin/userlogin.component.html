@@ -1,0 +1,50 @@
+<main class="tg-main-section tg-haslayout login-main-section" id="main">
+  <!--<div class="container">-->
+    <div class="row">
+      <div class="login-page-content">
+        <div class="col-sm-6" style="padding-left:0">
+            <div class="healthy-life">
+              <h2>A Way To Healthy Life!</h2>
+              <p>Find Doctor and setup an appointment online, find blood donor & nearest emergency center for free with Hayaat.pk</p>
+              <a routerLink="/join-hayaat">join hayaat</a>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="login-section">
+                <h2>Login</h2>
+                <span class="fill-info">Please fill your infomation bellow</span>
+                <form class="login-form form" id="login-doctor-form" #loginForm="ngForm" (submit)="userLogin(loginForm.value)">
+                  <fieldset>
+                    <mat-form-field>
+                      <input matInput  type="text"  name="username" class="form-control" placeholder="Mobile Number or Email" ngModel >
+                    </mat-form-field>
+
+                    <mat-form-field>
+                      <input matInput type="password" name="password" class="form-control" placeholder="Password"  ngModel >
+                    </mat-form-field>
+
+                    <div class="form-group tg-checkbox">
+                      <label>
+                        <input type="checkbox" name="remember" class="form-control" ngModel >
+                        Remember Me
+                      </label>
+                      <app-forgetpassword></app-forgetpassword>
+                    </div>
+                    <button [disabled]="loginGif" class="tg-btn tg-btn-lg" type="submit" id="login-button"><img *ngIf="loginGif" src="../../../assets/images/loader.gif" style="width: 28px">Login</button>
+                  </fieldset>
+                </form>
+                <div class="social-login-container">
+                  <span>Login with social media</span>
+                  <div class="social-login-button">
+                    <a class="btn btn-lg btn-primary btn-block connect-with-button account-sprites account-sprites-facebook facebook-button" (click)="signInWithFB()" title="Facebook Connect"><i class="fa fa-facebook" aria-hidden="true"></i>Facebook</a>
+                    <a class="btn btn-lg btn-primary btn-block connect-with-button account-sprites account-sprites-google google-button" (click)="signInWithGoogle()" title="Google Connect"><i class="fa fa-google-plus" aria-hidden="true"></i>Google</a>
+                  </div>
+                </div>
+            </div>
+
+
+        </div>
+      </div>
+    </div>
+  <!--</div>-->
+</main>

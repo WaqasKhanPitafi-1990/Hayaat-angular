@@ -1,0 +1,19 @@
+<ul class="lab-list" >
+  <li  *ngFor="let report of reports" class="col-sm-12 col-md-12">
+    <div class=" lab-card">
+      <div class='outerclass'>
+        <div class='lab-report-content'>
+          <div class="lab-report-detail">
+            <h3>Lab Test Report</h3>
+            <span>{{report.lab_name}}</span>
+            <span>{{report.created_at}}</span>
+          </div>
+          <app-file-viewer [reports]="report.document.medias"></app-file-viewer>
+        </div>
+      </div>
+    </div>
+  </li>
+</ul>
+<div *ngIf="reports.length === 0">
+  <h3 style="text-align: center; padding: 12% 0 0; font-weight: normal;">No Record Found ...</h3>
+</div>

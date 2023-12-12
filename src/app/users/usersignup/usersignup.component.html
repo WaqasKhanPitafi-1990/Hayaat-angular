@@ -1,0 +1,78 @@
+<main class="tg-main-section tg-haslayout user-signup-main-section" id="main">
+  <!--<div class="container">-->
+    <div class="row">
+      <div class="user-signup-content">
+        <div class="col-sm-6" style="padding: 0;">
+          <div class="user-signup-section">
+            <div class="user-signup-left">
+              <div class="user-img-signup">
+                <img src="./assets/images/man.png">
+              </div>
+              <span class="user-sigup-text">sign up as user</span>
+              <a routerLink="/join-hayaat" class="join-user"><i class="fa fa-long-arrow-left" aria-hidden="true"></i> Back </a>
+            </div>
+          </div>
+        </div>
+        <div class=" col-sm-6" style="padding: 0;">
+          <div class="signup-section ">
+            <h2>Sign Up</h2>
+            <span class="fill-info">Please fill your infomation bellow</span>
+            <form class="user-signup-form" id="login-user-form" [formGroup] = "form" (submit)="userSignUp(form.value)">
+              <fieldset>
+
+                <!--<mat-form-field class="example-full-width">-->
+                  <!--<input matInput placeholder="Email" [formControl]="emailFormControl">-->
+                  <!--<mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">-->
+                    <!--Please enter a valid email address-->
+                  <!--</mat-error>-->
+                  <!--<mat-error *ngIf="emailFormControl.hasError('required')">-->
+                    <!--Email is <strong>required</strong>-->
+                  <!--</mat-error>-->
+                <!--</mat-form-field>-->
+
+                <mat-form-field class="example-full-width">
+                  <input matInput type="text" placeholder="NAME" formControlName="name" [(ngModel)]="loginNameView">
+                </mat-form-field>
+
+                <mat-form-field>
+                  <input matInput  type="email"  formControlName="email" placeholder="EMAIL ID" [(ngModel)]="loginEmailView">
+                </mat-form-field>
+
+                <mat-form-field>
+                  <input matInput  type="text"  formControlName="phone" placeholder="PHONE NUMBER">
+                </mat-form-field>
+
+                <mat-form-field>
+                  <input matInput type="password" formControlName="password" placeholder="PASSWORD">
+                </mat-form-field>
+                <button class="tg-btn tg-btn-lg become-donor" type="button" id="become-donor" value = '1' (click)="activateClassDonor('1')" [ngClass] = "{ 'active': selectedDonor === '1'}">Become a Blood Donor</button>
+                <div class="form-group tg-checkbox">
+                  <label>
+                    <input type="checkbox" class="form-control" formControlName="terms">
+                    I Accept terms and conditions & <a routerLink="/privacy-policy" id="privacy-policy">privacy policy</a>
+                  </label>
+                </div>
+                <button [disabled]="loginGif" class="tg-btn tg-btn-lg" type="submit" id="signup-user"><img *ngIf="loginGif" src="../../../assets/images/loader.gif" style="width: 28px">Sign Up</button>
+
+                <!--<div class="social-login-container">-->
+                  <!--<span>Login with social media</span>-->
+                  <!--<div class="social-login-button">-->
+                    <!--<a class="col-xs-12 btn btn-lg btn-primary btn-block connect-with-button account-sprites account-sprites-facebook facebook-button" href="https://hayaat.pk/user/fbsignup" title="Facebook Connect"><i class="fa fa-facebook" aria-hidden="true"></i> Sign Up with facebook</a>-->
+                    <!--<a class="col-xs-12 btn btn-lg btn-primary btn-block connect-with-button account-sprites account-sprites-google google-button" href="https://hayaat.pk/user/fbsignup" title="Facebook Connect"><i class="fa fa-google-plus" aria-hidden="true"></i> Sign Up with Google</a>-->
+                  <!--</div>-->
+                <!--</div>-->
+                <div class="social-login-container">
+                  <span>Login with social media</span>
+                  <div class="social-login-button">
+                    <a class="btn btn-lg btn-primary btn-block connect-with-button account-sprites account-sprites-facebook facebook-button" (click)="signInWithFB()" title="Facebook Connect"><i class="fa fa-facebook" aria-hidden="true"></i>Facebook</a>
+                    <a class="btn btn-lg btn-primary btn-block connect-with-button account-sprites account-sprites-google google-button" (click)="signInWithGoogle()" title="Google Connect"><i class="fa fa-google-plus" aria-hidden="true"></i>Google</a>
+                  </div>
+                </div>
+              </fieldset>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  <!--</div>-->
+</main>

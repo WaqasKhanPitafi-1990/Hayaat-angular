@@ -1,0 +1,107 @@
+.lab-test-view {
+  padding: 30px 0 ;
+}
+.test-view h2,
+.lab-view h2{
+  font-size: 28px !important;
+  color: #928a8a;
+  font-weight: 500;
+}
+.test-view, .lab-view {
+  background: #fff;
+  padding: 20px 35px;
+}
+
+
+.test-view ul {
+  height: 400px;
+  overflow-y: scroll;
+}
+.test-view ul li {
+  margin: 0 0 14px;
+  list-style: none;
+}
+.test-view .mat-checkbox-layout .mat-checkbox-label {
+  width: 30px !important;
+  font-size: 12px !important;
+}
+.test-header {
+  padding: 0 15px 0 0;
+  overflow: hidden;
+  margin: 0 0 30px;
+}
+.test-header a {
+  color: #fff;
+  background: #273c89;
+  padding: 10px;
+  float: right;
+  border-radius: 7px;
+  display: inline-block;
+  cursor: pointer;
+}
+.test-header a:hover {
+  color: #fff;
+  background: #0a77d3;
+}
+.test-header input {
+  float: left;
+  width: 275px;
+  height: 35px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 0 10px;
+}
+.test-header input:focus {
+  outline: 1px solid #ccc;
+}
+.lab-heading h3 {
+  font-size: 22px;
+  color: #273c89;
+  margin: 0;
+}
+.lab-heading{
+  overflow: hidden;
+  padding: 0 0 0 11px;
+  margin: 0 0 15px;
+}
+.lab-heading a {
+  color: #337ab7;
+  float: right;
+  text-decoration: underline;
+  cursor: pointer;
+}
+.lab-card img {
+  width: 15%;
+  float: left;
+  margin: 0 0 0 0;
+}
+.lab-card {
+  overflow: hidden;
+  background: #fafafa;
+  padding: 15px 30px;
+  border-radius: 15px;
+  margin: 0 7px 10px 0;
+}
+.lab-view table thead tr th,
+.lab-view table tbody tr td{
+  border: none !important;
+  text-align: left !important;
+  padding: 0;
+}
+.lab-view table tbody tr td span {
+  padding: 0 9px 0 0;
+  display: inline-block;
+}
+.lab-view table thead tr  {
+  border: solid #ccc !important;
+  border-width: 1px 0 !important;
+}
+.lab-card-container {
+  /*overflow-y: scroll;*/
+  /*height: 635px;*/
+}
+span.test-code {
+  display: block;
+  line-height: 12px;
+  padding: 0 0 0 28px;
+}

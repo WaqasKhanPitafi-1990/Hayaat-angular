@@ -1,0 +1,84 @@
+<div class="doners-content-listing">
+<div id="tg-innerbanner" class="tg-innerbanner donor-header tg-bglight tg-haslayout" style="background:url('assets/images/doctors/find-doctor-banner.jpg') no-repeat scroll center bottom / cover;height:180px;">
+	<div class="tg-searcharea tg-haslayout">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-6">
+          <h1 *ngIf="!metaHeading" class="donor-page-heading">{{donorMetaBlood}} Blood Donors in {{donorMetaCity}}</h1>
+          <h1 *ngIf="metaHeading" class="donor-page-heading">Volunteer Blood Donors</h1>
+				</div>
+				<div class="col-md-6 search-main-header-div" style="margin-top:60px;">
+				<input type="text" name="" class="form-control" id="donor-search" #donorKeyUp placeholder="Search Donor Blood Group, City, Area" (keyup)="searchDonorKeyUp(donorKeyUp.value)">
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<div style="background: #fff;">
+  <div class="container">
+  <div class="row">
+      <div class="col-md-12 col-sm-12 col-xs-12 tg-verticalmiddle ">
+        <div class="filters">
+          <div class="row">
+            <div class="col-sm-3 col-xs-12">
+              <div class="form-group">
+                 <!--<app-bloodgroupfilter></app-bloodgroupfilter>-->
+                <mat-form-field class="example-full-width custom-filters">
+                  <input type="text" placeholder="Select Blood Group" aria-label="Blood Group" matInput [formControl]="myControlGroup" [matAutocomplete]="autoGroup">
+                  <mat-autocomplete #autoGroup="matAutocomplete" (optionSelected)="donorBloodGroup($event.option.value)">
+                    <mat-option *ngFor="let option of filteredGroupOptions | async" [value]="option.name">
+                      {{ option.name }}
+                    </mat-option>
+                  </mat-autocomplete>
+                </mat-form-field>
+              </div>
+            </div>
+            <div class="col-sm-3 col-xs-12">
+              <div class="form-group">
+                <!--<app-cityfilter></app-cityfilter>-->
+                <mat-form-field class="example-full-width custom-filters">
+                  <input type="text" placeholder="Select City" aria-label="City" matInput [formControl]="myControlCity" [matAutocomplete]="autoCity">
+                  <mat-autocomplete #autoCity="matAutocomplete" (optionSelected)="donorCity($event.option.value)">
+                    <mat-option *ngFor="let option of filteredCitiesOptions | async" [value]="option.name">
+                      {{ option.name }}
+                    </mat-option>
+                  </mat-autocomplete>
+                </mat-form-field>
+              </div>
+            </div>
+            <div class="col-sm-3 col-xs-12">
+              <div class="form-group">
+                  <!--<app-areafilter></app-areafilter>-->
+                <mat-form-field class="example-full-width custom-filters">
+                  <input type="text" placeholder="Select Area" aria-label="Area" matInput [formControl]="myControlArea" [matAutocomplete]="autoArea">
+                  <mat-autocomplete #autoArea="matAutocomplete" (optionSelected)="donorArea($event.option.value)">
+                    <mat-option *ngFor="let option of filteredAreaOptions | async" [value]="option.name">
+                      {{ option.name }}
+                    </mat-option>
+                  </mat-autocomplete>
+                </mat-form-field>
+              </div>
+            </div>
+            <div class="col-md-3 col-sm-6 col-xs-12">
+              <div class="form-group">
+                <!--<div class="btn-group m-b-20 gender-button donor-gender-button">-->
+                  <!--<button type="button" value="" class="btn btn-default btn-outline waves-effect"  [ngClass] = "{ 'active': selectedOption == 0}" (click)="donorByGender('0')">Any</button>-->
+                  <!--<button type="button" value="1" class="btn btn-default btn-outline waves-effect"  [ngClass] = "{ 'active': selectedOption == 1}" (click)="donorByGender('1')">Male</button>-->
+                  <!--<button type="button" value="2" class="btn btn-default btn-outline waves-effect"  [ngClass] = "{ 'active': selectedOption == 2}" (click)="donorByGender('2')">Female</button>-->
+                <!--</div>-->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    <app-donercard></app-donercard>
+
+
+
+
+</div>

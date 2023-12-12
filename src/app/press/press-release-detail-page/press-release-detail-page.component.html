@@ -1,0 +1,134 @@
+<main id="main" class="tg-main-section tg-haslayout blog-detail-page tg-bgwhite" style="background:#f7f7f7;">
+  <div class="container">
+    <div class="row">
+      <div id="tg-towcolumns" class="tg-haslayout">
+        <div class="col-lg-9 col-md-9 col-sm-8 col-xs-12">
+          <div id="tg-content" class="tg-content tg-post-detail tg-overflowhidden">
+            <article class="tg-post tg-haslayout">
+              <figure class="tg-post-img">
+                <span class="banner-main-img" [ngStyle]="{ 'background-image': 'url(' + imagePath + '/' + blogData.banner + ')'}"></span>
+                <ul class="tg-metadata">
+                  <li><i class="fa fa-clock-o"></i><time datetime="2017-11-09">{{blogData.date}}</time> </li>
+                  <li><i class="fa fa-comment-o"></i><a href="#">0 Comments</a></li>
+                </ul>
+                <div class="tg-tags hide">
+                  <span>Tags:</span>
+                  <ul class="tg-tag">
+                    <li><a href="#">Medical</a></li>
+                    <li><a href="#">Directory</a></li>
+                    <li><a href="#">Responsive</a></li>
+                    <li><a href="#">Unique</a></li>
+                  </ul>
+                </div>
+              </figure>
+              <div class="tg-post-data tg-haslayout">
+                <img src="https://www.hayaat.pk/hayaatAdmin/uploads/banner/c8188b2ca1bff56ef33ecb33b05b1f67.png" alt="Precautions against Hazardous Smog  Hayaat.pk - Find doctor, Blood donor &amp; Nearest Emergency Center" class="hide">
+                <div class="tg-heading-border tg-small">
+                  <h2>{{blogData.title}} </h2>
+                </div>
+                <app-blogcontent [blogContent]="blogData"></app-blogcontent>
+                <div class="col-md-5">
+                  <!--<app-blogsocials></app-blogsocials>-->
+                </div>
+              </div>
+            </article>
+
+
+
+            <div class="tg-haslayout" id="comments">
+              <div class="tg-heading-border tg-small">
+                <!--<h3>0 comments</h3>-->
+                <h3>Comments</h3>
+                <!--<h4 class="text-center">No Comment Found!</h4>-->
+                <ul>
+                  <li *ngFor="let comment of blogData.comments, let i = index" style="display: block; background: #f7f7f7 !important; padding: 23px 39px 19px; margin:0 0 15px">
+                    <div class="blog-comment">
+                      <img src="{{imagePath}}/{{comment.avatar}}">
+                      <div class="comment-description">
+                        <span style="color:#74d4bf; font-weight: bold">{{comment.name}}</span>
+                        <span class="date"> {{comment.date}}</span>
+                        <p>{{comment.description}}</p>
+                      </div>
+                    </div>
+                    <h6 *ngIf="comment.childComments.length !== 0">Replies</h6>
+                    <ul *ngIf="comment.childComments.length !== 0">
+                      <li class="inner-blog-content" *ngFor="let childComment of comment.childComments" style="display: block">
+                        <div class="blog-comment ">
+                          <img src="{{imagePath}}/{{childComment.avatar}}">
+                          <span>{{childComment.name}}</span>
+                          <span class="date">{{childComment.date}}</span>
+                        </div>
+                        <p><b>Description:</b></p>
+                        <p>{{childComment.description}}</p>
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="tg-comment-formarea tg-haslayout">
+              <div class="tg-heading-border tg-small">
+                <h3>get in touch</h3>
+              </div>
+              <form id="comment-form" class="tg-haslayout" [formGroup]="form" (submit)="comment(form.value, template)">
+                <fieldset class="row">
+                  <div class="col-xs-12">
+                    <p class="comment-msg"></p>
+                    <div class="form-group">
+                      <textarea placeholder="Type Your Comment..." formControlName="description" class="form-control main-comment-textarea" required="required"></textarea>
+                    </div>
+                  </div>
+                  <div class="col-xs-12">
+                    <button data-toggle="modal" data-target=".user-login" class="tg-btn" type="submit">Comment</button>
+                  </div>
+                </fieldset>
+              </form>
+              <ng-template #template>
+                <div class="tg-modal-content">
+                  <form class="login-form form" id="login-blog-form" [formGroup] = "form" #loginForm="ngForm" (submit)="userLogin(form.value)">
+                    <h3 class="text-center footer-feedback-title">Please Login First.</h3>
+                    <fieldset>
+                      <mat-form-field>
+                        <input matInput  type="text"  formControlName="username" class="form-control" placeholder="Mobile Number or Email"  >
+                      </mat-form-field>
+
+                      <mat-form-field>
+                        <input matInput type="password" formControlName="password" class="form-control" placeholder="Password"   >
+                      </mat-form-field>
+
+                      <div class="form-group tg-checkbox">
+                        <label>
+                          <input type="checkbox" formControlName="remember" class="form-control"  >
+                          Remember Me
+                        </label>
+                        <app-forgetpassword></app-forgetpassword>
+                      </div>
+                      <button class="tg-btn tg-btn-lg blog-login-btn" type="submit" id="login-button">Login</button>
+                      <span>OR</span>
+                      <a class="tg-btn tg-btn-lg blog-signup-btn" (click)="modalRef.hide()"  routerLink="/join-hayaat" id="signup-button">SignUp</a>
+                    </fieldset>
+                  </form>
+                </div>
+              </ng-template>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-3 col-sm-4 col-xs-12">
+          <aside id="tg-sidebar" class="tg-sidebar tg-haslayout">
+            <div class="tg-widget tg-search hide">
+              <form class="form-search">
+                <fieldset>
+                  <input type="search" class="form-control" placeholder="Search Here">
+                  <input type="hidden" name="hayaat_csrf_tokens" value="8630eb2bc93a00debd80e0a07afabdc5">
+                  <button type="submit"><i class="fa fa-search"></i></button>
+                </fieldset>
+              </form>
+            </div>
+            <!--<app-blogcategories></app-blogcategories>-->
+            <app-recentposts ></app-recentposts>
+          </aside>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>

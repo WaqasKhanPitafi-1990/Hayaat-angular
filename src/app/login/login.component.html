@@ -1,0 +1,16 @@
+<button type="button" class="btn btn-primary login-button" (click)="openModal(template)">login</button>
+<ng-template #template>
+  <div class="tg-user-type-modal">
+    <div class="modal-body">
+      <h3 class="text-center">Login Your Account</h3>
+      <button class="user-popup pull-left" routerLink="/user-login" (click)="modalRef.hide()">
+        <img src="https://hayaat.pk/assets/images/man.png" alt="Hayaat.pk - Find doctor, Blood donor &amp; Nearest Emergency Center" class="img-responsive">
+        <span>As a user</span>
+      </button>
+      <button class="doctor-popup pull-right"  (click)="modalRef.hide(); redirectDoctor()">
+       <img src="https://hayaat.pk/assets/images/doctor.png" alt="Hayaat.pk - Find doctor, Blood donor &amp; Nearest Emergency Center" class="img-responsive">
+        <span>As a doctor</span>
+      </button>
+    </div>
+  </div>
+</ng-template>

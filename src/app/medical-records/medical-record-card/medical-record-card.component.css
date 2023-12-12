@@ -1,0 +1,39 @@
+.medical-record-head{
+  overflow: hidden;
+  margin: 0 0 20px;
+}
+.medical-record-head h4{
+  float: left;
+}
+.medical-record-head .date {
+  float: right;
+}
+.reply{
+  color: #1A237E;
+}
+.reply i {
+  margin: 0 12px 0 0;
+}
+#medical-records {
+  padding: 26px 35px;
+  background: #fff;
+}
+.medical-record-bottom{
+  overflow: hidden;
+}
+.medical-record-bottom a{
+  float: right;
+  background: #1A237E;
+  padding: 5px 9px;
+  font-size: 12px;
+  cursor: pointer;
+  margin: 0 5px 0 0;
+}
+.medical-record-bottom a:hover{
+  color: #fff;
+}
+
+#medical-records h3 {
+  font-size: 30px;
+  margin: 0 0 30px;
+}

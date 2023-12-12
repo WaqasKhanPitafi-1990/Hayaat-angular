@@ -1,0 +1,46 @@
+
+.question-head{
+  overflow: hidden;
+}
+.question-head h4{
+  font-size: 15px;
+  margin: 0;
+}
+.question-head .date {
+}
+.reply{
+  color: #1A237E;
+}
+.reply i {
+  margin: 0 12px 0 0;
+}
+#questions {
+  padding: 26px 35px;
+  background: #f7f7f7;
+}
+
+.question-bottom{
+  overflow: hidden;
+}
+.question-bottom a{
+  float: right;
+  background: #1A237E;
+  padding: 5px 9px;
+  font-size: 12px;
+  cursor: pointer;
+}
+.question-bottom a:hover{
+  color: #fff;
+}
+
+#questions h3 {
+  font-size: 30px;
+  margin: 0 0 30px;
+}
+.question-card {
+  background-color: #fff !important;
+}
+.question-card li span {
+  font-size: 12px;
+  font-weight:normal;
+}

@@ -1,0 +1,131 @@
+.join-hayaat-content{
+  overflow: hidden;
+  background: #fff;
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  border-radius: 15px;
+  box-shadow: -1px 0px 23px -1px rgba(0,0,0,0.3);
+  display: flex;
+}
+.join-section,
+.hayaat-section{
+  padding: 40px 0 0;
+  text-align: center;
+}
+.join-section{
+  background: #1a237e;
+}
+.doctor-signup,
+.user-signup{
+  padding: 20% 0;
+}
+.doctor-signup a,
+.user-signup a{
+  display: inline-block;
+  background: #fa1744;
+  padding: 9px 50px;
+  text-transform: capitalize;
+  border-radius: 20px;
+  cursor: pointer;
+  color: #ffffff;
+  box-shadow: 0 0 10px 2px rgba(250,23,68,0.3);
+}
+.doctor-signup a:hover,
+.user-signup a:hover{
+  color: #fff;
+}
+.doctor-signup a i,
+.user-signup a i{
+  padding:0 0 0 10px;
+}
+.doctor-signup a:hover i,
+.user-signup a:hover i{
+  padding:0 0 0 15px;
+}
+.join-section h1,
+.hayaat-section h1{
+  color: #fff;
+  margin: 0;
+  float: right;
+  font-size: 48px;
+  text-transform: UPPERCASE;
+  padding: 0 5px 0 0;
+}
+.hayaat-section h1{
+  float: left;
+  color:#1a237e ;
+  padding: 0 0 0 5px;
+}
+.doctor-img-join,
+.user-img-hayaat{
+  margin: 0 auto 10px;
+  width: 150px;
+  border: 3px solid #1a237e;
+  border-radius: 50%;
+}
+.user-img-hayaat{
+  border-color: #e9e9e9;
+}
+.doctor-signup span,
+.user-signup span{
+  display: block;
+  color: #fff;
+  font-size: 18px;
+  margin:0 0 15px;
+}
+.user-signup span{
+  color: #1a237e;
+}
+.join-hayaat-main-section{
+  padding-bottom: 0 !important;
+  padding-top:  15px !important;
+}
+@media (max-width: 767px) {
+  .join-section h1, .hayaat-section h1 {
+    font-size: 46px;
+  }
+  .join-section,
+  .hayaat-section {
+    padding:40px 0;
+  }
+  .doctor-signup, .user-signup {
+    padding: 0;
+  }
+  .doctor-img-join, .user-img-hayaat {
+    width: 135px;
+    border:none;
+  }
+  .doctor-signup span, .user-signup span {
+    font-size: 15px;
+  }
+  .doctor-signup a, .user-signup a{
+    padding:9px 30px;
+  }
+}
+@media (max-width: 600px) {
+  .join-section h1, .hayaat-section h1 {
+    font-size: 40px;
+  }
+}
+@media (max-width: 450px) {
+  .join-section h1, .hayaat-section h1 {
+    font-size: 28px;
+  }
+  .doctor-signup, .user-signup{
+    padding:0;
+  }
+  .doctor-img-join, .user-img-hayaat {
+    width: 80px;
+    border:none;
+  }
+  .doctor-signup a, .user-signup a {
+    font-size: 12px;
+    padding: 5px 13px;
+  }
+  .doctor-signup span, .user-signup span {
+    font-size: 13px;
+  }
+  .join-section, .hayaat-section{
+    padding: 35px 0;
+  }
+}

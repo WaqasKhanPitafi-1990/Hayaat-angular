@@ -1,0 +1,51 @@
+<div class="main">
+  <div class="tg-modal-content question-detail-content">
+    <div class="container">
+      <div class="col-sm-9">
+        <div class="tg-form-modal tg-form-signin ask-reply-form" id="ask-reply-form" >
+          <div class="reply-reply-card">
+            <div class="posted-reply">
+              <div class="reply-reply">
+                <div class="reply-head">
+                  <h4>{{replyData.title}}</h4>
+                  <div class="reply-time">
+                    <span class="date"> {{replyData.posted_date}}</span>
+                    <span class="date"> {{replyData.posted_time}}</span>
+                  </div>
+                  <p>{{replyData.description}}</p>
+                </div>
+                <div class="reply-bottom">
+                  <span class="reply"><i class="fa fa-comment-o"></i>{{replyData.replies_count}} Replies</span>
+                </div>
+                <ul class="reply-card">
+                  <li *ngFor="let reply of replyData.replies, let i = index"  style="display: block; box-shadow: 0 0 17px -1px rgba(0,0,0,0.2); background: #f7f7f7 !important; padding: 23px 39px 19px; margin:0 0 15px">
+                    <div class="answer">
+                      <time>{{reply.timestamp}}</time>
+                      <div class="reply-description">
+                        <span >{{reply.answerer_name}}</span>
+                         <p>{{reply.answer}}</p>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+                <form class="form reply-form" [formGroup]="form" (submit)="saveReply(form.value)">
+                  <div class="reply-text">
+                    <mat-form-field class="example-full-width" >
+                      <textarea matInput placeholder="Reply" formControlName="reply"></textarea>
+                    </mat-form-field>
+                  </div>
+                  <button class="reply-button" type="submit"><i *ngIf="!loginGif" class="fa fa-paper-plane-o" aria-hidden="true"></i> <img *ngIf="loginGif" src="../../../assets/images/loader.gif" style="width: 28px">Submit</button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-3">
+        <div class="reply-side-bar">
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

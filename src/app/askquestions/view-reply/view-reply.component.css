@@ -1,0 +1,84 @@
+#ask-reply-form,
+.reply-side-bar{
+  background: #fff;
+}
+#ask-reply-form h1{
+  font-size: 30px;
+}
+.reply-head{
+  overflow: hidden;
+  margin: 0 0 20px;
+}
+.reply-head h4{
+  margin: 0;
+}
+.reply-head p{
+  font-size: 13px;
+}
+.reply{
+  color: #1A237E;
+}
+.reply i {
+  margin: 0 12px 0 0;
+}
+#reply {
+  padding: 26px 35px;
+  background: #fff;
+}
+.reply-bottom{
+  overflow: hidden;
+  margin: 0 0 40px;
+}
+.reply-bottom a{
+  float: right;
+  background: #1A237E;
+  padding: 5px 9px;
+  font-size: 12px;
+  cursor: pointer;
+}
+.reply-bottom a:hover{
+  color: #fff;
+}
+.reply-time {
+  overflow: hidden;
+}
+.reply-time span{
+  font-size: 12px;
+}
+#reply h3 {
+  font-size: 30px;
+  margin: 0 0 30px;
+}
+.answer {
+  overflow: hidden;
+}
+.answer span {
+  font-size: 15px;
+  font-weight: bold;
+}
+.answer time {
+  float: right;
+  font-size: 13px;
+}
+.reply-text{
+  width: 100%;
+}
+.reply-form .mat-form-field{
+  width: 100%;
+}
+.reply-button {
+  width: 140px;
+  height: 40px;
+  padding: 0;
+  background: #1A237E ;
+  color: #fff;
+  margin: 0;
+  border: 1px solid;
+}
+.reply-form{
+  margin: 0 0 50px;
+}
+.question-detail-content {
+  overflow: hidden;
+  padding: 45px 0 0;
+}

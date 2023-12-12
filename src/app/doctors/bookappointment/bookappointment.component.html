@@ -1,0 +1,89 @@
+<div class="col-md-3 appointments-book-area">
+  <h3>Book Your Appointment</h3>
+  <form id="appointment-form" [formGroup] = "form" (submit)="bookAppointment(form.value, template)">
+   <div class="appointment-location">
+     <div class="location-heading">
+       <h2><i class="fa fa-map-marker" aria-hidden="true"></i>location</h2>
+       <div class="appointment-available-time" >
+         <span>Today Time:</span>
+         <span *ngFor="let time of timeToday"><b>{{time}}</b></span>
+       </div>
+       <div class="appointment-available-locations">
+         <mat-radio-group formControlName="location" [(ngModel)]="doctorSingleLocation">
+           <mat-radio-button (change)="getLocation($event.value, i)"  [value]="location.id" *ngFor="let location of appointmentInfo.locations, let i = index">{{location.address}}</mat-radio-button>
+         </mat-radio-group>
+       </div>
+       <div class="pick-appointment-date">
+         <mat-form-field>
+           <input matInput [matDatepicker]="picker" #dateVal placeholder="Choose a date">
+           <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+           <mat-datepicker #picker (selectedChanged)="getTimeSlot($event)" ></mat-datepicker>
+         </mat-form-field>
+       </div>
+       <div class="pick-time-slot">
+         <a (click)="activateClass(slot, slot.id , slot.start_time)"  [ngClass] = "{ 'active': selectedItem == slot}"  *ngFor="let slot of timeSlot, let i = index">{{slot.start_time}}</a>
+       </div>
+     </div>
+     <div class="appointment-for">
+       <h2><i class="fa fa-calendar-check-o" aria-hidden="true"></i>Appointment for</h2>
+     </div>
+     <div class="appointment-button">
+       <a  class="self"  value="0" (click)="activateClassOption('0')" [ngClass] = "{ 'active': selectedOption == '0'}" >Me</a>
+       <a  class="else"  value="1" (click)="activateClassOption('1')" [ngClass] = "{ 'active': selectedOption == '1'}" >Someone else</a>
+       <mat-form-field class="example-full-width" *ngIf="someOneElse">
+         <input matInput placeholder="Name" formControlName="name">
+       </mat-form-field>
+       <mat-form-field class="example-full-width" *ngIf="someOneElse" >
+         <input matInput placeholder="Mobile" formControlName="mobile">
+       </mat-form-field>
+       <mat-form-field *ngIf="someOneElse">
+         <mat-select placeholder="Select Gender" formControlName="genderName">
+           <mat-option *ngFor="let gender of gender" [value]="gender.id">
+             {{ gender.name }}
+           </mat-option>
+         </mat-select>
+       </mat-form-field>
+       <mat-form-field *ngIf="someOneElse">
+         <mat-select placeholder="Select Relation" formControlName="relationName">
+           <mat-option *ngFor="let relation of relations" [value]="relation.name">
+             {{ relation.name }}
+           </mat-option>
+         </mat-select>
+       </mat-form-field>
+       <span>Reason:  </span>
+       <mat-form-field>
+          <textarea matInput formControlName="reason" placeholder="Type your Message here" matTextareaAutosize matAutosizeMinRows="2"
+            matAutosizeMaxRows="5"></textarea>
+       </mat-form-field>
+       <button [disabled]="loginGif" type="submit" class="btn-primary"><i *ngIf="!loginGif" class="fa fa-medkit" aria-hidden="true"></i><img *ngIf="loginGif" src="../../../assets/images/loader.gif" style="width: 28px">Book now</button>
+     </div>
+   </div>
+  </form>
+  <ng-template #template>
+    <div class="tg-modal-content">
+      <form class="login-form form" id="login-blog-form" [formGroup] = "form"  (submit)="userLogin(form.value)">
+        <h3 class="text-center footer-feedback-title">Please Login First.</h3>
+        <fieldset>
+          <mat-form-field>
+            <input matInput  type="text"  formControlName="username" class="form-control" placeholder="Mobile Number or Email"  >
+          </mat-form-field>
+
+          <mat-form-field>
+            <input matInput type="password" formControlName="password" class="form-control" placeholder="Password"   >
+          </mat-form-field>
+
+          <div class="form-group tg-checkbox">
+            <label>
+              <input type="checkbox" formControlName="remember" class="form-control"  >
+              Remember Me
+            </label>
+            <app-forgetpassword></app-forgetpassword>
+          </div>
+          <button [disabled]="loginGif" class="tg-btn tg-btn-lg blog-login-btn" type="submit" id="login-button"><img *ngIf="loginGif" src="../../../assets/images/loader.gif" style="width: 28px">Login</button>
+          <span>OR</span>
+          <a class="tg-btn tg-btn-lg blog-signup-btn" (click)="modalRef.hide()"  routerLink="/join-hayaat" id="signup-button">Join Hayaat</a>
+        </fieldset>
+      </form>
+    </div>
+  </ng-template>
+</div>

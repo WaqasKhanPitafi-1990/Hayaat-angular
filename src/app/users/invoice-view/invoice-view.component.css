@@ -1,0 +1,291 @@
+.orders-process {
+  padding: 2px 11px;
+  background: #34abe0;
+  border-radius: 20px;
+  display: inline-block;
+  font-size: 11px;
+  color: #fff !important;
+  text-align: center;
+}
+.orders-generate-invoice {
+  color: #7a7a7a;
+  text-transform: uppercase;
+  font-size: 13px;
+  background: #f7f7f7;
+  border: 1px solid #d7d7d7;
+  width: 145px;
+  height: 35px;
+  padding: 6px 0 0;
+  display: inline-block;
+  text-align: center;
+  border-radius: 20px;
+  margin: 4px 0 0;
+}
+.orders-home-view{
+  padding: 2px 11px;
+  background: #34abe0;
+  border-radius: 20px;
+  display: inline-block;
+  font-size: 11px;
+  color: #fff !important;
+  text-align: center;
+}
+.modal-dialog {
+  margin-right: 48%;
+}
+.modal-content{
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  border-radius: 8px;
+}
+.modal-width .modal-body {
+  padding: 0 0 0 50px;
+}
+.modal-width{
+  background: #fff;
+  width:800px;
+  border-radius: 8px;
+  overflow: hidden;
+}
+.inovice-detail-view {
+  padding: 0 0 5px;
+  width: 60%;
+  float: left;
+
+}
+
+.invoice-header {
+  padding: 35px 0 0;
+  overflow: hidden;
+}
+span.invoice-no {
+  float: none;
+  font-size: 20px;
+  font-weight: 400;
+  color: grey;
+}
+.inovice-detail-view table{
+  margin: 0;
+}
+.invoice-header h1 {
+  display: inline-block;
+  font-size: 22px;
+  font-weight: bold;
+  float: left;
+  margin: 0;
+  color: grey;
+  text-transform: uppercase;
+}
+.invoice-person-info dl dt{
+  margin: 5px 0 0;
+}
+.invoice-person-info dl dt,
+.sub-total dl dt{
+  width: 70px;
+  float:left;
+  font-size:12px;
+  color: grey;
+
+}
+.invoice-dl dl {
+  width: 55% !important;
+}
+.invoice-person-info dl dd,
+.sub-total dl dt{
+  overflow: hidden;
+  margin: 0;
+  font-size:12px;
+  line-height: 28px;
+}
+.invoice-date {
+  overflow: hidden;
+  float: right;
+  font-size: 13px;
+  width: 40%;
+}
+.invoice-date span b{
+  font-weight: 500;
+}
+dl{
+  width: 50%;
+  padding: 0;
+  float: left;
+}
+.invoice-person-info {
+  overflow: hidden;
+  padding: 0 20px 0;
+}
+.invoice-person-info h2,
+.personal-info h2 {
+  font-size: 16px !important;
+  font-weight: bold;
+  display: block;
+  margin: 15px 0 18px;
+  color: grey;
+  text-transform: uppercase;
+}
+.personal-info .addmore {
+  float: right;
+  display: inline-block;
+  background: #f7f7f7;
+  font-size: 15px !important;
+  border: 1px solid grey;
+  padding: 6px 15px 0;
+  height: 39px;
+  color: grey !important;
+  border-radius: 25px;
+}
+.personal-info a i{
+  font-size: 25px !important;
+  color: #182f81;
+  padding: 0px 5px 0 0;
+  float: left;
+}
+.sub-total {
+  overflow: hidden;
+  margin: 0 0 15px;
+}
+.sub-total dl {
+  width: 50%;
+  float: right;
+  margin:0;
+}
+.sub-total dl dt {
+  width: 155px !important;
+  text-align: right;
+  margin: 2px 10px 0 0 !important;
+}
+.sub-total dd {
+  font-size: 12px !important;
+  font-weight: bold;
+  margin: 6px 0 4px;
+}
+.sub-total dl dt #promo-code{
+  width: 108px;
+  font-size: 12px !important;
+  margin: 4px 0 0;
+  padding: 0;
+  float: left;
+}
+.proceed-payment {
+  overflow: hidden;
+}
+.payment-buttons {
+  float: left;
+}
+.proceed-payment h3 {
+  float: right;
+  font-size: 23px !important;
+  margin: 0 30px 0 0;
+  color: #182f81;
+  font-weight: bold;
+}
+.proceed-payment h3 span{
+  color: grey;
+  font-weight: normal;
+}
+.payment-buttons .btn-primary {
+  background: #182f81 !important;
+  border-color: #182f81;
+}
+.print-invoice{
+  background-color: #fff;
+  color: #000;
+  float: right;
+  margin:0 !important;
+}
+.invoice-total{
+  margin: 0 0 20px !important;
+}
+.invoice-total .hayaat-fee{
+  display: block ;
+  font-size: 14px !important; ;
+}
+.form-control{
+  background-color: transparent;
+  border-top: 0;
+  border-right: 0;
+  border-left: 0;
+  border-radius: 0;
+  font-weight: lighter;
+}
+.form-control:focus{
+  box-shadow: none;
+}
+.invoice-date span{
+  display: block;
+  text-align: left;
+  margin: 0 0 5px;
+}
+
+
+
+
+
+
+.inovice-detail-view .card-body{
+  padding: 0 0 40px 0;
+}
+.inovice-detail-view .card-body td {
+  padding: 0 !important;
+}
+.inovice-detail-view .card-body th {
+  padding: 0 !important;
+}
+.personal-info {
+  padding: 0 0 0 12px;
+}
+.invoice-person-info {
+  overflow: hidden;
+  padding: 0 0 0 12px;
+}
+.invoice-header {
+  padding: 35px 0 0 12px;
+  overflow: hidden;
+}
+
+.proceed-payment h3{
+  margin:0;
+
+}
+.zoom-img {
+  padding: 2% 0 3.3%;
+  background: #f7f7f7;
+  float: right;
+  box-sizing: border-box;
+  width: 40%;
+  border-radius: 0 8px 8px 0;
+  text-align: center;
+}
+.zoom-img h2 {
+  margin: 0 0 10px 11px;
+}
+.zoom-img textarea{
+  background: white;
+  min-height: 120px;
+}
+.zoom-img .img-thumbnail{
+  max-width: 15%;
+  margin: 0 0 10px;
+}
+.zoom-img .zoomer {
+  display: block;
+  margin: 0 auto 8px;
+  position: relative;
+}
+a.previous-img{
+  position: absolute;
+  top: 20%;
+  left: 4px;
+}
+a.next-img{
+  position: absolute;
+  top: 20%;
+  right:4px;
+}
+.previous-img i,
+.next-img i{
+  font-size: 40px !important;
+  color: #ccc;
+}
+

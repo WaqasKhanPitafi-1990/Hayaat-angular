@@ -1,0 +1,109 @@
+
+<main class="tg-haslayout hayaat-service-section" id="main" *ngIf="viewSuccess">
+  <!--<div class="container">-->
+  <div class="row">
+    <div class="orders-service">
+      <div class="col-sm-6" style="padding: 0; flex: auto;">
+        <div class="pharmacy-blocks" (mouseenter)="getPharmacySlug(pharmacies[0].slug)">
+          <img src="{{imagePath}}/{{pharmacies[0].logo}}">
+          <h3>{{pharmacies[0].name}}</h3>
+          <app-doctorratings [doctorFeedback]= pharmacies[0].rating [colorFeedback]="'negative'"></app-doctorratings>
+          <a [routerLink] ="['/pharmacy', pharmacies[0].slug]" class="view-pharmacy-btn">View Detail</a>
+        </div>
+      </div>
+      <div class=" col-sm-6" style="padding: 0; flex: auto;">
+        <div class="pharmacy-blocks grey-color" (mouseenter)="getPharmacySlug(pharmacies[1].slug)">
+          <img src="{{imagePath}}/{{pharmacies[1].logo}}">
+          <h3>{{pharmacies[1].name}}</h3>
+          <app-doctorratings [doctorFeedback]= pharmacies[1].rating [colorFeedback]="'negative'"></app-doctorratings>
+          <a [routerLink] ="['/pharmacy', pharmacies[1].slug]" class="view-pharmacy-btn">View Detail</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--</div>-->
+</main>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--<div class="container">-->
+  <!--<div class="search-results"-->
+       <!--infinite-scroll-->
+       <!--[infiniteScrollDistance]= "scrollDistance"-->
+       <!--[infiniteScrollThrottle]="300"-->
+       <!--(scrolled)="onScrollDown()">-->
+    <!--<div class="row">-->
+      <!--<div class="col-md-9 col-sm-9 col-xs-12 tg-verticalmiddle padding-30-top" *ngIf="!noPharmacy">-->
+        <!--<h2 style="text-align: center; padding:50px 0" *ngIf="noPharmacy">No Pharmacy Found....!!</h2>-->
+        <!--<div  *ngIf="!loggedIn" >-->
+          <!--<div class="row">-->
+            <!--<div class="col-sm-3 col-xs-12" *ngFor="let pharmacy of pharmacies, let i = index" (mouseenter)="getPharmacyId(pharmacy.slug, i)">-->
+              <!--<a class="pharmacy-box-list" [routerLink]="['/pharmacy', pharmacy.slug]">-->
+                <!--<div class="pharmacy-logo">-->
+                  <!--<img src="{{imagePath}}/{{pharmacy.logo}}">-->
+                <!--</div>-->
+                <!--<h2>{{pharmacy.name | truncate : 7 : ".."}}<br> <span class="pharmacy-slog">Pharmacy</span></h2>-->
+                <!--<span>Select Area></span>-->
+               <!--</a>-->
+            <!--</div>-->
+          <!--</div>-->
+        <!--</div>-->
+        <!--<div class="col-md-9 col-sm-9 col-xs-12 tg-verticalmiddle padding-30-top" *ngIf="loggedIn">-->
+          <!--<div class="row">-->
+            <!--<div class="col-sm-4 col-xs-12"  (mouseenter)="getDefaultPharmacyId(pharmacies.pharmacy_info.id)">-->
+              <!--<a class="pharmacy-branchlist-box">-->
+                <!--<div class="pharmacy-logo">-->
+                  <!--&lt;!&ndash;<img src="{{imageUrl}}/{{pharmacy.logo}}">&ndash;&gt;-->
+                  <!--&lt;!&ndash;<span class="pharmacy-van" *ngIf="branch.home_delivery">&ndash;&gt;-->
+                    <!--&lt;!&ndash;<img src="./assets/images/home-delivery-van.png">&ndash;&gt;-->
+                  <!--&lt;!&ndash;</span>&ndash;&gt;-->
+                <!--</div>-->
+                <!--<h2>{{pharmacies.pharmacy_info.name}}</h2>-->
+                <!--<span class="pharmacy-area">Area: <b>{{pharmacies.pharmacy_info.area}}</b></span>-->
+                <!--<address>{{pharmacies.pharmacy_info.address}}</address>-->
+                <!--<app-pharmacyorder [branchList]="pharmacies"></app-pharmacyorder>-->
+              <!--</a>-->
+            <!--</div>-->
+          <!--</div>-->
+        <!--</div>-->
+      <!--</div>-->
+    <!--</div>-->
+  <!--</div>-->
+<!--</div>-->

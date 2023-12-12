@@ -1,0 +1,141 @@
+.doctor-detail h3 a {
+  display: block;
+  width: 100%;
+  overflow: hidden;
+  word-wrap: break-word;
+  color: #273c89;
+  font-size: 18px;
+  line-height: 25px;
+  padding: 5px 0;
+}
+.doctor-card {
+  margin: 0 10px 0 0;
+}
+.doctor-card .outerclass {
+  float: left;
+  width: 100%;
+  position: relative;
+  margin-bottom: 10px;
+  text-align: center;
+  background: #fff;
+  border: 1px solid #ededed;
+  border-radius: 6px;
+  padding: 14px 0 7px;
+  box-shadow: 0 2px 15px -1px rgba(0,0,0,0.2);
+}
+.doctor-detail h3{
+  margin: 0;
+  height: 60px;
+  overflow: hidden;
+  /*padding: 0 10px;*/
+}
+.book-now,
+.ask-doctor{
+  font-size: 12px ;
+}
+.book-now{
+  color: #1A237E;
+}
+.ask-doctor{
+  color:#ef4130;
+  float: right;
+}
+.doctor-detail .speciality {
+  font-size: 14px;
+  color: #7a7a7a;
+  display: block;
+  padding: 0 0 0px;
+  margin: 0 0 0px;
+}
+.doctor-detail .rating {
+  border-bottom: 1px solid #e4e4e4;
+  display: block;
+  margin: 0 0 0;
+  font-size: 16px;
+  padding: 0 0 7px;
+}
+.appointment-btn {
+  padding: 5px 0 0;
+}
+.fee-section {
+    background-color: #2b3d9b;
+    color: #fff;
+    font-size: 15px;
+    padding: 7px 23px;
+    position: absolute;
+    right: -46px;
+    text-align: center;
+    top: 20px;
+    transform: rotate(36deg);
+    width: 200px;
+}
+.doctor-content {
+  padding: 3px 20px 0;
+}
+ul{
+  padding: 30px 0 0;
+}
+ul li{
+  list-style: none;
+  padding: 0;
+}
+.btn-primary{
+  background-color:#1A237E;
+}
+.btn-danger,
+.btn-primary{
+  font-size: 11px;
+}
+
+address{
+  font-style: normal;
+}
+.doctor-img {
+  width: 100px;
+  margin: 0 auto;
+}
+.appointment-btn a{
+  font-size: 14px;
+}
+
+
+@media (max-width: 1199px){
+  .doctor-detail span{
+    height: auto;
+  }
+  .book-now,
+  .ask-doctor{
+    float: none;
+    display: block;
+  }
+}
+@media (max-width: 1024px){
+  .doctor-detail h3{
+    height:auto;
+  }
+}
+@media (max-width: 992px){
+  .doctor-detail h3{
+    font-size: 15px;
+  }
+  .book-now,
+  .ask-doctor{
+    float: none;
+    display: block;
+  }
+  .doctor-detail span{
+    height: auto;
+  }
+}
+@media (max-width: 767px){
+  .doctor-detail h3{
+    height:auto;
+  }
+
+}
+@media (max-width: 600px){
+
+}
+@media (max-width: 430px){
+
+}

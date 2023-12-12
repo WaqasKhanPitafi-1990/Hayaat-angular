@@ -1,0 +1,478 @@
+<div class="pharmacy-order-container">
+  <div class="container">
+    <div class="order-header">
+      <h1>Place Your Order Now</h1>
+      <a routerLink="/order" class="cancel-popup"><i class="material-icons">cancel</i></a>
+    </div>
+    <div class="col-sm-9">
+      <div class="pharmacy-order-form">
+        <h2 *ngIf="!checkUser && !checkUserReg">Select Pharmacy</h2>
+        <ul *ngIf="!checkUser && !checkUserReg" class="pharmacy-logo-list">
+          <li *ngFor="let pharmacy of pharmacies, let i = index" (click)="activatePharmacyOption(i, pharmacy.id)" [ngClass] = "{ 'active': selectedOption == pharmacy.id}"><a><img src="{{imagePath}}/{{pharmacy.thumb}}"></a></li>
+        </ul>
+        <h2>Order Info</h2>
+        <form *ngIf="!checkUser && !checkUserReg" class="pharmacy-order" [formGroup]="form" enctype="multipart/form-data" #orderForm="ngForm" (submit)="sendOrder(form.value)" >
+           <div class="row">
+              <div class="col-sm-6">
+                <mat-form-field>
+                  <input matInput placeholder="Full Name"  formControlName="name" [(ngModel)]= "userInfo.name">
+                </mat-form-field>
+                <mat-form-field>
+                  <input matInput placeholder="Email" formControlName="email" [(ngModel)]= "userInfo.email" >
+                </mat-form-field>
+                <span>Default Promo Code:</span>
+                <span style="display: block; font-size: 12px; font-weight: bold" *ngIf="!defaultPromoNull">
+                  <span *ngIf="!notUndefined">{{defaultPromoCode}} ({{defaultPromoValue[0].value}}%)</span>
+                  <span *ngIf="notUndefined">No Disc On Selected Promo</span>
+                </span>
+                <span style="display: block; font-size: 12px;" *ngIf="defaultPromoNull" >No Promo Code Selected</span>
+              </div>
+              <div class="col-sm-6">
+                <mat-form-field>
+                  <input matInput placeholder="Mobile Number"  formControlName="phone"  maxlength="11" minlength="11" [(ngModel)]= "userInfo.mobile">
+                </mat-form-field>
+
+                <mat-form-field *ngIf="showDefaultAddress">
+                  <input matInput placeholder="Address" maxlength="250" formControlName="address" [(ngModel)]="userInfo.address">
+                </mat-form-field>
+
+                <mat-form-field style="width: 35%; float: right;" *ngIf="loginUser">
+                  <mat-select placeholder="Select Address" #addressId [(value)]="userInfo.id" (change)="addressDropDownId(addressId.value)" >
+                    <mat-option *ngFor="let address of addresses" [value]="address.id">
+                      {{ address.address }}
+                    </mat-option>
+                    <mat-option value ='0'>Other</mat-option>
+                  </mat-select>
+                </mat-form-field>
+
+                <mat-form-field *ngIf="other_address || !loginUser" style="width: 30% !important; float: left;" >
+                  <mat-select placeholder="Province" #provinceId  (change)="getProvinceId(provinceId.value)" >
+                    <mat-option *ngFor="let province of provinces" [value]="province.id">
+                      {{ province.name }}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+                <mat-form-field *ngIf="other_address || !loginUser" style="width: 30% !important;  margin: 0 0 0 5px;">
+                  <mat-select placeholder="City" #cityId  (change)="getCityId(cityId.value)">
+                    <mat-option *ngFor="let city of cities" [value]="city.id">
+                      {{ city.name }}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+                <mat-form-field *ngIf="other_address || !loginUser" style="width: 30% !important;">
+                  <input matInput placeholder="Address" formControlName="address_text" maxlength="250">
+                </mat-form-field>
+
+
+                <mat-form-field>
+                  <input matInput placeholder="Add Another Promo (Optional)" formControlName="coupon" [(ngModel)]="anotherPromo" >
+                </mat-form-field>
+              </div>
+           </div>
+           <div class="row">
+              <div class="col-sm-8">
+                <div class="upload-image-section">
+                  <label class="btn btn-block btn-primary btn-file-upload" (change)="onFileChange($event)">
+                    <i class="material-icons">folder</i>
+                    Upload Prescriptions
+                   <input type="file" multiple formControlName="image" id="avatar"  style="display: none;" #fileInput >
+                  </label>
+                  <span>max 5 prescriptions</span>
+                  <div class="thumbnails">
+                    <a *ngFor="let url of thumb_url, let i = index">
+                      <img [src] = "url" alt="..." class="img-thumbnail">
+                    </a>
+                  </div>
+                </div>
+              </div>
+           </div>
+           <div class="row">
+            <div class="col-sm-6">
+              <div class="delivery-container">
+                <h3>Order Type</h3>
+                <ul>
+                  <li (click)="activateDeliveryOption('1')" [ngClass] = "{ 'active': selectedDeliveryOption == 1}"><span class="done-icon"><i class="material-icons">done</i></span>Home Delivery</li>
+                  <li *ngIf="!sehatPolicy" (click)="activateDeliveryOption('0')" [ngClass] = "{ 'active': selectedDeliveryOption == 0}"><span class="done-icon"><i class="material-icons">done</i></span>Pickup</li>
+                </ul>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="payment-container">
+                <h3>Payment Type</h3>
+                <ul>
+                  <li (click)="activatePaymentOption('1')" [ngClass] = "{ 'active': selectedPaymentOption == 1}"><span class="done-icon"><i class="material-icons">done</i></span>Cash</li>
+                  <li><span class="done-icon"><i class="material-icons">done</i></span>EasyPay/CC</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="row pharmacy-points" *ngIf="showPoints">
+            <div class="col-sm-12">
+              <ul *ngIf="!sehatPolicy">
+                <li>Delivery Hours 9 am to 11 pm. Orders received after 11 pm will be delivered next morning </li>
+                <li>Minimum Order Value is Rs. 500</li>
+                <li>Orders below Rs. 500 will be charged extra Rs. 80 per delivery</li>
+                <li>Home delivery will be done within 2 Hrs. after receiving the order</li>
+              </ul>
+              <ul *ngIf="sehatPolicy">
+                <li>Delivery Hours 9 am to 6 pm. Orders received after 6 pm will be delivered next morning </li>
+                <li>Home delivery will be done within 2 Hrs. after receiving the order</li>
+              </ul>
+            </div>
+          </div>
+          <div class="row" *ngIf="showBranch">
+            <div class="col-sm-12">
+              <div class="branches-container">
+                <div class="branch-header">
+                  <h2 style="float: left; padding: 20px 0 0;">Select Branch</h2>
+                  <mat-form-field style="width: 35%; float: right;">
+                    <mat-select placeholder="Select Branch" #branchId (change)="dropDownId(branchId.value)" >
+                      <mat-option *ngFor="let list of dropDownBranches" [value]="list.id">
+                        {{ list.name }}
+                      </mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                </div>
+                <img style="width: 50px; margin: 0 auto; display:block" *ngIf="loginGifBranch" src="../../../assets/images/loader.gif">
+                <ul>
+                  <li *ngFor="let branch of pharmacyBranches, let i = index" (click)="activateBranch(branch.id)" [ngClass] = "{ 'active': branch_id == branch.id}">
+                    <span class="done-icon"><i class="material-icons">done</i></span>
+                    <span class="branch-pin-heading">{{branch.name}}</span>
+                    <address>{{branch.address}}</address>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="order-buttons" >
+                <mat-checkbox [(ngModel)]="checked_default" formControlName="defaultBranch">Set As Default Pharmacy</mat-checkbox>
+                <button type="submit" [disabled] = "loginGif" class="btn btn-primary"><i *ngIf="!loginGif" class="material-icons">send</i><img *ngIf="loginGif" src="../../../assets/images/loader.gif" style="width: 20px">Send Order</button>
+                <button type="button" class="btn btn-info" routerLink="/order">Cancel</button>
+              </div>
+            </div>
+          </div>
+        </form>
+        <form *ngIf="checkUser" class="pharmacy-order" [formGroup]="form" enctype="multipart/form-data" #orderForm="ngForm" (submit)="sendPassword(form.value)" >
+          <div class="row">
+            <div class="col-sm-6">
+              <h2 style="font-size: 12px !important; font-weight: normal;margin: 0;">Please enter your password for Login</h2>
+              <mat-form-field>
+                <input matInput placeholder="Password"  formControlName="password" type="password">
+              </mat-form-field>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="order-buttons" >
+                <button type="submit" [disabled] = "loginGif" class="btn btn-primary"><i *ngIf="!loginGif" class="material-icons">send</i><img *ngIf="loginGif" src="../../../assets/images/loader.gif" style="width: 20px">Send Order</button>
+                <button type="button" class="btn btn-info" (click)="mainForm()">Cancel</button>
+              </div>
+            </div>
+          </div>
+        </form>
+        <form *ngIf="checkUserReg" class="pharmacy-order" [formGroup]="form" enctype="multipart/form-data" #orderForm="ngForm" (submit)="signUpUser(form.value)" >
+          <div class="row">
+            <div class="col-sm-6">
+              <h2 style="font-size: 12px !important; font-weight: normal;margin: 0;">Please enter password for sign up</h2>
+              <mat-form-field>
+                <input matInput placeholder="Password"  formControlName="password" type="password">
+              </mat-form-field>
+              <mat-checkbox formControlName="terms">I accept these terms and conditions</mat-checkbox>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="order-buttons" >
+                <button [disabled]="loginGif" type="submit" class="btn btn-primary"><i *ngIf="!loginGif" class="material-icons">send</i><img *ngIf="loginGif" src="../../../assets/images/loader.gif" style="width: 20px">Send Order</button>
+                <button type="button" class="btn btn-info" (click)="mainForm()">Cancel</button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div class="col-sm-3">
+      <div class="pharmacy-order-detail">
+        <h2>Your Order Detail</h2>
+        <div class="order-detail-content">
+          <h6>Personal Info</h6>
+          <b>Name: </b>
+          <span>{{userInfo.name}}</span>
+          <b>Email: </b>
+          <span>{{userInfo.email}}</span>
+          <b>Address: </b>
+          <span>{{addressName}}</span>
+          <b>Mobile: </b>
+          <span>{{userInfo.mobile}}</span>
+          <h6>Order Info</h6>
+          <b *ngIf="paymentTypeText">Payment Type: </b>
+          <span *ngIf="paymentTypeText">{{paymentTypeText}}</span>
+          <b>Order Type: </b>
+          <span> {{deliveryTypeText}}</span>
+          <b *ngIf="!defaultPromoNull">Default Promo Code:</b>
+          <span *ngIf="!defaultPromoNull">
+           <span *ngIf="!notUndefined"> {{defaultPromoCode}}: ({{defaultPromoValue[0].value}}%)</span>
+            <span *ngIf="notUndefined"> No Discount</span>
+          </span>
+          <b *ngIf="anotherPromo">Another Promo Code: </b>
+          <span *ngIf="anotherPromo">{{anotherPromo}}</span>
+          <h6 >Pharmacy Info</h6>
+          <b *ngIf="pharmacyNameText">Pharmacy Name:</b>
+          <span *ngIf="pharmacyNameText">{{pharmacyNameText}}</span>
+          <b *ngIf="branchNameText">Branch Name:</b>
+          <span *ngIf="branchNameText">{{branchNameText}}</span>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--<a class="tg-order-now" (click)="openModal(template); getOrderData()" style="cursor: pointer;"> Order Now</a>-->
+
+<!--<ng-template #template >-->
+  <!--<div class="pharmacy-order-modal">-->
+    <!--<div class="tg-user-type-modal ">-->
+    <!--<div class="modal-body">-->
+      <!--<div class="tg-modal-content ">-->
+        <!--<div class="tab-content tg-haslayout">-->
+          <!--<div role="tabpanel" class="tab-pane tg-haslayout active" id="tg-fp-formarea" >-->
+            <!--<h3 class="text-center margin-b-0">Place Your Order</h3>-->
+            <!--<p class="login-msg"></p>-->
+            <!--<form class="pharmacy-order" [formGroup]="form" enctype="multipart/form-data" #orderForm="ngForm" (submit)="sendOrder(form.value)" *ngIf="!checkUser && !checkUserReg" >-->
+            <!--<div class="pharmacy-order-form">-->
+              <!--<h6 class="text-center margin-b-0">Personal Info </h6>-->
+              <!--&lt;!&ndash;<form class="pharmacy-order" [formGroup]="form" enctype="multipart/form-data" #orderForm="ngForm" (submit)="sendOrder(form.value)" *ngIf="!checkUser && !checkUserReg" >&ndash;&gt;-->
+                <!--<mat-form-field>-->
+                  <!--<input matInput placeholder="Full Name"  formControlName="name" [(ngModel)]= "userInfo.name">-->
+                <!--</mat-form-field>-->
+
+                <!--<mat-form-field>-->
+                  <!--<input matInput placeholder="Mobile Number"  formControlName="phone" [(ngModel)]= "userInfo.mobile">-->
+                <!--</mat-form-field>-->
+                <!--<mat-form-field>-->
+                  <!--<input matInput placeholder="Email" formControlName="email" [(ngModel)]= "userInfo.email" >-->
+                <!--</mat-form-field>-->
+                <!--<mat-form-field>-->
+                  <!--<input matInput placeholder="Address" formControlName="address" [(ngModel)]= "userInfo.address">-->
+                <!--</mat-form-field>-->
+              <!--<span style="display: block; font-size: 12px;" *ngIf="defaultPromoNull">Default Promo: {{defaultPromoCode}} {{defaultPromoValue}}%</span>-->
+              <!--<span style="display: block; font-size: 12px;" *ngIf="defaultOfferNull">Pharmacy Offer: {{defaultOfferCode}} {{defaultOfferValue}}%</span>-->
+              <!--<mat-form-field>-->
+                <!--<input matInput placeholder="Add Another Promo (Optional)" formControlName="coupon" >-->
+              <!--</mat-form-field>-->
+                <!--<span class="upload-pres">Upload your prescription</span>-->
+                <!--<label class="btn btn-block btn-primary btn-file-upload" (change)="onFileChange($event)">-->
+                  <!--Upload Prescriptions&hellip;-->
+                  <!--<input type="file" multiple formControlName="image" id="avatar"  style="display: none;" #fileInput >-->
+                <!--</label>-->
+              <!--<div class="thumbnails">-->
+                <!--<a *ngFor="let url of thumb_url, let i = index">-->
+                  <!--<img [src] = "url" alt="..." class="img-thumbnail">-->
+                <!--</a>-->
+              <!--</div>-->
+                <!--<div class="order-option">-->
+                  <!--<h2> Delivery </h2>-->
+                  <!--<mat-radio-group formControlName="delivery">-->
+                    <!--<mat-radio-button  [value]="i" *ngFor="let delivery of delivery, let i = index">{{delivery}}</mat-radio-button>-->
+                  <!--</mat-radio-group>-->
+                <!--</div>-->
+                <!--<div class="order-option payment-method">-->
+                  <!--<h2> Payment Method </h2>-->
+                  <!--<mat-radio-group formControlName="payment"  >-->
+                    <!--<mat-radio-button disabled="true">EasyPay/Credit/Debit Card</mat-radio-button>-->
+                    <!--<mat-radio-button  *ngFor="let payment of payment, let i = index"  [value]="1">{{payment}}</mat-radio-button>-->
+                  <!--</mat-radio-group>-->
+                <!--</div>-->
+                <!--<div class="col-sm-12">-->
+                  <!--<div class="order-buttons" >-->
+                    <!--<button type="submit" class="btn btn-primary"><img *ngIf="loginGif" src="../../../assets/images/loader.gif" style="width: 28px">Send Order</button>-->
+                    <!--<button type="button" class="btn btn-info" (click)="modalRef.hide()">Cancel</button>-->
+                  <!--</div>-->
+                <!--</div>-->
+            <!--</div>-->
+                <!--<div class="pharmacy-order-info">-->
+                  <!--<h6 class="text-center margin-b-0">Pharmacy Info <a  class="change-pharmacy" (click)="getPharmaciesList()" style="cursor: pointer">Change Pharmacy</a> </h6>-->
+                  <!--<dl>-->
+                    <!--<dt>Name:</dt>-->
+                    <!--<dd>{{branchDetail.name}}</dd>-->
+                    <!--<dt>Area:</dt>-->
+                    <!--<dd *ngIf="!defaultPharmacy">{{branchDetail.area.area}}</dd>-->
+                    <!--<dd *ngIf="defaultPharmacy">{{branchDetail.area}}</dd>-->
+                    <!--&lt;!&ndash;<dd *ngIf="branchAddress">{{branchDetail.area}}</dd>&ndash;&gt;-->
+                    <!--<dt>Address:</dt>-->
+                    <!--<dd>{{branchDetail.address}}</dd>-->
+                  <!--</dl>-->
+                  <!--<agm-map [latitude]="lat" [longitude]="lng" >-->
+                    <!--<agm-marker-->
+                      <!--[iconUrl]="'https://hayaat.pk/assets/images/pins.png'"-->
+                      <!--(markerClick)="clickedMarker(markers.name, i)"-->
+                      <!--[latitude]="markers.latitude"-->
+                      <!--[longitude]="markers.longitude">-->
+                      <!--<agm-info-window>-->
+                        <!--<div class="map-popup-details">-->
+                          <!--<div class="col-md-5 no-padding">-->
+                            <!--<img src="{{imagePath + '/uploads/profile/avatar-pharmacy.png'}}" class="img-responsive" alt="Hayaat.pk - Find doctor, Blood donor &amp; Nearest Emergency Center">-->
+                          <!--</div>-->
+                          <!--<div class="no-padding col-md-7">-->
+                            <!--<h6 class="name">-->
+                              <!--<a href="">{{markers.name}}</a></h6>-->
+                            <!--<p class="phone"><i class="fa fa-phone" aria-hidden="true"></i><span> {{markers.phone}}</span></p>-->
+                            <!--<p class="address"><i class="fa fa-map-marker" aria-hidden="true"></i><span> {{markers.address}}</span></p>-->
+                            <!--&lt;!&ndash;<button type="button" class="get-direction-btn" data-lat="31.4660965" data-lng="74.27387449999992"><i class="fa fa-location-arrow" aria-hidden="true"></i><span>Get Direction</span></button>&ndash;&gt;-->
+                            <!--<button *ngIf="getDirectionBtn" type="button" class="get-direction-btn" (click)="getDirection(markers.latitude, markers.longitude)">Get Direction</button>-->
+                          <!--</div><p class="status"><span>Available</span></p></div>-->
+                      <!--</agm-info-window>-->
+                    <!--</agm-marker>-->
+                  <!--</agm-map>-->
+                  <!--<mat-checkbox formControlName="defaultBranch">Set As Default</mat-checkbox>-->
+                <!--</div>-->
+              <!--</form>-->
+              <!--<form style="padding: 25px 0 0" class="pharmacy-order" [formGroup]="form" enctype="multipart/form-data" #orderForm="ngForm" (submit)="sendPassword(form.value)" *ngIf="checkUser" >-->
+                <!--<div class="pharmacy-order-form">-->
+                  <!--<h6 class="text-center margin-b-0">Personal Info </h6>-->
+                  <!--<h2 style="font-size: 12px !important; font-weight: normal;margin: 0;">Please enter your password for login</h2>-->
+                  <!--<mat-form-field>-->
+                    <!--<input matInput placeholder="password"  formControlName="password" type="password" style="border:none;">-->
+                  <!--</mat-form-field>-->
+                  <!--<div class="col-sm-12">-->
+                    <!--<div class="order-buttons" >-->
+                      <!--<button type="submit" class="btn btn-primary"><img *ngIf="loginGif" src="../../../assets/images/loader.gif" style="width: 28px">Submit</button>-->
+                      <!--<button type="button" class="btn btn-info" (click)="checkUserFalse()">Back</button>-->
+                    <!--</div>-->
+                  <!--</div>-->
+                <!--</div>-->
+                  <!--<div class="pharmacy-order-info">-->
+                    <!--<h6 class="text-center margin-b-0">Pharmacy Info <a routerLink="/pharmacy" class="change-pharmacy" (click)="modalRef.hide()">Change Pharmacy</a> </h6>-->
+                    <!--<dl>-->
+                      <!--<dt>Name:</dt>-->
+                      <!--<dd>{{branchDetail.name}}</dd>-->
+                      <!--<dt>Area:</dt>-->
+                      <!--<dd *ngIf="!defaultPharmacy">{{branchDetail.area.area}}</dd>-->
+                      <!--<dd *ngIf="defaultPharmacy">{{branchDetail.area}}</dd>-->
+                      <!--<dt>Address:</dt>-->
+                      <!--<dd>{{branchDetail.address}}</dd>-->
+                    <!--</dl>-->
+                    <!--<agm-map [latitude]="lat" [longitude]="lng" >-->
+                      <!--<agm-marker-->
+                        <!--[iconUrl]="'https://hayaat.pk/assets/images/pins.png'"-->
+                        <!--(markerClick)="clickedMarker(markers.name, i)"-->
+                        <!--[latitude]="markers.latitude"-->
+                        <!--[longitude]="markers.longitude">-->
+                        <!--<agm-info-window>-->
+                          <!--<div class="map-popup-details">-->
+                            <!--<div class="col-md-5 no-padding">-->
+                              <!--<img src="{{imagePath + '/uploads/profile/avatar-pharmacy.png'}}" class="img-responsive" alt="Hayaat.pk - Find doctor, Blood donor &amp; Nearest Emergency Center">-->
+                            <!--</div>-->
+                            <!--<div class="no-padding col-md-7">-->
+                              <!--<h6 class="name">-->
+                                <!--<a href="">{{markers.name}}</a></h6>-->
+                              <!--<p class="phone"><i class="fa fa-phone" aria-hidden="true"></i><span> {{markers.phone}}</span></p>-->
+                              <!--<p class="address"><i class="fa fa-map-marker" aria-hidden="true"></i><span> {{markers.address}}</span></p>-->
+                              <!--&lt;!&ndash;<button type="button" class="get-direction-btn" data-lat="31.4660965" data-lng="74.27387449999992"><i class="fa fa-location-arrow" aria-hidden="true"></i><span>Get Direction</span></button>&ndash;&gt;-->
+                              <!--<button *ngIf="getDirectionBtn" type="button" class="get-direction-btn" (click)="getDirection(markers.latitude, markers.longitude)">Get Direction</button>-->
+                            <!--</div><p class="status"><span>Available</span></p></div>-->
+                        <!--</agm-info-window>-->
+                      <!--</agm-marker>-->
+                    <!--</agm-map>-->
+                    <!--<mat-checkbox formControlName="defaultBranch" >Set As Default</mat-checkbox>-->
+                  <!--</div>-->
+
+              <!--</form>-->
+              <!--<form style="padding: 25px 0 0" class="pharmacy-order" [formGroup]="form" enctype="multipart/form-data" #orderForm="ngForm" (submit)="signUpUser(form.value)" *ngIf="checkUserReg" >-->
+                <!--<div class="pharmacy-order-form">-->
+                  <!--<h6 class="text-center margin-b-0">Personal Info </h6>-->
+                  <!--<h2 style="font-size: 12px !important; font-weight: normal;margin: 0;">Please enter your password for signup</h2>-->
+                  <!--<mat-form-field>-->
+                    <!--<input matInput placeholder="password"  formControlName="password" type="password" style="border:none;">-->
+                  <!--</mat-form-field>-->
+
+                    <!--<mat-checkbox formControlName="terms">I accept these terms and conditions</mat-checkbox>-->
+                  <!--<div class="col-sm-12">-->
+                    <!--<div class="order-buttons" >-->
+                      <!--<button type="submit" class="btn btn-primary"><img *ngIf="loginGif" src="../../../assets/images/loader.gif" style="width: 28px">Submit</button>-->
+                      <!--<button type="button" class="btn btn-info" (click)="checkUserRegFalse()">Back</button>-->
+                    <!--</div>-->
+                  <!--</div>-->
+                <!--</div>-->
+                <!--<div class="pharmacy-order-info">-->
+                  <!--<h6 class="text-center margin-b-0">Pharmacy Info <a routerLink="/pharmacy" class="change-pharmacy" (click)="modalRef.hide()">Change Pharmacy</a> </h6>-->
+                  <!--<dl>-->
+                    <!--<dt>Name:</dt>-->
+                    <!--<dd>{{branchDetail.name}}</dd>-->
+                    <!--<dt>Area:</dt>-->
+                    <!--<dd *ngIf="!defaultPharmacy">{{branchDetail.area.area}}</dd>-->
+                    <!--<dd *ngIf="defaultPharmacy">{{branchDetail.area}}</dd>-->
+                    <!--<dt>Address:</dt>-->
+                    <!--<dd>{{branchDetail.address}}</dd>-->
+                  <!--</dl>-->
+                  <!--<agm-map [latitude]="lat" [longitude]="lng" >-->
+                    <!--<agm-marker-->
+                      <!--[iconUrl]="'https://hayaat.pk/assets/images/pins.png'"-->
+                      <!--(markerClick)="clickedMarker(markers.name, i)"-->
+                      <!--[latitude]="markers.latitude"-->
+                      <!--[longitude]="markers.longitude">-->
+                      <!--<agm-info-window>-->
+                        <!--<div class="map-popup-details">-->
+                          <!--<div class="col-md-5 no-padding">-->
+                            <!--<img src="{{imagePath + '/uploads/profile/avatar-pharmacy.png'}}" class="img-responsive" alt="Hayaat.pk - Find doctor, Blood donor &amp; Nearest Emergency Center">-->
+                          <!--</div>-->
+                          <!--<div class="no-padding col-md-7">-->
+                            <!--<h6 class="name">-->
+                              <!--<a href="">{{markers.name}}</a></h6>-->
+                            <!--<p class="phone"><i class="fa fa-phone" aria-hidden="true"></i><span> {{markers.phone}}</span></p>-->
+                            <!--<p class="address"><i class="fa fa-map-marker" aria-hidden="true"></i><span> {{markers.address}}</span></p>-->
+                            <!--&lt;!&ndash;<button type="button" class="get-direction-btn" data-lat="31.4660965" data-lng="74.27387449999992"><i class="fa fa-location-arrow" aria-hidden="true"></i><span>Get Direction</span></button>&ndash;&gt;-->
+                            <!--<button *ngIf="getDirectionBtn" type="button" class="get-direction-btn" (click)="getDirection(markers.latitude, markers.longitude)">Get Direction</button>-->
+                          <!--</div><p class="status"><span>Available</span></p></div>-->
+                      <!--</agm-info-window>-->
+                    <!--</agm-marker>-->
+                  <!--</agm-map>-->
+                  <!--<mat-checkbox formControlName="defaultBranch">Set As Default</mat-checkbox>-->
+                <!--</div>-->
+
+              <!--</form>-->
+          <!--</div>-->
+        <!--</div>-->
+      <!--</div>-->
+    <!--</div>-->
+  <!--</div>-->
+  <!--</div>-->
+<!--</ng-template>-->
+

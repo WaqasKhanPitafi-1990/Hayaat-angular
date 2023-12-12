@@ -1,0 +1,87 @@
+
+<main class="tg-haslayout hayaat-service-section" id="main">
+  <div class="container">
+    <div class="row">
+      <div class="lab-test-view">
+        <div class="col-sm-7">
+          <ngb-tabset>
+            <ngb-tab>
+              <ng-template ngbTabTitle> Common Tests </ng-template>
+              <ng-template ngbTabContent>
+                <div class="test-view">
+                  <div class="test-header">
+                    <input [(ngModel)]="searchText" placeholder="Search Test Here ...">
+                    <!--<i class="material-icons">-->
+                      <!--search-->
+                    <!--</i>-->
+                    <a (click)="getLab()">Find Lab</a>
+                  </div>
+                  <img src="../../../assets/images/loader.gif" *ngIf="imgLoaderTest" style="width: 10%; display:block; margin: 0 auto;">
+                  <ul *ngIf="!imgLoaderTest">
+                    <li *ngFor="let test of testListCommon | filter : searchText; let i = index ">
+                      <mat-checkbox [(ngModel)]="check[i]"  [(indeterminate)]="indeterminate" (change)="getValue(test.id, i)">{{test.code}}</mat-checkbox>
+                      <span class="test-code">{{test.name}}</span>
+                    </li>
+                  </ul>
+                </div>
+              </ng-template>
+            </ngb-tab>
+            <ngb-tab>
+              <ng-template ngbTabTitle> All Tests </ng-template>
+              <ng-template ngbTabContent>
+                <div class="test-view">
+                  <div class="test-header">
+                    <input [(ngModel)]="searchText" placeholder="Search Test Here ...">
+                    <a (click)="getLab()">Find Lab</a>
+                  </div>
+                  <ul>
+                    <li *ngFor="let test of testListAll | filter : searchText; let i = index">
+                      <mat-checkbox [(ngModel)]="checkAll[i]"  [(indeterminate)]="indeterminate" (change)="getValue(test.id, i)">{{test.code}}</mat-checkbox>
+                      <span class="test-code">{{test.name}}</span>
+                    </li>
+                  </ul>
+                </div>
+              </ng-template>
+            </ngb-tab>
+          </ngb-tabset>
+        </div>
+        <div class="col-sm-5">
+          <div class="lab-view">
+            <div class="test-header">
+              <h2>Select Lab</h2>
+            </div>
+            <img src="../../../assets/images/loader.gif" *ngIf="imgLoader" style="width: 10%; display:block; margin: 0 auto;">
+            <div class="lab-card-container" *ngIf="!imgLoader">
+              <div class="lab-card" *ngFor="let lab of labs">
+                <img src="{{imgPath}}/{{lab.logo}}">
+                <div class="lab-heading">
+                  <h3>{{lab.name}}</h3>
+                  <span>Reviews</span>
+                  <a routerLink="/lab-test-request" (click)="getLabId(lab.id)">Proceed Order</a>
+                </div>
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th>Test Name</th>
+                      <th>Price</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let test of lab.tests">
+                      <td><span>{{test.name}}</span></td>
+                      <td>{{test.price}}</td>
+                    </tr>
+                  <tr>
+                    <td>Total:</td>
+                    <td>{{lab.tests_total}}</td>
+                  </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>

@@ -1,0 +1,64 @@
+.orders-section{
+  display: flex;
+}
+.pharmacy-section {
+  background: #f7f7f7;
+}
+.lab-section{
+  background: #eeeeee;
+}
+.pharmacy-section,
+.lab-section {
+  text-align: center;
+  padding:130px 0;
+}
+.pharmacy-section a,
+.lab-section a{
+  color: #5f859e;
+  padding: 12px 55px;
+  background: #cee7f8;
+  display: inline-block;
+  border-radius: 30px;
+  font-size: 15px;
+  text-transform: uppercase;
+}
+/*.lab-section a {*/
+  /*background: #fff;*/
+/*}*/
+.pharmacy-section a:hover,
+.lab-section a:hover{
+  background: #263d88;
+  color: #fff;
+}
+.pharmacy-section h3,
+.lab-section h3{
+  font-size: 26px;
+  text-transform: uppercase;
+  color: #263d88;
+  margin: 0 0 10px;
+}
+.pharmacy-section img,
+.lab-section img{
+  margin: 0 0 10px;
+  width: 15%;
+}
+.lab-section img {
+  width: 13%  ;
+}
+@media (max-width: 768px) {
+  .pharmacy-section h3,
+  .lab-section h3{
+    font-size: 19px;
+  }
+  .pharmacy-section a,
+  .lab-section a{
+    padding: 12px 35px;
+    font-size: 10px;
+  }
+  .pharmacy-section img{
+    width: 25%;
+  }
+  .lab-section img{
+    width: 23%;
+  }
+}

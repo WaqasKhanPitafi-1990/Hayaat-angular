@@ -1,0 +1,46 @@
+.pharmacy-heading{
+  padding:30px 0 0 85px;
+}
+.pharmacy-heading span{
+    color:#fff;
+}
+.pharmacy-heading h2 {
+  margin: 0 !important;
+  text-transform: uppercase !important;
+}
+.pharmacy-heading span:first-child{
+  font-size: 37px;
+  line-height: 38px;
+}
+.doner-city-search,
+.doner-area-search,
+.blood-type-search,
+.pharmacy-search{
+  height: 50px;
+  border-width: 1px;
+  padding: 2px 3px;
+  border: 1px solid #ccc;
+}
+form button{
+  border:none;
+}
+.doner-city-search,
+.city-search-emg,
+.area-search-emg,
+.doner-area-search,
+.blood-type-search,
+.pharmacy-search
+{
+  width: 100%;
+}
+.pharmacy-content {
+  padding:  0;
+  background: #f7f7f7;
+  margin-bottom: 25px;
+}
+.custom-filters{
+  width: 100%;
+}
+.custom-filters input {
+  background: none;
+}

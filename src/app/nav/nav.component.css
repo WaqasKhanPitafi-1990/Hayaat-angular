@@ -1,0 +1,24 @@
+.last-one.log-in > a:first-child {
+  background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+  border: 1px solid #1A237E;
+  color: #1A237E !important;
+}
+.city-popup .modal-content {
+  width:500px;
+  overflow: hidden;
+}
+.modal-dialog {
+  margin-right: 46%;
+}
+
+@media(max-width: 767px) {
+  .city-popup .modal-content {
+    width:auto;
+  }
+  .modal-dialog {
+    margin-right: unset;
+  }
+  .city-popup button {
+    padding:0 25px !important;
+  }
+}

@@ -1,0 +1,110 @@
+<!--<nav class="navbar navbar-toggleable-md navbar-light bg-faded">-->
+  <!--<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">-->
+    <!--<span class="navbar-toggler-icon"></span>-->
+  <!--</button>-->
+  <!--<a class="navbar-brand" href="#">Navbar</a>-->
+
+  <!--<div class="collapse navbar-collapse" id="navbarSupportedContent">-->
+    <!--<ul class="navbar-nav mr-auto">-->
+      <!--<li class="nav-item active">-->
+        <!--<a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>-->
+      <!--</li>-->
+      <!--<li class="nav-item">-->
+        <!--<a class="nav-link" href="#">Link</a>-->
+      <!--</li>-->
+      <!--<li class="nav-item">-->
+        <!--<a class="nav-link disabled" href="#">Disabled</a>-->
+      <!--</li>-->
+    <!--</ul>-->
+    <!--<form class="form-inline my-2 my-lg-0">-->
+      <!--<input class="form-control mr-sm-2" type="text" placeholder="Search">-->
+      <!--<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>-->
+    <!--</form>-->
+  <!--</div>-->
+<!--</nav>-->
+
+
+
+
+
+<div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#tg-navigation" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+    </div>
+    <div class="collapse navbar-collapse" id="tg-navigation">
+        <ul>
+            <li>
+                <a routerLink="/">Home</a>
+            </li>
+            <li>
+                <a routerLink="/find-a-doctor">Find Doctors</a>
+            </li>
+            <li><a routerLink="/blood-donors">Find Blood Donor</a></li>
+            <li><a routerLink="/nearest-emergency-centers">Emergency</a></li>
+            <!--<li><a routerLink="/pharmacy">Pharmacy</a></li>-->
+            <li><a routerLink="/order">Order</a></li>
+            <li><a routerLink="/ask-questions">Ask questions</a></li>
+            <li class="last-one">
+                <a routerLink="/blog">Health Blog</a>
+            </li>
+            <li class="hidden-md hidden-lg hidden-sm"><a routerLink='/about-us'>About Us</a></li>
+            <li class="hidden-md hidden-lg hidden-sm"><a routerLink="/contact-us">Contact Us</a></li>
+            <li class="hidden-md hidden-lg hidden-sm"><a routerLink="/privacy-policy">Policies</a></li>
+            <li class="last-one log-in" *ngIf="!loggedIn">
+              <app-login></app-login>
+              <a routerLink="join-hayaat">Join Hayaat</a>
+              <!--<a href="#" data-toggle="modal" data-target=".tg-user-type-modal"> login</a>-->
+                                                <!--<span><a href="#" data-toggle="modal" data-target=".tg-user-modal">login/signup</a></span>-->
+            </li>
+            <!--<li *ngIf="loggedIn" style="padding:11px 0 0;">-->
+              <!--&lt;!&ndash;<p>you're Logged In</p>&ndash;&gt;-->
+              <!--<select>-->
+                <!--<option>Profile</option>-->
+                <!--<option (click)="logout()">Logout</option>-->
+              <!--</select>-->
+            <!--</li>-->
+
+            <li *ngIf="loggedIn" style="padding: 20px 8px;">
+                <a href="#">
+                    <img *ngIf="imageFound" src="assets/images/male.png" style="width: 40px; height:40px; border-radius: 50%;"/>
+                    <img *ngIf="!imageFound" src="{{ImageUrl}}/{{profileData.avatar}}" style="width: 40px; height:40px; border-radius: 50%;"/>
+                    <i>pages</i>
+                </a>
+              <!--<app-sidebar></app-sidebar>-->
+                  <ul>
+                    <li><a routerLink='/user-profile'>Profile</a></li>
+                    <li><a (click)="logout()" style="cursor: pointer">Logout</a></li>
+                    <!--<li><a routerLink="/privacy-policy">Privacy Policy</a></li>-->
+                      <!--<li class="hide"><a routerLink="terms-conditions">Terms & Conditions</a></li>-->
+                  </ul>
+            </li>
+        </ul>
+    </div>
+<div *ngIf="isModalShown" class="modal fade" bsModal #staticModal="bs-modal" [config]="{backdrop: 'static', show: 'true'}"
+     tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+  <div class="city-popup">
+    <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-header">
+      </div>
+      <div class="modal-body">
+        <h4 class="modal-title" style="text-align: center">Enter Your City To Proceed.  Thanks!!</h4>
+        <form class="tg-form-modal tg-form-signin ask-question-form" id="askquestion-form" [formGroup]="form" (submit)="saveCity(form.value)">
+          <mat-form-field style="width: 100%;">
+            <mat-select placeholder="Select City" formControlName="city" >
+              <mat-option *ngFor="let city of cities" [value]="city.id">
+                {{ city.name }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+          <button class="tg-btn tg-btn-lg" style="border: 2px solid" type="submit"><i class="fa fa-paper-plane-o" aria-hidden="true"></i> Submit</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  </div>
+</div>

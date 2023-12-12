@@ -1,0 +1,19 @@
+<div class="tab-pane" id="medical-records" role="tabpanel">
+  <h4 class="title">Your All Medical Records</h4>
+  <ul class="question-card">
+    <li *ngFor="let record of medicalRecords, let i = index"  style="display: block; box-shadow: 0 0 17px -1px rgba(0,0,0,0.2); background: #f7f7f7 !important; padding: 23px 39px 19px; margin:0 0 15px">
+      <div class="medical-record-head">
+        <h4>{{record.patient_name}}</h4>
+        <span class="date"><b>Date:</b> {{record.date}}</span>
+      </div>
+      <div class="record-content">
+        <span><b>Doctor Name:</b> {{record.doctor_name}}</span>
+        <p><b>Description:</b> {{record.detail}}</p>
+      </div>
+      <div class="medical-record-bottom">
+       <app-medical-record-images></app-medical-record-images>
+
+      </div>
+    </li>
+  </ul>
+</div>

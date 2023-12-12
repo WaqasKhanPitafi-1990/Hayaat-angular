@@ -1,0 +1,101 @@
+
+<div class="doctor-content-listing">
+  <div id="tg-innerbanner" class="tg-innerbanner tg-bglight tg-haslayout doctor-main-header" style="background:url('https://hayaat.pk/assets/images/doctors/find-doctor-banner.jpg') no-repeat scroll center bottom / cover;height:180px;">
+    <div class="tg-searcharea tg-haslayout">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6">
+          <h1 *ngIf="!metaHeading" class="doctor-page-heading">Best {{doctorMetaSpeciality}} in {{doctorMetaCity}}</h1>
+          <h1 *ngIf="metaHeading" class="doctor-page-heading">Best Medical Professionals </h1>
+          </div>
+          <div class="col-md-6 search-main-header-div"  >
+          <input type="text" name="" class="form-control" id="doctor-search" #doctorKeyUp placeholder="Search Doctor By Name, Speciality, City, Area" (keyup)="searchDoctorKeyUp(doctorKeyUp.value)">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+<div style="background: #fff;">
+  <div class="container">
+    <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12 tg-verticalmiddle">
+          <div class="filters">
+            <div class="row">
+            <div class="col-md-3 col-sm-4 col-xs-6">
+              <div class="form-group">
+               <!--<app-specialityfilter></app-specialityfilter>-->
+                <mat-form-field class="example-full-width custom-filters">
+                  <input type="text" placeholder="Select Speciality" aria-label="Speciality" matInput [formControl]="myControlSpeciality"  [matAutocomplete]="autoSpeciality" >
+                  <mat-autocomplete #autoSpeciality="matAutocomplete"   (optionSelected)="doctorSpeciality($event.option.value)" >
+                    <mat-option *ngFor="let option of filteredSpecialityOptions | async" [value]="option.name" >
+{{option.name}}
+                    </mat-option>
+                  </mat-autocomplete>
+                </mat-form-field>
+
+              </div>
+            </div>
+            <div class="col-md-2 col-sm-4 col-xs-6">
+              <div class="form-group">
+                  <!--<app-cityfilter></app-cityfilter>-->
+                <mat-form-field class="example-full-width custom-filters">
+                  <input type="text" placeholder="Select City" aria-label="City" matInput [formControl]="myControlCity" [matAutocomplete]="autoCity">
+                  <mat-autocomplete #autoCity="matAutocomplete" (optionSelected)="doctorCity($event.option.value)" >
+                    <mat-option *ngFor="let option of filteredCitiesOptions | async" [value]="option.name" >
+                      {{ option.name }}
+                    </mat-option>
+                  </mat-autocomplete>
+                </mat-form-field>
+
+              </div>
+            </div>
+            <div class="col-md-2 col-sm-4 col-xs-6">
+              <div class="form-group">
+                <!--<app-areafilter></app-areafilter>-->
+                <mat-form-field class="example-full-width custom-filters">
+                  <input type="text" placeholder="Select Area" aria-label="Area" matInput [formControl]="myControlArea" [matAutocomplete]="autoArea">
+                  <mat-autocomplete #autoArea="matAutocomplete" (optionSelected)="doctorArea($event.option.value)">
+                    <mat-option *ngFor="let option of filteredAreaOptions | async" [value]="option.name">
+                      {{ option.name }}
+                    </mat-option>
+                  </mat-autocomplete>
+                </mat-form-field>
+
+              </div>
+            </div>
+            <div class="col-md-2 col-sm-4 col-xs-6">
+              <div class="form-group">
+                <!--<app-doctorfeefilter></app-doctorfeefilter>-->
+                <mat-form-field class="example-full-width custom-filters">
+                  <input type="text" placeholder="Select Fee" aria-label="Fee" matInput [formControl]="myControlFee" [matAutocomplete]="autoFee">
+                  <mat-autocomplete #autoFee="matAutocomplete" (optionSelected)="doctorFee($event.option.value)">
+                    <mat-option *ngFor="let option of filteredFeeOptions | async" [value]="option">
+                      {{ option }}
+                    </mat-option>
+                  </mat-autocomplete>
+                </mat-form-field>
+
+              </div>
+            </div>
+            <div class="col-md-3 col-sm-6 col-xs-12">
+              <div class="form-group">
+                <div class="btn-group m-b-20 doctor-gender-button gender-button">
+                  <button type="button" value="" class="btn btn-default btn-outline waves-effect"  [ngClass] = "{ 'active': selectedOption === '0'}" (click)="doctorByGender('0')">Any</button>
+                  <button type="button" value="1" class="btn btn-default btn-outline waves-effect" [ngClass] = "{ 'active': selectedOption === '1'}" (click)="doctorByGender('1')">Male</button>
+                  <button type="button" value="2" class="btn btn-default btn-outline waves-effect" [ngClass] = "{ 'active': selectedOption === '2'}" (click)="doctorByGender('2')">Female</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          </div>
+        </div>
+      </div>
+  </div>
+</div>
+
+  <app-doctorcard ></app-doctorcard>
+</div>
+

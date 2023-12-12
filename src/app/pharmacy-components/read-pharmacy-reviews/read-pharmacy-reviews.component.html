@@ -1,0 +1,32 @@
+
+<a class="" (click)="openModal(template)" style="cursor: pointer; color: #337ab7;"> {{reviewsDetail.no_of_reviews}} Reviews</a>
+
+<ng-template #template>
+  <div class="tg-modal-content">
+    <div class="reviews-container">
+      <div class="review-header">
+        <a (click)="modalRef.hide()" class="cancel-review-popup"><i class="material-icons">cancel</i></a>
+        <h2>{{reviewsDetail.name}}</h2>
+        <span>{{reviewsDetail.rating}}</span>
+        <app-doctorratings [doctorFeedback]="reviewsDetail.rating" [colorFeedback]="'negative'"></app-doctorratings>
+      </div>
+      <div class="reviews-list-container">
+        <h3 style="text-align: center;" *ngIf="reviewsDetail.feedbacks.length === 0">No Review Found ..</h3>
+        <ul *ngIf="reviewsDetail.feedbacks.length !== 0">
+          <li *ngFor="let review of reviewsDetail.feedbacks">
+            <div class="review">
+              <img class="reviewer-img" src="{{imagePath}}/{{review.avatar}}">
+              <div class="review-detail">
+                <span class="feedback-by">{{review.feedback_by}}</span>
+                <span class="date">{{review.date}}</span><br>
+                <app-doctorratings [doctorFeedback]="review.rating" [colorFeedback]="'negative'"></app-doctorratings>
+                <img src="../../../assets/images/verified%20icon-01.svg">
+                <article>{{review.feedback}}</article>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</ng-template>

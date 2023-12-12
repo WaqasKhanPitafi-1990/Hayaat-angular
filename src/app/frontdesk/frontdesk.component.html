@@ -1,0 +1,103 @@
+<main id="main" class="tg-main-section tg-haslayout" style="background-color:#f7f7f7;min-height:500px;">
+  <div class="container">
+    <div class="row">
+      <div>
+        <ngb-tabset class="doctor-detail-tab">
+          <ngb-tab>
+            <ng-template ngbTabTitle>
+              All Doctors
+            </ng-template>
+            <ng-template ngbTabContent>
+              <ng-container *ngTemplateOutlet="innerTabset"></ng-container>
+            </ng-template>
+          </ngb-tab>
+          <ngb-tab>
+            <ng-template ngbTabTitle>
+              Dr. Khaleeq Ur Rehman's
+            </ng-template>
+
+            <ng-template ngbTabContent >
+
+            </ng-template>
+
+          </ngb-tab>
+          <ngb-tab>
+            <ng-template ngbTabTitle>
+              Prof. Dr. Waseem Ismat Chaudhry
+            </ng-template>
+
+            <ng-template ngbTabContent>
+
+            </ng-template>
+
+          </ngb-tab>
+          <ngb-tab>
+            <ng-template ngbTabTitle>
+              Dr. Maria
+            </ng-template>
+
+            <ng-template ngbTabContent>
+
+            </ng-template>
+
+          </ngb-tab>
+        </ngb-tabset>
+
+
+        <!--all doctors inner tabs with content-->
+
+
+        <ng-template #innerTabset>
+          <ngb-tabset>
+            <ngb-tab>
+              <ng-template ngbTabTitle>
+                Appointments
+              </ng-template>
+              <ng-template ngbTabContent>
+                <h3>Appointments</h3>
+                <app-datatables></app-datatables>
+              </ng-template>
+            </ngb-tab>
+            <ngb-tab>
+              <ng-template ngbTabTitle>
+                Appointments History
+              </ng-template>
+              <ng-template ngbTabContent>
+                <h3>Appointments History</h3>
+                <app-datatables></app-datatables>
+              </ng-template>
+            </ngb-tab>
+            <ngb-tab>
+              <ng-template ngbTabTitle>
+                Calendar
+              </ng-template>
+              <ng-template ngbTabContent>
+                <div class="col-sm-8">
+                  <app-appointmentcalender></app-appointmentcalender>
+                </div>
+              </ng-template>
+            </ngb-tab>
+          </ngb-tabset>
+        </ng-template>
+
+        <!--all doctors inner tabs with content end-->
+
+
+
+
+
+      </div>
+    </div>
+  </div>
+</main>
+
+
+
+
+
+
+
+
+
+
+

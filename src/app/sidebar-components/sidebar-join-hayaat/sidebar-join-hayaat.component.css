@@ -1,0 +1,29 @@
+.side-bar-join-hayaat-background {
+  background: url("../../../assets/images/side-bar-components/sidebar-join-hayaat.png");
+  background-repeat: no-repeat;
+  padding-bottom: 407px;
+  position: relative;
+  background-size: cover;
+  border-radius: 5px;
+}
+.side-bar-join-hayaat-background a{
+  background: #1A237E;
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 18px;
+  font-weight: 400;
+  display: inline-block;
+  text-align: center;
+  left: 16px;
+  bottom: 33px;
+  padding: 9px 20px;
+  border-radius: 5px;
+  position: absolute;
+}
+.side-bar-join-hayaat-background a:hover {
+  background: #fff;
+  color: #1A237E;
+}
+.side-bar-sign-up {
+  padding: 30px 0 0;
+}

@@ -1,0 +1,145 @@
+.tg-tabs-nav{
+	width: 100%;
+	float: left;
+	text-align: left;
+	list-style: none;
+	line-height: 20px;
+	position: relative;
+	text-transform: uppercase;
+	font: 14px/17px 'Poppins', sans-seriff;
+}
+.tg-tabs-nav ngb-tab{
+	float: left;
+	line-height: inherit;
+	list-style-type: none;
+}
+.tg-tabs-nav ngb-tab ng-template {
+    color: #fff;
+    display: block;
+    height: 50px;
+    padding: 12px 30px 0;
+    position: relative;
+    text-align: center;
+}
+.tg-tabs-nav ngb-tab ng-template:hover {
+    background: #1A237E none repeat scroll 0 0 !important;
+    color: white !important;
+}
+.tg-tabs-nav ngb-tab ng-template:hover i{
+	color:#fff !important;
+}
+.search_banner.tg-btn{
+	width:100%;
+}
+.tg-tabs-nav ngb-tab ng-template:after{
+	content: '';
+	width: 0;
+	height: 100%;
+	background: #fff;
+	z-index: -1;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+.tg-tabs-nav ngb-tab ng-template:before{
+	content: none;
+	width: 4px;
+	height: 0;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+.tg-tabs-nav li.active a:after,
+.tg-tabs-nav ngb-tab ng-template:hover:after{width: 100%;}
+.tg-tabs-nav ngb-tab.active ng-template:before,
+.tg-tabs-nav ngb-tab ng-template:hover:before{height: 100%}
+.tg-tabs-nav ngb-tab ng-template:hover,
+.tg-tabs-nav ngb-tab.active ng-template{color: #5d5955;}
+.tg-tabs-nav ngb-tab ng-template .tg-category, .tg-tabs-nav ngb-tab ng-template i {
+    color: #a5bdc9;
+    display: inline-block;
+    vertical-align: middle;
+    text-transform: capitalize;
+}
+.tg-tabs-nav ngb-tab.active ng-template .tg-category{
+	color:#1A237E;
+}
+.tg-tabs-nav ngb-tab ng-template:hover .tg-category{
+	color:#fff;
+}
+.tg-tabs-nav ngb-tab ng-template i {
+    font-size: 22px;
+    line-height: 28px;
+    padding: 0 5px 0 0;
+}
+.doctor-speciality-search,
+.doctor-city-search,
+.doctor-area-search,
+.blood-type-search{
+    height: 60px;
+    border-width: 1px;
+    padding: 2px 3px;
+    border: none;
+}
+form button{
+  border:none;
+}
+.blood-type-search,
+.city-search-emg,
+.area-search-emg{
+  width: 100%;
+}
+.nav-tabs{
+  border-bottom:0;
+}
+.tg-patientfeedback:hover:after{
+  border-color: #1A237E;
+}
+.tg-patientfeedback:hover{
+  background:  #1A237E;
+}
+
+.tg-box ul li:hover a,
+.tg-box ul #more-speciality a{
+  color: #1A237E;
+}
+.areas-height{
+  height: 185px;
+}
+.home-content-filters .col-md-2,
+.home-content-filters .col-sm-4,
+.home-content-filters .col-xs-6 {
+  padding-right: 0;
+}
+.home-features-sec h3 {
+  font-size: 20px !important;
+}
+@media (max-width:900px){
+  .doctor-speciality-search,
+  .doctor-city-search,
+  .doctor-area-search,
+  .blood-type-search{
+    width: 100%;
+  }
+}
+@media (max-width:900px) {
+  .are-you-doc .tg-heading-border,
+  section.are-you-doc {
+    text-align: center;
+  }{
+    text-align: center;
+  }
+}
+
+@media (max-width: 767px) {
+.tg-healthcareonthego .tg-contentbox h2,
+.tg-healthcareonthego{
+    text-align: center;
+  }
+  .home-content-filters .col-md-2,
+  .home-content-filters .col-sm-4,
+  .home-content-filters .col-xs-6 {
+    padding-right:15px;
+  }
+  .home-main-title{font-size:35px;}
+}

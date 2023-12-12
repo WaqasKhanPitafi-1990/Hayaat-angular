@@ -1,0 +1,79 @@
+.donor-join-hayaat-background {
+  border-radius: 5px;
+  cursor: pointer;
+}
+.donor-invitation input {
+  background: none;
+}
+.donor-invitation {
+  background: #fff;
+  padding: 16px;
+  border: 1px solid #ccc;
+  overflow: hidden;
+  border-radius: 7px;
+}
+.donor-invitation h2{
+  font-size: 18px !important;
+  text-align: center;
+  color: #333333;
+  font-weight: 500;
+}
+.donor-invitation h2 span{
+  font-size: 24px;
+  display: block;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: #1f3a93;
+  padding: 0 30px 0;
+}
+.donor-invitation button{
+  background: #1f3a93 !important;
+  border: none;
+  line-height: 2px;
+  color: #fff;
+  height: 40px !important;
+  margin: 0 0 15px;
+}
+.donor-social-links ul li {
+  float: left;
+  width: 17%;
+  list-style: none;
+}
+.donor-social-links ul {
+  overflow: hidden;
+  display: block;
+  padding: 0 0 0 32px;
+  margin: 0 0 15px;
+}
+.donor-social-links ul li.facebook a {
+  border-color: #4C76BE;
+  color: #4C76BE;
+}
+.donor-social-links ul li.facebook a:hover{
+  color: #fff;
+}
+.donor-social-links ul li a {
+  width: 30px;
+  height: 30px;
+  border: 1px solid;
+  display: block;
+  border-radius: 50%;
+  text-align: center;
+  transition: .4s all;
+  line-height: 29px;
+}
+.copy-code input {
+  width: 210px;
+  height: 40px;
+}
+.copy-code button {
+  background: #ccc !important;
+}
+.blood-donor-sign-up{
+  padding-top: 27px;
+}
+@media (max-width: 767px) {
+  .blood-donor-sign-up {
+    display: none;
+  }
+}

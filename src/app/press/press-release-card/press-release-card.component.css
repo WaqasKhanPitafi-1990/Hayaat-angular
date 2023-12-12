@@ -1,0 +1,14 @@
+.press-release-img-container {
+  width: 30% !important;
+  cursor: pointer !important;
+;
+}
+.press-release-checkbox,
+.press-release-img{
+  min-height: 165px !important;
+  height: 165px !important;
+}
+.press-release-checkbox .tg-description p {
+  color: #000;
+}
+

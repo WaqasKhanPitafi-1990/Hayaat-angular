@@ -1,0 +1,177 @@
+<div class="col-md-9" (mouseenter)="checkSplit()">
+  <div id="navbar-example">
+    <ngb-tabset class="doctor-info-tab">
+      <ngb-tab>
+        <ng-template ngbTabTitle >
+          <i class="fa fa-info-circle" aria-hidden="true"></i> Info
+        </ng-template>
+          <ng-template ngbTabContent>
+
+            <div class="content-area" *ngFor="let location of doctorLocation, let i = index" >
+              <div class="title">
+                <span class="icon-circle-color"><i class="fa fa-map-marker" aria-hidden="true"></i></span>
+                <span><p>{{location.address}}</p></span>
+              </div>
+              <div class="col-md-6 map-div">
+                <agm-map [latitude]="lat" [longitude]="lng" >
+                  <agm-marker
+                    (markerClick)="clickedMarker(location.address, i)"
+                    [latitude]="location.lat"
+                    [longitude]="location.long">
+                    <agm-info-window>
+                      <div class="map-popup-details">
+                        <div class="col-md-5 no-padding">
+                          <img src="{{imagepath + '/uploads/profile/avatar-hospital.png'}}" class="img-responsive" alt="Hayaat.pk - Find doctor, Blood donor &amp; Nearest Emergency Center">
+                        </div>
+                        <div class="no-padding col-md-7">
+                          <h6 class="name">
+                            <a href="">{{location.address}}</a></h6>
+                          <!--<p class="phone"><i class="fa fa-phone" aria-hidden="true"></i><span> {{location.phone}}</span></p>-->
+                          <p class="address"><i class="fa fa-map-marker" aria-hidden="true"></i><span> {{location.address}}</span></p>
+                          <!--<button type="button" class="get-direction-btn" data-lat="31.4660965" data-lng="74.27387449999992"><i class="fa fa-location-arrow" aria-hidden="true"></i><span>Get Direction</span></button>-->
+                        </div><p class="status"><span>Available</span></p></div>
+                    </agm-info-window>
+                  </agm-marker>
+                </agm-map>
+              </div>
+              <div class="col-md-6">
+                <table class="table table table-bordered table-striped doctor-timing">
+                  <tbody *ngFor="let timing of location.timings">
+                  <tr>
+                    <td colspan="2"><h3>Timings</h3></td>
+                  </tr>
+                  <tr>
+                    <th>Monday</th>
+                    <td *ngIf="timing.monday_status !== 0">{{timing.monday_start}} - {{timing.monday_end}}</td>
+                    <td *ngIf="timing.monday_status === 0">Not Available</td>
+                  </tr>
+                  <tr>
+                    <th>Tuesday</th>
+                    <td *ngIf="timing.tuesday_status !== 0">{{timing.tuesday_start}} - {{timing.tuesday_end}}</td>
+                    <td *ngIf="timing.tuesday_status === 0">Not Available</td>
+                  </tr>
+
+                  <tr>
+                    <th>Wednesday</th>
+                    <td *ngIf="timing.wednesday_status !== 0">{{timing.wednesday_start}} - {{timing.wednesday_end}}</td>
+                    <td *ngIf="timing.wednesday_status === 0">Not Available</td>
+                  </tr>
+                  <tr>
+                    <th>Thursday</th>
+                    <td *ngIf="timing.thursday_status !== 0">{{timing.thursday_start}} - {{timing.thursday_end}}</td>
+                    <td *ngIf="timing.thursday_status === 0">Not Available</td>
+                  </tr>
+                  <tr>
+                    <th>Friday</th>
+                    <td *ngIf="timing.friday_status !== 0">{{timing.friday_start}} - {{timing.friday_end}}</td>
+                    <td *ngIf="timing.friday_status === 0">Not Available</td>
+                  </tr>
+                  <tr>
+                    <th>Saturday</th>
+                    <td *ngIf="timing.saturday_status !== 0">{{timing.saturday_start}} - {{timing.saturday_end}}</td>
+                    <td *ngIf="timing.saturday_status === 0">Not Available</td>
+                  </tr>
+                  <tr>
+                    <th>Sunday</th>
+                    <td *ngIf="timing.sunday_status !== 0">{{timing.sunday_start}} - {{timing.sunday_end}}</td>
+                    <td *ngIf="timing.sunday_status === 0">Not Available</td>
+                  </tr>
+                  </tbody>
+                </table>
+
+              </div>
+            </div>
+
+            <div class="title">
+              <span class="icon-circle-color"><i class="fa fa-user-md" aria-hidden="true"></i></span>
+              <span><h4>About</h4></span>
+            </div>
+            <div class="content-area aboutus">
+              <p>{{doctorInfo.bio}}</p>
+            </div>
+            <div class="row">
+              <div class="col-md-4">
+                <div class="title">
+                  <span class="icon-circle-color"><i class="fa fa-stethoscope" aria-hidden="true"></i></span>
+                  <span><h4>Specialities</h4></span>
+                </div>
+                <div class="content-area">
+                  <ul>
+                    <li *ngFor="let speciality of doctorInfo.specialities"><i class="fa fa-check" aria-hidden="true"></i>{{speciality.name}}</li>				</ul>
+                </div>
+              </div>
+              <div class="col-md-5">
+                <div class="title">
+                  <span class="icon-circle-color"><i class="fa fa-graduation-cap" aria-hidden="true"></i></span>
+                  <span><h4>Education</h4></span>
+                </div>
+                <div class="content-area">
+                  <ul>
+                    <li *ngFor="let ed of eduArr"><i class="fa fa-check" aria-hidden="true"></i>{{ed}}</li>
+                    <!--<li><i class="fa fa-check" aria-hidden="true"></i> MS(Orthopaedic Surgery)</li><li><i class="fa fa-check" aria-hidden="true"></i> Fellow of Spine Surgery NTUH(Taiwan)</li>				-->
+                    </ul>
+                </div>
+              </div>
+            </div>
+          </ng-template>
+        </ngb-tab>
+        <ngb-tab>
+          <ng-template ngbTabTitle>
+            <i class="fa fa-user-md" aria-hidden="true"></i> Services
+           </ng-template>
+
+          <ng-template ngbTabContent >
+            <div class="title">
+              <span class="icon-circle-color"><i class="fa fa-user-md" aria-hidden="true"></i></span>
+              <span><h4>Services</h4></span>
+            </div>
+            <div class="content-area services">
+              <div class="col-md-12">
+                <ul>
+                  <li *ngFor="let service of drService"><i class="fa fa-check" aria-hidden="true"></i>{{service}} </li>
+                </ul>
+              </div>
+            </div>
+          </ng-template>
+
+      </ngb-tab>
+      <ngb-tab>
+        <ng-template ngbTabTitle>
+          <i class="fa fa-star" aria-hidden="true"></i> Reviews
+        </ng-template>
+
+        <ng-template ngbTabContent *ngIf="reviews">
+          <div class="title">
+            <h4 class="text-center">No Review Posted Yet...!</h4>
+          </div>
+        </ng-template>
+        <ng-template ngbTabContent *ngIf="!reviews">
+          <div class="title-feedback" *ngFor="let feedback of doctorInfo.feedbacks">
+            <div class="feebdback-date-img">
+              <div class="feedback-img" >
+                <img src="https://www.hayaat.pk/hayaatAdmin/uploads/doctor/avatar.jpg">
+                <div class="reviews">
+                  <app-doctorratings [doctorFeedback]="feedback.rating" [colorFeedback]="'orange'" ></app-doctorratings>
+                </div>
+              </div>
+              <div class="feedback-time">
+                <span>Date: {{feedback.date}}</span>
+                <span>Time: {{feedback.time}}</span>
+              </div>
+            </div>
+              <div class="feedback-msg">
+                <span>{{feedback.feedback}}</span>
+              </div>
+
+          </div>
+
+        </ng-template>
+
+      </ngb-tab>
+    </ngb-tabset>
+  </div>
+
+
+
+
+</div>

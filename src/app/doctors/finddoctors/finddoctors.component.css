@@ -1,0 +1,75 @@
+.doctor-content-listing{
+  background: #f7f7f7;
+}
+
+.doctor-speciality-search,
+.doctor-city-search,
+.doctor-area-search,
+.blood-type-search,
+.doctor-fee-search{
+    height: 50px;
+    border-width: 1px;
+    padding: 2px 3px;
+    border: 1px solid #ccc;
+}
+form button{
+  border:none;
+}
+.blood-type-search,
+.city-search-emg,
+.area-search-emg,
+.doctor-speciality-search{
+  width: 100%;
+}
+.nav-tabs{
+  border-bottom:0;
+}
+.tg-patientfeedback:hover:after{
+  border-color: #1A237E;
+}
+.tg-patientfeedback:hover{
+  background:  #1A237E;
+}
+.filters{
+  background: #fff;
+  padding: 22px 17px ;
+}
+.filters .form-group{
+  margin-bottom: 0;
+}
+
+.doctor-gender-button{
+  padding:23px 0 0;
+  width: 100%;
+}
+
+.custom-filters .mat-form-field-infix
+{
+  padding: 0;
+  border: 0;
+}
+
+.custom-filters{
+  width: 100% !important;
+}
+.gender-button button.active{
+  background: #1A237E;
+  color: white;
+}
+.doctor-page-heading {
+  font-size: 35px;
+  color: #fff;
+  padding-top: 32px;
+}
+@media( max-width: 767px) {
+  .doctor-page-heading {
+    padding-top:0 !important;
+  }
+  .tg-innerbanner{height:auto !important;}
+  #doctor-search, #donor-search {
+    border: none;
+    border-radius: 5px;
+    padding: 1px 15px 0 10px !important;
+  }
+  .doctor-content-listing .search-main-header-div{margin-top: 10px !important;}
+}

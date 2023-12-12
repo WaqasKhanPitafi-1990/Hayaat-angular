@@ -1,0 +1,76 @@
+<!--<ul>-->
+  <!--<li *ngFor = 'let clinic of clinics'>-->
+    <!--<div class="row emergency-card">-->
+      <!--<div class="col-sm-8">-->
+        <!--<div class='outerclass'>-->
+          <!--<div class='col-sm-3'>-->
+            <!--<div class='emergency-img'>-->
+              <!--<img src="./assets/images/male.png" class="img-responsive img-circle" alt="Hayaat.pk - Find doctor, Blood donor &amp; Nearest Emergency Center">-->
+            <!--</div>-->
+          <!--</div>-->
+          <!--<div class='col-sm-9'>-->
+            <!--<div class='emergency-content'>-->
+              <!--<div class="emergency-detail">-->
+                <!--<h3><a href="doctors/kuQBc/Dr-Naeem-Rustam-Eyespecialist-Lahore.html">{{clinic.name}}</a></h3>-->
+                <!--<address><i class="fa fa-street-view" aria-hidden="true"></i>{{clinic.address}}</address>-->
+                <!--<button data-toggle="modal" data-target=".user-login" class="btn btn-md btn-primary">View Map</button>-->
+              <!--</div>-->
+            <!--</div>-->
+          <!--</div>-->
+          <!--<div class="blood-ribbon">-->
+            	<!--<div class="tg-docprofile-content">-->
+            		<!--<div class="tg-description">-->
+                    <!--<p>Available</p>-->
+								<!--</div>-->
+							<!--</div>-->
+          <!--</div>-->
+        <!--</div>-->
+      <!--</div>-->
+      <!--<div class='col-sm-4'></div>-->
+    <!--</div>-->
+  <!--</li>-->
+<!--</ul>-->
+
+
+<div class="search-results"
+     infinite-scroll
+     [infiniteScrollDistance]= "scrollDistance"
+     [infiniteScrollThrottle]="300"
+     (scrolled)="onScrollDown()">
+  <div class="row">
+    <div class="col-sm-9 padding-right-0 " *ngIf="noEmergency" >
+      <h2 style="text-align: center; padding:50px 0" >No Emergency Found....!!</h2>
+    </div>
+
+    <div class="col-sm-9 padding-right-0 " *ngIf="!noEmergency" >
+      <ul class="emergency-card-ul">
+        <li *ngFor = 'let hospital of emergencyData' class="col-sm-3">
+          <div class=" emergency-card">
+            <div class='outerclass'>
+              <div class='emergency-img'>
+                <img src="./assets/images/emergency_avatar.png" class="img-responsive img-circle" alt="Hayaat.pk - Find doctor, Blood donor &amp; Nearest Emergency Center">
+              </div>
+              <div class='emergency-content'>
+                <div class="emergency-detail">
+                  <h3>{{hospital.name | truncate: 20 : '..'}}</h3>
+                  <address>{{hospital.address | truncate: 45 : '..'}}</address>
+                  <!--<button data-toggle="modal" data-target=".user-login" class="btn btn-md btn-primary">View Map</button>-->
+                  <app-view-emergency-map [emergencyLngLat]="hospital"></app-view-emergency-map>
+                </div>
+              </div>
+            </div>
+            <!--<div class="blood-ribbon">-->
+              <!--<div class="tg-docprofile-content">-->
+                <!--<div class="tg-description">-->
+                  <!--<p>Available</p>-->
+                <!--</div>-->
+              <!--</div>-->
+            <!--</div>-->
+          </div>
+
+        </li>
+      </ul>
+    </div>
+    <app-sidebar-emergency></app-sidebar-emergency>
+  </div>
+</div>

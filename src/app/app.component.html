@@ -1,0 +1,24 @@
+<!--The content below is only a placeholder and can be replaced.-->
+
+<!--<app-header></app-header>-->
+
+
+<mat-sidenav-container class="example-sidenav-container">
+  <button type="button" mat-button (click)="sidenav.open()">
+    <i class="fa fa-navicon" ></i>
+  </button>
+  <mat-sidenav #sidenav align="end" class="example-sidenav">
+    <i class="fa fa-times" aria-hidden="true" (click)="sidenav.close()"></i>
+    <app-sidebar (click)="sidenav.close()"></app-sidebar>
+  </mat-sidenav>
+
+  <div class="example-sidenav-content">
+
+    <app-header></app-header>
+    <router-outlet></router-outlet>
+    <app-footer></app-footer>
+  </div>
+
+</mat-sidenav-container>
+
+

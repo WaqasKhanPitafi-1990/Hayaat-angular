@@ -1,0 +1,8 @@
+<mat-form-field class="example-full-width speciality-filter">
+  <input type="text" placeholder="Select Speciality" aria-label="Speciality" matInput [formControl]="myControl" [matAutocomplete]="auto">
+  <mat-autocomplete #auto="matAutocomplete" (optionSelected)="doctorSpeciality($event.option.value)">
+    <mat-option *ngFor="let option of filteredSpecialityOptions | async" [value]="option.name" >
+      {{ option.name }}
+    </mat-option>
+  </mat-autocomplete>
+</mat-form-field>

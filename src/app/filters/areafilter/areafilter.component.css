@@ -1,0 +1,10 @@
+.area-filter .mat-form-field-infix{
+  padding: 0;
+  border: 0;
+}
+.area-filter .mat-form-field-infix input{
+  border:none;
+}
+.area-filter {
+  width: 100% !important;
+}

@@ -1,0 +1,56 @@
+<a class="tg-doner-detail" (click)=" getDonorDetail(template, template2); " style="cursor: pointer;"> More Detail ></a>
+
+<ng-template #template>
+<div class="tg-modal-content donor-detail">
+  <p id="donor-blood-group">{{donorView.blood_group_name}}
+    <span *ngIf= "donorView.blood_group_name == 'A+' || donorView.blood_group_name == 'B+' || donorView.blood_group_name == 'O+'  || donorView.blood_group_name == 'AB+'">(Positive)</span>
+    <span *ngIf= "donorView.blood_group_name == 'A-' || donorView.blood_group_name == 'B-' || donorView.blood_group_name == 'O-'  || donorView.blood_group_name == 'AB-'">(Negative)</span>
+  </p>
+  <dl>
+    <h3 id="donor-name">{{donorView.name}}</h3>
+    <dt *ngIf="donorView.age !== '0'">Age:</dt>
+    <dd *ngIf="donorView.age !== '0'">{{donorView.age}}</dd>
+    <dt>Gender:</dt>
+    <dd>{{donorView.gender}}</dd>
+    <dt>Mobile:</dt>
+    <dd>{{donorView.mobile}}</dd>
+    <dt *ngIf="donorView.email">Email:</dt>
+    <dd *ngIf="donorView.email">{{donorView.email}}</dd>
+    <dt *ngIf="donorView.area">Area:</dt>
+    <dd *ngIf="donorView.area">{{donorView.area}}</dd>
+    <dt>City:</dt>
+    <dd>{{donorView.city}}</dd>
+    <dt *ngIf="donorView.address">Address</dt>
+    <dd *ngIf="donorView.address">{{donorView.address}}</dd>
+  </dl>
+</div>
+
+</ng-template>
+<ng-template #template2>
+  <div class="tg-modal-content">
+    <form class="login-form form" id="login-blog-form" [formGroup] = "form" #loginForm="ngForm" (submit)="userLogin(form.value)">
+      <h3 class="text-center footer-feedback-title">Please Login First.</h3>
+      <fieldset>
+        <mat-form-field>
+          <input matInput  type="text"  formControlName="username" class="form-control" placeholder="Mobile Number or Email"  >
+        </mat-form-field>
+
+        <mat-form-field>
+          <input matInput type="password" formControlName="password" class="form-control" placeholder="Password"   >
+        </mat-form-field>
+
+        <div class="form-group tg-checkbox">
+          <label>
+            <input type="checkbox" formControlName="remember" class="form-control"  >
+            Remember Me
+          </label>
+          <app-forgetpassword></app-forgetpassword>
+        </div>
+        <button class="tg-btn tg-btn-lg blog-login-btn" type="submit" id="login-button">Login</button>
+        <span>OR</span>
+        <a class="tg-btn tg-btn-lg blog-signup-btn" (click)="modalRef.hide()"  routerLink="/join-hayaat" id="signup-button">Join Hayaat</a>
+      </fieldset>
+    </form>
+  </div>
+</ng-template>
+

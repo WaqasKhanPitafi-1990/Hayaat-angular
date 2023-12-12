@@ -1,0 +1,80 @@
+<main class="tg-main-section tg-haslayout doctor-signup-main-section" id="main">
+  <!--<div class="container">-->
+    <div class="row">
+      <div class="doctor-signup-content">
+        <div class="col-sm-6" style="padding: 0;">
+          <div class="doctor-signup-section">
+            <div class="doctor-signup-left">
+              <div class="doctor-img-signup">
+                <img src="./assets/images/doctor.png">
+              </div>
+              <span class="doctor-signup-text">sign up as doctor</span>
+              <a routerLink="/join-hayaat" class="join-user"><i class="fa fa-long-arrow-left" aria-hidden="true"></i> Back </a>
+            </div>
+          </div>
+        </div>
+        <div class=" col-sm-6" style="padding: 0;">
+          <div class="signup-section ">
+            <h2>Sign Up</h2>
+            <span class="fill-info">Please fill your infomation bellow</span>
+            <form class="doctor-signup-form" id="doctor-signup-form" [formGroup] = "form" (submit)="doctorSignUp(form.value)">
+              <fieldset>
+
+                <!--<mat-form-field class="example-full-width">-->
+                <!--<input matInput placeholder="Email" [formControl]="emailFormControl">-->
+                <!--<mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">-->
+                <!--Please enter a valid email address-->
+                <!--</mat-error>-->
+                <!--<mat-error *ngIf="emailFormControl.hasError('required')">-->
+                <!--Email is <strong>required</strong>-->
+                <!--</mat-error>-->
+                <!--</mat-form-field>-->
+
+                <mat-form-field class="example-full-width">
+                  <input matInput type="text" placeholder="NAME" formControlName="name">
+                </mat-form-field>
+
+                <mat-form-field>
+                  <input matInput  type="email"  formControlName="email" placeholder="EMAIL ID">
+                </mat-form-field>
+
+                <mat-form-field>
+                  <input matInput  type="text"  formControlName="phone" placeholder="PHONE NUMBER">
+                </mat-form-field>
+
+                <mat-form-field>
+                  <input matInput type="password" formControlName="password" placeholder="PASSWORD">
+                </mat-form-field>
+
+                <mat-form-field >
+                  <mat-select placeholder="SELECT CITY" formControlName="city">
+                    <mat-option *ngFor="let city of cities" [value]="city.id">
+                      {{ city.name }}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+
+                <mat-form-field>
+                  <textarea formControlName="message" matInput placeholder="Type Your Message (optional)"></textarea>
+                </mat-form-field>
+
+                <mat-radio-group formControlName="gender">
+                  <mat-radio-button value="1">MALE</mat-radio-button>
+                  <mat-radio-button value="2">FEMALE</mat-radio-button>
+                </mat-radio-group>
+
+                <div class="form-group tg-checkbox">
+                  <label>
+                    <input type="checkbox" class="form-control" formControlName = "terms">
+                    I Accept terms and conditions & privacy policy
+                  </label>
+                </div>
+                <button [disabled]="loginGif" class="tg-btn tg-btn-lg" type="submit" id="login-doctor"><img *ngIf="loginGif" src="../../../assets/images/loader.gif" style="width: 28px">Sign Up</button>
+              </fieldset>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  <!--</div>-->
+</main>

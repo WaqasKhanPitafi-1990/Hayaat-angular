@@ -1,0 +1,30 @@
+app-frontdesk .doctor-detail-tab > .nav-tabs {
+  float: left;
+  width: 25%;
+  margin: 0 10px 0 0
+}
+app-frontdesk .doctor-detail-tab > .nav-tabs li a.active{
+  background: #1a237e;
+  color: #fff;
+}
+app-frontdesk .doctor-detail-tab > .nav-tabs li{
+  width: 100%;
+}
+
+app-userprofileinfo .doctor-detail-tab ngb-tabset  {
+  overflow: hidden;
+  width: 75%;
+  text-align: center;
+  background: white;
+}
+.doctor-detail-tab .tab-content ngb-tabset .nav-tabs{
+  overflow: hidden;
+}
+.doctor-detail-tab .tab-content ngb-tabset .nav-tabs .nav-item {
+  width: 25%;
+  text-align: center;
+}
+
+.doctor-detail-tab .tab-content ngb-tabset .nav-tabs .nav-item a.active{
+  border-style: solid none none none;
+}

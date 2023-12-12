@@ -1,0 +1,242 @@
+.order-buttons .btn-primary{
+  background: #303ea0;
+  border:none;
+}
+.order-buttons .btn-info{
+  background: #939393;
+  border:none;
+}
+.pharmacy-order-info {
+  margin: 0 0 20px;
+  overflow: hidden;
+}
+.order-buttons{
+  text-align: center;
+}
+.pharmacy-order-container {
+  padding: 35px 0;
+}
+.order-header {
+  margin: 0 0 35px;
+  text-align: center;
+}
+.order-header h1 {
+  font-size: 26px;
+  text-align: center;
+  font-weight: 400;
+  display: inline-block;
+}
+.order-header .cancel-popup{
+  float: right;
+  display: inline-block;
+  margin: 0 15px 0 0;
+  color: #ff00009e;
+}
+.pharmacy-order-form,
+.pharmacy-order-detail{
+  background: #fff;
+  padding: 20px;
+  overflow: hidden;
+  box-shadow: 0 -1px 19px -2px rgba(0,0,0,0.1);
+}
+.pharmacy-order-form h2,
+.pharmacy-order-detail h2{
+  margin: 0 0 10px;
+  font-size: 18px !important;
+}
+ul.pharmacy-logo-list {
+  margin: 0 0 30px;
+}
+ul.pharmacy-logo-list li {
+  display: inline-block;
+  list-style: none;
+  width: 15%;
+  cursor: pointer;
+  position: relative;
+  margin: 0 5px 0 0;
+}
+ul.pharmacy-logo-list li:after{
+  display: block;
+  position: absolute;
+  content: '';
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  opacity: 0.6;
+}
+ul.pharmacy-logo-list li.active{
+  border: 2px solid;
+  border-color: #1a237e;
+  border-radius: 5px;
+  padding: 5px;
+}
+ul.pharmacy-logo-list li.active:after{
+  opacity: 0;
+}
+.pharmacy-order .btn-file-upload{
+  display: inline-block !important;
+  width: 50%;
+  background: #007bff;
+  height: 40px;
+  padding: 9px 0 0 12px;
+}
+.pharmacy-order .btn-file-upload i {
+  font-size: 18px;
+  float: left;
+}
+.pharmacy-order .thumbnails a img {
+  width: 42px;
+}
+.upload-image-section{
+  margin: 0 0 25px;
+  overflow: hidden;
+}
+.pharmacy-order .thumbnails{
+  display: inline-block;
+}
+.delivery-container,
+.payment-container{
+  overflow: hidden;
+  margin-bottom: 25px;
+}
+.delivery-container ul,
+.payment-container ul{
+  padding-left: 15px ;
+}
+.delivery-container h3,
+.payment-container h3{
+  font-size: 13px;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+.delivery-container ul li,
+.payment-container ul li,
+.branches-container ul li{
+  list-style: none;
+  float: left;
+  background: #e7e7e7;
+  color: #a0a0a0;
+  padding: 10px 0;
+  margin: 0 26px 0 0;
+  width: 135px;
+  text-align: center;
+  position: relative;
+  cursor: pointer;
+  border-radius: 3px;
+}
+.delivery-container ul li .done-icon,
+.payment-container ul li .done-icon,
+.branches-container ul li .done-icon{
+  position: absolute;
+  border: 3px solid #fff;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  left: -17px;
+  background: #ccc;
+  text-align: center;
+}
+.delivery-container ul li .done-icon i,
+.payment-container ul li .done-icon i,
+.branches-container ul li .done-icon i{
+  font-size: 20px;
+  color: #fff;
+}
+.delivery-container ul li.active,
+.payment-container ul li.active{
+  background: #82d2db;
+  color: #fff;
+}
+.delivery-container ul li.active .done-icon,
+.payment-container ul li.active .done-icon{
+  background: #82d2db;
+}
+.branches-container{
+  padding:30px 0 0;
+  overflow: hidden;
+  margin-bottom: 25px;
+}
+.branches-container ul li {
+  width: 27%;
+  margin: 0 25px 7px 0;
+  text-align: left;
+  height: 85px;
+  background: #f7f7f7;
+  padding: 5px 0 7px 17px;
+}
+.branches-container ul li .branch-pin-heading {
+  color: #282b39;
+  font-size: 17px;
+  font-weight: bold;
+  line-height: 19px;
+  display: block;
+}
+.branches-container ul li address {
+  font-size: 12px;
+  font-style: normal;
+  color: #000;
+}
+.branches-container ul li .done-icon {
+  border-color: #000;
+  background: #f7f7f7;
+  top: 25px;
+}
+.branches-container ul li .done-icon i {
+  color: #000;
+}
+.branches-container ul {
+  overflow-y: scroll;
+  padding: 0 0 0 20px;
+  height: 200px;
+}
+.branches-container ul li.active .done-icon {
+  background: #000;
+}
+.branches-container ul li.active .done-icon i {
+  color: #fff;
+}
+.order-buttons button {
+  width: 20%;
+  border-radius: 3px;
+  text-transform: uppercase;
+  font-size: 14px;
+}
+.order-buttons button i {
+  float: left;
+  font-size: 18px;
+  transform: rotate(320deg);
+}
+.branch-header{
+  overflow: hidden;
+  margin: 0 0 30px;
+}
+.order-detail-content span {
+  display: block;
+  margin-bottom: 10px;
+}
+.order-detail-content b {
+  font-size: 10px;
+}
+.order-detail-content h6 {
+  color: #1A237E;
+}
+.upload-image-section span {
+  position: absolute;
+  bottom: 12px;
+  left: 17px;
+  font-size: 10px;
+}
+.pharmacy-points{
+  margin: 0 0 20px;
+}
+.pharmacy-points ul li {
+  font-size: 13px;
+}
+.order-buttons .mat-checkbox {
+  display: block;
+  margin: 0 0 5px;
+  text-align: left;
+  color: grey;
+}

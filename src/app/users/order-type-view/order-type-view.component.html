@@ -1,0 +1,124 @@
+<a *ngIf="prescriptionData" class="view-pres" (click)="openModal(template)" style="cursor: pointer;"><i class="material-icons">assignment</i> </a>
+<a *ngIf="invoiceData" class="view-pres" (click)="openModal(template)" style="cursor: pointer;"><i class="material-icons">insert_drive_file</i> </a>
+
+<ng-template #template>
+  <div class="modal-width">
+    <div class="tg-modal-content">
+      <div class="inovice-detail-view" *ngIf="invoiceData">
+        <div class="col-sm-12">
+          <div class="invoice-header">
+            <h1>Invoice  #{{invoiceData.invoice_number}}</h1>
+            <!--<span class="invoice-no">-->
+            <!--<a class="btn btn-raised btn-secondary print-invoice" href="javascript:void(0)" onclick="print()"><i class="fa fa-print" aria-hidden="true"></i> Print</a>-->
+            <!--</span>-->
+          </div>
+          <hr>
+          <div class="invoice-person-info invoice-dl">
+            <h2>Customer Info</h2>
+            <dl>
+              <dt>Name:</dt>
+              <dd>{{invoiceData.customer_name}}</dd>
+              <dt>Number:</dt>
+              <dd>{{invoiceData.customer_mobile}}</dd>
+              <dt>Address:</dt>
+              <dd>{{invoiceData.customer_address}}</dd>
+            </dl>
+            <div class="invoice-date">
+              <span><b>Invoice Date:</b> {{invoiceData.date}}</span>
+              <span *ngIf="invoiceData.is_homedelivery === 0"><b>Order Type:</b> Pick up</span>
+              <span *ngIf="invoiceData.is_homedelivery === 1"><b>Order Type:</b> Home Delivery</span>
+              <span *ngIf="invoiceData.cash_payment === 1"><b>Payment Type:</b> Cash</span>
+              <span *ngIf="invoiceData.cash_payment === 0"><b>Payment Type:</b> Credit</span>
+              <span><b>Branch Name:</b> {{invoiceData.branch_name}}</span>
+              <!--<span><b>Branch Area:</b> {{invoiceData.customer_area}}</span>-->
+              <!--<span><b>Order Type:</b> {{invoiceData.}}</span>-->
+              <!--<span><b>Payment Type:</b> {{invoiceData.date}}</span>-->
+            </div>
+          </div>
+          <div class="personal-info">
+            <h2>Orders Info</h2>
+            <!--<a routerLink="" (click)="addItem()" class="addmore" ><i class="fa fa-plus-circle" aria-hidden="true"></i> Add more</a>-->
+            <div class="card-body">
+              <div class="card-block">
+                <!--<ng2-smart-table [settings]="settings" [source]="source"></ng2-smart-table>-->
+                <table class="table">
+                  <thead>
+                  <tr>
+                    <th>#</th>
+                    <th>Item Name</th>
+                    <th>Price</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                  <tr *ngFor="let product of invoiceData.invoiceItems; let i = index">
+                    <th scope="row">{{i + 1}}</th>
+                    <td>{{product.name}}</td>
+                    <td>{{product.price}}</td>
+                  </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <div class="sub-total">
+              <dl>
+                <dt>Sub - Total amount:</dt>
+                <dd>Rs {{invoiceData.sub_total}}</dd>
+                <span *ngIf="invoiceData.discount">
+                <dt *ngIf="invoiceData.discount.other_promo">Discount:</dt>
+                <dd *ngIf="invoiceData.discount.other_promo">{{invoiceData.discount.other_promo}}%</dd>
+                <dt *ngIf="invoiceData.discount.hayaat_discount">Hayaat Promo:</dt>
+                <dd *ngIf="invoiceData.discount.hayaat_discount">{{invoiceData.discount.hayaat_discount}}%</dd>
+                <dt *ngIf="invoiceData.discount.offer">Offer:</dt>
+                <dd *ngIf="invoiceData.discount.offer">{{invoiceData.discount.offer}}%</dd>
+                </span>
+              </dl>
+            </div>
+          </div>
+          <hr>
+          <div class="proceed-payment">
+            <!--<div class="payment-buttons">-->
+            <!--<a class="btn btn-raised btn-primary" href="javascript:void(0)">Proceed to payment</a>-->
+            <!--<a class="btn btn-raised btn-secondary" href="javascript:void(0)" onclick="print()"><i class="fa fa-print" aria-hidden="true"></i> Print</a>-->
+            <!--</div>-->
+            <h3 class="invoice-total">Total : <span>Rs {{invoiceData.total}}</span><span *ngIf="pathOne" class="hayaat-fee">Hayaat Fee : <b>0%</b></span></h3>
+          </div>
+        </div>
+      </div>
+      <div class="detail-appointment-prescription" *ngIf="prescriptionData">
+        <h2>Prescription</h2>
+        <div class="col-sm-12">
+          <div class="detail-section">
+              <h6>Doctor Detail</h6>
+              <dl>
+                <dt>Name:</dt>
+                <dd>{{prescriptionData.doctor_details.name}}</dd>
+                <dt>Speciality:</dt>
+                <dd>{{prescriptionData.doctor_details.specialities[0].name}}</dd>
+                <dt>Address:</dt>
+                <dd>{{prescriptionData.doctor_details.address}}</dd>
+              </dl>
+          </div>
+          <div class="detail-section">
+            <h6>Patient Detail</h6>
+            <dl>
+              <dt>Name:</dt>
+              <dd>{{prescriptionData.patient_details.name}}</dd>
+              <dt>Mobile:</dt>
+              <dd>{{prescriptionData.patient_details.mobile}}</dd>
+              <dt>Age:</dt>
+              <dd>{{prescriptionData.patient_details.age}}</dd>
+              <dt>Sex:</dt>
+              <dd *ngIf="prescriptionData.patient_details.gender === 2">Female</dd>
+              <dd *ngIf="prescriptionData.patient_details.gender === 1">Male</dd>
+              <dt>Date:</dt>
+              <dd>{{prescriptionData.date_of_creation}}</dd>
+            </dl>
+          </div>
+          <div class="write-prescription">
+            <textarea disabled *ngFor="let item of prescriptionData.items">{{item.item}}</textarea>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-template>

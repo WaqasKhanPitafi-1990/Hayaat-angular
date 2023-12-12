@@ -1,0 +1,8 @@
+@media (max-width: 767px) {
+  .tg-footercol .logo{
+    margin: 0 auto 30px;
+  }
+  #footer{
+    text-align: center;
+  }
+}

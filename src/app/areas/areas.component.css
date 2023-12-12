@@ -1,0 +1,36 @@
+.more-areas-modal {
+  width: 900px;
+  background: #fff;
+  border: 1px solid;
+  border-radius: 5px;
+  padding: 0 21px 20px;
+  display: block;
+  margin: 0 0 0 -130px;
+  overflow: hidden;
+}
+.more-areas-modal li {
+  float: left;
+  width: 32%;
+}
+.more-areas-modal li a {
+  color: #000;
+}
+.more-areas-modal li a:hover{
+  color: #1A237E;
+}
+.cancel-popup {
+  float: right;
+  display: inline-block;
+  margin: 5px 0px 0 0;
+  color: #ff00009e;
+}
+@media (max-width:767px){
+  .more-areas-modal{
+    width:100%;
+    margin:0;
+  }
+  .more-areas-modal li {
+    float: left;
+    width: 50%;
+  }
+}

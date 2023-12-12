@@ -1,0 +1,9 @@
+agm-map {
+  height: 400px;
+}
+
+.map-popup-details {
+  width: 380px;
+  display: block;
+  position: relative;
+}

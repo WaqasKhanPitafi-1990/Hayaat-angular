@@ -1,0 +1,10 @@
+.city-filter .mat-form-field-infix{
+  padding: 0;
+  border: 0;
+}
+.city-filter .mat-form-field-infix input{
+  border:none;
+}
+.city-filter {
+  width: 100% !important;
+}

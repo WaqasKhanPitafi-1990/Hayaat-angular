@@ -1,0 +1,39 @@
+.recent-blog {
+  background: #fff;
+  padding: 25px 11px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+.recent-blog h2 {
+  font-size: 19px !important;
+  text-transform: uppercase;
+  color: #1A237E;
+}
+.recent-blog ul li{
+  list-style: none;
+  margin: 0 0 30px;
+}
+.recent-blog ul li > p{
+  line-height: 16px !important;
+  height: 65px !important;
+  overflow: hidden !important;
+}
+.recent-blog ul li > a{
+  color: #0a77d3;
+}
+.recent-blog .view-all{
+  border: 1px solid #ccc;
+  font-size: 17px;
+  text-transform: uppercase;
+  color: #6a6a6a !important;
+  background: #fff;
+  font-weight: bold;
+  border-radius: 5px;
+  padding: 10px 50px;
+  display: inline-block;
+}
+.recent-blog .view-all:hover{
+  color: #fff !important;
+  background: #1A237E;
+}
+

@@ -1,0 +1,68 @@
+<main id="main" class="tg-haslayout">
+  <div id="tg-innerbanner" class="tg-innerbanner donor-header tg-bglight tg-haslayout" style="background:url('assets/images/pharmacy-top-bg.png') no-repeat scroll center bottom / cover;height:250px;">
+    <div class="tg-searcharea tg-haslayout">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="pharmacy-heading">
+              <span>Find Your</span>
+              <h2>Reliable pharmacy</h2>
+              <span>Medicines Delivered At Your Doorsteps</span>
+            </div>
+          </div>
+          <div class="col-md-6 search-main-header-div" style="margin-top:60px;">
+            <!--<input type="text" name="" class="form-control" id="donor-search" placeholder="Search Pharmacy By Name, City, Area" #branchKeyUp (keyup)=" pharmacyBranchByKeyUp(branchKeyUp.value)">-->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div style="background:#f7f7f7">
+    <div class="container">
+      <div class="row">
+        <!--<div class="col-md-12 col-sm-12 col-xs-12 tg-verticalmiddle padding-30-top" >-->
+          <!--<div class="row" style="background:#fff;">-->
+            <!--&lt;!&ndash;<div class="col-sm-3 col-xs-12">&ndash;&gt;-->
+              <!--&lt;!&ndash;<mat-form-field class="example-full-width custom-filters">&ndash;&gt;-->
+                <!--&lt;!&ndash;<input type="text" placeholder="Select Pharmacy" aria-label="pharmacy" matInput [formControl]="myControlPharmacy" [matAutocomplete]="autoPharmacy">&ndash;&gt;-->
+                <!--&lt;!&ndash;<mat-autocomplete #autoPharmacy="matAutocomplete" (optionSelected)="pharmacyCurrent($event.option.value)">&ndash;&gt;-->
+                  <!--&lt;!&ndash;<mat-option *ngFor="let option of filteredPharmacyOptions | async" [value]="option.name">&ndash;&gt;-->
+                    <!--&lt;!&ndash;{{ option.name }}&ndash;&gt;-->
+                  <!--&lt;!&ndash;</mat-option>&ndash;&gt;-->
+                <!--&lt;!&ndash;</mat-autocomplete>&ndash;&gt;-->
+              <!--&lt;!&ndash;</mat-form-field>&ndash;&gt;-->
+            <!--&lt;!&ndash;</div>&ndash;&gt;-->
+            <!--<div class="col-sm-3 col-xs-12">-->
+              <!--<mat-form-field class="example-full-width custom-filters">-->
+                <!--<input type="text" placeholder="Select City" aria-label="City" matInput [formControl]="myControlCity" [matAutocomplete]="autoCity">-->
+                <!--<mat-autocomplete #autoCity="matAutocomplete" (optionSelected)="pharmacyCity($event.option.value)">-->
+                  <!--<mat-option *ngFor="let option of filteredCitiesOptions | async" [value]="option.name">-->
+                    <!--{{ option.name }}-->
+                  <!--</mat-option>-->
+                <!--</mat-autocomplete>-->
+              <!--</mat-form-field>-->
+            <!--</div>-->
+            <!--<div class="col-sm-3 col-xs-12">-->
+              <!--<mat-form-field class="example-full-width custom-filters">-->
+                <!--<input type="text" placeholder="Select Area" aria-label="Area" matInput [formControl]="myControlArea" [matAutocomplete]="autoArea">-->
+                <!--<mat-autocomplete #autoArea="matAutocomplete" (optionSelected)="pharmacyArea($event.option.value)">-->
+                  <!--<mat-option *ngFor="let option of filteredAreaOptions | async" [value]="option.name">-->
+                    <!--{{ option.name }}-->
+                  <!--</mat-option>-->
+                <!--</mat-autocomplete>-->
+              <!--</mat-form-field>-->
+            <!--</div>-->
+          <!--</div>-->
+        <!--</div>-->
+
+      </div>
+
+
+    </div>
+    <div class="pharmacy-content">
+      <app-pharmacybrancheslist></app-pharmacybrancheslist>
+    </div>
+  </div>
+</main>

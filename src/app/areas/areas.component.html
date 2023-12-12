@@ -1,0 +1,20 @@
+<a class="tg-doner-detail" (click)="openModal(template)" style="cursor: pointer;"> More Areas</a>
+<ng-template #template>
+  <div class="more-areas-modal">
+    <div class="tg-modal-content">
+  <div class="col-xs-12 tg-findheatlhwidth">
+    <div class="">
+      <div class="tg-box">
+        <div class="tg-heading-border tg-small">
+          <a  class="cancel-popup" (click)="close()" style="cursor:pointer;"><i class="material-icons">cancel</i></a>
+          <h3>Areas</h3>
+        </div>
+        <ul>
+          <li *ngFor="let area of areasList"><a routerLink="/find-a-doctor" title="Main Market">{{area.name | truncate: 15 : '..'}}</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+  </div>
+</ng-template>

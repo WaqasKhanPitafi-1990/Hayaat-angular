@@ -1,0 +1,17 @@
+
+  <div class="col-sm-3">
+    <div class="recent-blog">
+      <h2>Recent Blogs</h2>
+      <ul>
+        <li *ngFor="let blog of recentBlog, let i= index">
+          <img src="{{imagePath}}/{{blog.thumbnail}}">
+          <p [innerHtml]="blog.description"></p>
+          <a routerLink="/blog">Read More...</a>
+        </li>
+        <li style="text-align: center">
+          <a routerLink="/blog" class="view-all">View All</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+

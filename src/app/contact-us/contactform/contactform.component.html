@@ -1,0 +1,52 @@
+<div class="col-md-8 col-sm-12 col-xs-12 tg-expectwidth contact-form">
+  <div class="tg-refinesearcharea">
+    <div class="tg-heading-border tg-small">
+      <h2>Any queries let us know?</h2>
+    </div>
+    <form class="form-refinesearch tg-haslayout" id="contactus" novalidate="novalidate" [formGroup] = "form" (submit)="contactForm(form.value)">
+      <fieldset>
+        <div class="row">
+          <div class="col-sm-12">
+            <p class="register-msg" style="padding:7px 10px;"></p>
+          </div>
+          <div class="col-sm-6">
+            <div class="form-group">
+              <input type="text" formControlName="name" class="form-control" placeholder="Name">
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="form-group">
+              <input type="email" formControlName="email" class="form-control" placeholder="Email">
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="form-group">
+              <input type="text" formControlName="phone" class="form-control" placeholder="Phone">
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="form-group">
+													<span class="select">
+														<select class="group" name="category" #category (change)="selectCategory(category.value)">
+															<option value="">Select Category</option>
+															<option value="1">Share your ideas and help us to improve health care in Pakistan.</option>
+															<option value="2">Trouble using Hayaat.pk?</option>
+															<option value="3">Others</option>
+														</select>
+													</span>
+            </div>
+          </div>
+          <div class="col-sm-12">
+            <div class="form-group">
+              <textarea class="form-control" name="message" placeholder="Message" formControlName="message"></textarea>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <button type="submit" class="tg-btn contactus">Send Now</button>
+          </div>
+        </div>
+      </fieldset>
+    </form>
+  </div>
+
+</div>

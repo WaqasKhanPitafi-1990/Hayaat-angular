@@ -1,0 +1,16 @@
+.tg-main-section{
+  background: #fff !important;
+}
+.appointments-book-area {
+  box-shadow: 0 1px 14px 1px rgba(0,0,0,0.15);
+}
+.appointments-book-area h3 {
+  margin: 14px 0;
+  color: #fff;
+  font-size: 18px;
+  font-weight: 500;
+  text-transform: uppercase;
+  padding: 13px 0;
+  text-align: center;
+  background: #19227d;
+}

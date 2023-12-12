@@ -1,0 +1,143 @@
+.mat-form-field{
+  width: 100%;
+}
+.mat-form-field input{
+  border: none;
+}
+.doctor-signup-content{
+  overflow: hidden;
+  background: #fff;
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  border-radius: 15px;
+  box-shadow: -1px 0px 23px -1px rgba(0,0,0,0.3);
+}
+
+.signup-section{
+  padding: 40px ;
+}
+.doctor-signup-section{
+  padding: 45% 0;
+}
+.user-section{
+  background: #1a237e;
+  text-align: center;
+}
+.doctor-signup-section{
+  background: #1a237e;
+  text-align: center;
+}
+
+.doctor-signup-left a
+{
+  display: inline-block;
+  background: #fa1744;
+  color: #fff;
+  padding: 9px 50px;
+  text-transform: capitalize;
+  border-radius: 20px;
+  cursor: pointer;
+  box-shadow: 0 0 10px 2px rgba(250,23,68,0.3);
+}
+.doctor-signup-left a:hover
+{
+  color: #fff;
+}
+
+#doctor-signup-form #login-doctor {
+  border-radius: 30px;
+  font-size: 16px;
+  font-weight: 500;
+  color: #fff;
+  border: none;
+  background: #1a237e !important;
+  box-shadow: 0 0 14px 2px rgba(41,142,252,0.3);
+}
+#doctor-signup-form #login-doctor:hover{
+  color: #1a237e !important;
+  background: #fff !important;
+}
+
+.doctor-signup-left h1,
+.signup-section h1{
+  color: #fff;
+  margin: 0;
+  float: right;
+  font-size: 48px;
+  text-transform: UPPERCASE;
+  padding: 0 5px 0 0;
+}
+.doctor-signup-left h1{
+  float: left;
+  color:#1a237e ;
+  padding: 0 0 0 5px;
+}
+.doctor-img-signup{
+  margin: 0 auto 10px;
+  width: 150px;
+  border: 3px solid #1a237e;
+  border-radius: 50%;
+}
+
+.doctor-signup-left .doctor-signup-text{
+  display: block;
+  color: #fff;
+  font-size: 18px;
+  margin:0 0 15px;
+}
+
+.signup-section .fill-info{
+  color: #9a9a9a;
+  margin: 0 0 20px;
+  display: inline-block;
+  font-size: 14px;
+}
+
+
+.doctor-signup-form .mat-form-field-infix {
+  padding: 0;
+  border: 0;
+}
+.doctor-signup-form .mat-input-container:nth-child(5) .mat-form-field-infix {
+  padding: 1.4375em 0;
+}
+
+.login-section{
+  padding:45px;
+}
+.login-section  h2{
+  color: #373634;
+  margin: 0;
+}
+.doctor-signup-form{
+  margin: 0 0 20px;
+}
+.doctor-signup-form .fill-info {
+  font-size: 12px;
+}
+.doctor-signup-form label{
+  font-size: 12px;
+  font-weight: 600;
+}
+.doctor-signup-main-section{
+  padding-top: 15px !important;
+  padding-bottom: 0 !important;
+}
+
+@media (max-width: 1199px) {
+  .doctor-signup-section{
+    padding: 53% 0;
+  }
+}
+@media (max-width: 991px ){
+
+  .doctor-signup-section{
+    padding: 71% 0;
+  }
+}
+@media (max-width: 767px) {
+  .doctor-signup-section{
+    padding: 3% 0;
+  }
+}
+

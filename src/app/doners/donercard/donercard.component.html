@@ -1,0 +1,46 @@
+<div class="container">
+<div class="search-results"
+     infinite-scroll
+     [infiniteScrollDistance]= "scrollDistance"
+     [infiniteScrollThrottle]="300"
+     (scrolled)="onScrollDown()">
+  <div class="row">
+    <div class="col-sm-9 padding-right-0" *ngIf="noDonor" >
+       <h2 style="text-align: center; padding:50px 0">No Donor Found....!!</h2>
+    </div>
+
+    <div class="col-sm-9 padding-right-0" *ngIf="!noDonor" >
+      <ul>
+        <li *ngFor = 'let donor of donorData, let i = index' class="col-sm-4 col-md-3">
+          <div class="doner-card">
+           <div class='outerclass'>
+             <div class='doner-img'>
+                  <img src="./assets/images/doner-icon.png" class="img-responsive img-circle" alt="Hayaat.pk - Find doctor, Blood donor &amp; Nearest Emergency Center">
+                  <div class="blood-group-content">
+                   <div class="blood-group">
+                     <img src="./assets/images/blood-drop.png"/>
+                     <span>{{donor.blood_group_name}}</span>
+                   </div>
+
+                  </div>
+              </div>
+              <div class='doner-content'>
+                <div class="doner-detail">
+                  <h3>{{donor.name | truncate: 18 : '..'}}</h3>
+                  <span *ngIf="donorNum"><i class="fa fa-mobile"></i>{{donor.mobile}}</span>
+                  <span *ngIf="!donorNum"><i class="fa fa-mobile"></i>Login Required</span>
+                  <p>
+                    <app-donerdetail [cardIndex]="donor"></app-donerdetail>
+                  </p>
+                </div>
+              </div>
+            </div>
+        </div>
+
+        </li>
+      </ul>
+    </div>
+    <app-sidebar-register-donor></app-sidebar-register-donor>
+  </div>
+</div>
+</div>

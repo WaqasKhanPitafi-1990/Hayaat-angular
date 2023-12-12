@@ -1,0 +1,69 @@
+.blog-post a.tg-btn {
+  height: 40px;
+  line-height: 38px;
+  padding: 0 19px;
+  width: 70%;
+  font-size: 13px;
+  float: left;
+  display: inline-block;
+}
+.tg-btn:hover, .tg-btn.active {
+  color: #fff !important;
+}
+
+.blog-comment{
+  overflow: hidden;
+}
+.blog-comment .date{
+  float: right;
+  display: block;
+}
+.inner-blog-content {
+  background: #fff;
+  padding:20px !important;
+}
+.blog-comment img {
+  width: 60px;
+  height: 60px;
+}
+.health-blog-heading h2 {
+  font-size: 20px !important;
+  padding:0 !important;
+  margin: 0 ;
+
+}
+.health-blog-heading .tg-small {
+  margin: 0;
+}
+.blog-post .blog-box {
+  position: relative;
+}
+.blog-post {
+  margin-bottom: 80px !important;
+}
+.tg-blog-list .blog-content-box {
+  overflow: hidden;
+  padding: 13px 20px 1px;
+  background-color: #fff;
+  min-height: 90px;
+  position: absolute;
+  top: 155px;
+  width: 90%;
+  box-shadow: 0 0 21px -1px rgba(0,0,0,0.1);
+  z-index: 9999;
+  margin: 0 0 0 18px;
+}
+.health-blog-heading h2 {
+  font-size: 17px !important;
+}
+.health-blog-heading .tg-metadata {
+  position: inherit !important;
+}
+.health-blog-heading .tg-metadata {
+  left: 0 !important;
+}
+.health-blog-heading .tg-metadata li {
+  color: #7a7a7a;
+  padding:0 !important;
+
+}

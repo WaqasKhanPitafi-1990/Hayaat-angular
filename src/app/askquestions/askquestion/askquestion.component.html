@@ -1,0 +1,16 @@
+<div id="tg-innerbanner" class="tg-innerbanner tg-bglight tg-haslayout" style="background:url('https://hayaat.pk/assets/images/doctors/find-doctor-banner.jpg') no-repeat scroll center bottom / cover;height:200px;">
+	<div class="tg-searcharea tg-haslayout">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-8 col-sm-12 col-xs-12 col-md-offset-2" id="ask-question-form">
+					<h2 class="text-center">All Questions</h2>
+					<form >
+							<input name="q" class="form-control" placeholder="Search Question..." type="text" #questionKeyUp (keyup)="questionByKeyUp(questionKeyUp.value)">
+							<!--<button type="submit"><i class="fa fa-search"></i> Search</button>-->
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<app-questioncard></app-questioncard>

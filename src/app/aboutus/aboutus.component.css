@@ -1,0 +1,67 @@
+.user-view-section {
+  width: 48%;
+  float: left;
+  margin: 0 10px 0 0;
+}
+.bio-detail span {
+  color: #d2d2d2;
+  font-size: 12px;
+  display: inline-block;
+  margin: 0 0 5px;
+}
+.bio-detail h2{
+  font-size: 20px !important;
+  text-transform: capitalize !important;
+  font-weight: 600 !important;
+  margin: 0 0 0 !important;
+  line-height: 25px !important;
+}
+.bio-detail{
+  padding: 17px 0 0;
+  overflow: hidden;
+  margin: 0;
+}
+/*.bio-detail-right {*/
+  /*float: left;*/
+  /*text-align: right;*/
+  /*width: 82%;*/
+/*}*/
+.bio-detail p {
+  padding: 0px 5% 0 0;
+  color: #fff;
+  font-size: 12px;
+}
+/*.bio-detail-right p {*/
+  /*padding: 0 0 0 20%;*/
+/*}*/
+.description-section {
+  background: #495b6d;
+  padding: 15px 23px;
+  margin: 0;
+}
+.description-section p {
+  color: #fff;
+  font-size: 12px;
+}
+  /*.bio-section-right .description-section {*/
+  /*margin: -12px 0 0 0;*/
+  /*text-align: left;*/
+/*}*/
+.bio-detail p {
+  padding: 0 5% 0 0;
+  color: #fff;
+  font-size: 12px;
+  min-height: 110px;
+}
+.bio-section img {
+  max-width: 50%;
+  display: inline-block;
+  width: 24%;
+  border-radius: 50%;
+  float: left;
+  margin: 0 15px 0 0px;
+  box-shadow: 0px 4px 31px -3px rgba(0,0,0,0.5);
+}
+/*.bio-section-right img {*/
+  /*float: none;*/
+/*}*/

@@ -1,0 +1,276 @@
+.pharmacy-detail-view{
+  /*display: flex;*/
+}
+.pharmacy-detail-blocks {
+  /*background: #f7f7f7;*/
+}
+.pharmacy-content-block {
+  overflow: hidden;
+  text-align: left;
+}
+.pharmacy-content-block article {
+  margin: 0 0 15px;
+  font-size: 15px;
+}
+.pharmacy-detail-blocks, .lab-section {
+  text-align: center;
+  padding: 120px 12% 120px 15%;
+}
+.rating-block {
+  float: left;
+  margin: 0 40px 0 0;
+}
+.pharmacy-content-block a
+{
+  color: #5f859e;
+  padding: 12px 55px;
+  background: #cee7f8;
+  display: inline-block;
+  border-radius: 30px;
+  font-size: 15px;
+  text-transform: uppercase;
+}
+
+.pharmacy-content-block a:hover{
+  background: #263d88;
+  color: #fff;
+}
+.pharmacy-detail-blocks h3{
+  font-size: 26px;
+  text-transform: uppercase;
+  color: #263d88;
+  margin: 0 0 10px;
+}
+.pharmacy-detail-blocks img{
+  margin: 0 0 10px;
+  width: 75%;
+  border-radius: 50%;
+}
+@media (max-width: 768px) {
+  .pharmacy-detail-blocks h3{
+    font-size: 19px;
+  }
+  .pharmacy-detail-blocks a{
+    padding: 12px 35px;
+    font-size: 10px;
+  }
+  .pharmacy-detail-blocks img{
+    width: 25%;
+  }
+  .lab-section img{
+    width: 23%;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*.pharmacy-box-list a{*/
+/*font-size: 18px;*/
+/*color: #f36e44;*/
+/*}*/
+/*.pharmacy-box-list h2 {*/
+/*margin: 0 0 12px;*/
+/*min-height: 55px;*/
+/*text-transform: uppercase;*/
+/*font-size: 17px !important;*/
+/*font-weight: bold;*/
+/*color: #1A237E;*/
+/*border-bottom: 1px solid #e4e4e4;*/
+/*}*/
+/*.pharmacy-box-list {*/
+/*text-align: center;*/
+/*background: #fff;*/
+/*position: relative;*/
+/*padding: 15px 10px;*/
+/*display: block;*/
+/*cursor: pointer;*/
+/*border-radius: 5px;*/
+/*margin: 0 0 6px;*/
+/*box-shadow: 0 2px 15px -1px rgba(0,0,0,0.2);*/
+/*}*/
+/*.pharmacy-box-list .pharmacy-logo {*/
+/*!*position: absolute;*!*/
+/*!*top: -38px;*!*/
+/*!*left: 34%;*!*/
+/*margin: 0 auto 2px;*/
+/*width: 84px;*/
+/*}*/
+/*.pharmacy-box-list i{*/
+/*font-size: 27px;*/
+/*color:#759ade;*/
+/*}*/
+/*.pharmacy-box-list span{*/
+/*color: #4fc9e9;*/
+/*}*/
+/*.pharmacy-logo img {*/
+/*-webkit-border-radius: 50%;*/
+/*-moz-border-radius: 50%;*/
+/*border-radius: 50%;*/
+/*}*/
+/*.pharmacy-slog {*/
+/*color: #ccc !important;*/
+/*text-transform: none;*/
+/*font-size: 15px;*/
+/*}*/
+
+
+
+
+/*!****** pharmacy branch list css for after login default branch******!*/
+/*.pharmacy-branchlist-box{*/
+/*text-align: center;*/
+/*background: #fff;*/
+/*position: relative;*/
+/*padding:12px 0;*/
+/*border-radius: 5px;*/
+/*display: block;*/
+/*cursor: pointer;*/
+/*margin: 0 0 30px;*/
+/*box-shadow: 0 2px 15px -1px rgba(0,0,0,0.2);*/
+/*}*/
+/*.pharmacy-branchlist-box span,*/
+/*.pharmacy-branchlist-box address{*/
+/*color: #696969 ;*/
+/*}*/
+/*.pharmacy-branchlist-box address{*/
+/*border-bottom: 1px solid #e4e4e4;*/
+/*margin:0 0 10px;*/
+/*padding: 0 0 12px;*/
+/*}*/
+/*.pharmacy-branchlist-box .pharmacy-area{*/
+/*display: inline-block;*/
+/*margin:0 0 15px;*/
+/*}*/
+/*.pharmacy-branchlist-box h2 {*/
+/*margin: 0;*/
+/*min-height: 50px;*/
+/*color: white;*/
+/*font-size: 20px !important;*/
+/*color: #0090c6;*/
+
+/*}*/
+
+/*.pharmacy-branchlist-box .pharmacy-logo {*/
+/*!*position: absolute;*!*/
+/*!*top: -38px;*!*/
+/*!*left: 34%;*!*/
+/*margin: 0 auto 13px;*/
+/*width: 84px;*/
+/*position: relative;*/
+/*}*/
+/*.pharmacy-branchlist-box a{*/
+/*font-size: 18px;*/
+/*color: #f36e44;*/
+/*}*/
+
+
+
+
+
+
+
+
+/*.pharmacy-branchlist-box{*/
+  /*text-align: center;*/
+  /*background: #fff;*/
+  /*position: relative;*/
+  /*padding:12px 0;*/
+  /*border-radius: 5px;*/
+  /*display: block;*/
+  /*cursor: pointer;*/
+  /*margin: 0 0 30px;*/
+  /*box-shadow: 0 2px 15px -1px rgba(0,0,0,0.2);*/
+/*}*/
+/*.pharmacy-branchlist-box span,*/
+/*.pharmacy-branchlist-box address{*/
+  /*color: #696969 ;*/
+/*}*/
+/*.pharmacy-branchlist-box address{*/
+  /*border-bottom: 1px solid #e4e4e4;*/
+  /*margin:0 0 10px;*/
+  /*padding: 0 0 12px;*/
+  /*min-height: 55px;*/
+/*}*/
+/*.pharmacy-branchlist-box .pharmacy-area{*/
+  /*display: inline-block;*/
+  /*margin:0 0 5px;*/
+/*}*/
+/*.pharmacy-branchlist-box h2 {*/
+  /*margin: 0;*/
+  /*min-height: 35px;*/
+  /*color: white;*/
+  /*font-size: 20px !important;*/
+  /*color: #0090c6;*/
+
+/*}*/
+
+/*.pharmacy-branchlist-box .pharmacy-logo {*/
+  /*!*position: absolute;*!*/
+  /*!*top: -38px;*!*/
+  /*!*left: 34%;*!*/
+  /*margin: 0 auto 13px;*/
+  /*width: 84px;*/
+  /*position: relative;*/
+/*}*/
+/*.pharmacy-branchlist-box a{*/
+  /*font-size: 18px;*/
+  /*color: #f36e44;*/
+/*}*/
+
+/*.modal-dialog{*/
+  /*right:100px;*/
+/*}*/
+/*!*.modal-content{*!*/
+  /*!*width:800px;*!*/
+/*!*}*!*/
+/*.mat-form-field{*/
+  /*width:100%;*/
+/*}*/
+
+/*.pharmacy-area{*/
+  /*display: block !important;*/
+  /*margin: 0 0 15px;*/
+  /*background: #f7f7f7;*/
+  /*padding: 10px 0;*/
+/*}*/
+/*.pharmacy-van{*/
+  /*position: absolute;*/
+  /*top: 48px;*/
+  /*right: -7px;*/
+  /*width: 30px;*/
+/*}*/
+/*.home-pickup-service {*/
+  /*position: absolute;*/
+  /*left: 4px;*/
+/*}*/
+/*.home-pickup-service span {*/
+  /*display: block;*/
+  /*text-align: left;*/
+  /*font-size: 10px;*/
+  /*margin: 0;*/
+/*}*/
+/*.home-pickup-service span i {*/
+  /*font-size: 14px;*/
+  /*margin: 0 2px 0;*/
+  /*display: inline-block;*/
+  /*color: green;*/
+  /*font-weight: bold;*/
+  /*float: left;*/
+/*}*/
+

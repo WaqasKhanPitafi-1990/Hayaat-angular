@@ -1,0 +1,506 @@
+<div id="tg-homebanner" class="tg-homebanner tg-overflowhidden tg-haslayout">
+                <div id="home_slide" class="tg-location-map tg-haslayout"></div>
+                <div class="tg-banner-content">
+                    <div class="tg-displaytable">
+                        <div class="tg-displaytablecell">
+                            <div class="container">
+                                <div class="col-md-12 col-sm-12 col-xs-12 tg-verticalmiddle text-center">
+                                    <h1 class="weight-normal home-main-title">A way to healthy life! Hayaat.</h1>
+                                    <p>Find Doctor and setup an appointment online, find blood donor &amp; nearest emergency center for free with Hayaat.pk</p>
+                                </div>
+                                <br>
+                                <br>
+                                <div class="col-md-12 col-sm-12 col-xs-12 tg-verticalmiddle home-content-filters">
+                                    <div class="row">
+                                  <ngb-tabset class="tg-tabs-nav">
+                                    <ngb-tab>
+                                      <ng-template ngbTabTitle>
+                                        <i class="icon-doctor_icon"></i>
+                                        <span class="tg-category">
+                                          <span class="tg-category-name">Find doctor</span>
+                                        </span>
+                                      </ng-template>
+                                      <ng-template ngbTabContent>
+                                        <form class="form-searchdoctors"  (submit)="searchDoctor()">
+                                          <div class="row">
+                                            <div class="col-md-12 col-sm-12 col-xs-12 tg-verticalmiddle">
+                                                <div class="row">
+                                                  <div class="col-md-4 col-sm-6 col-xs-6 padding-right-none">
+                                                      <div class="form-group search-main-header-div">
+                                                          <input type="text" name="name" class="form-control" #searchInput placeholder="type your doctor name..." (keyup)="doctorNameOnKeyUp(searchInput.value)">
+                                                      </div>
+                                                  </div>
+                                                  <div class="col-md-2 col-sm-4 col-xs-6 padd-left">
+                                                    <div class="form-group">
+                                                      <!--<app-specialityfilter></app-specialityfilter>-->
+                                                      <mat-form-field class="example-full-width ">
+                                                        <input type="text" placeholder="Select Speciality" aria-label="Speciality" matInput [formControl]="myControlSpeciality"  [matAutocomplete]="autoSpeciality"  >
+                                                        <mat-autocomplete #autoSpeciality="matAutocomplete"   (optionSelected)="doctorSpeciality($event.option.value)" >
+                                                          <mat-option *ngFor="let option of filteredSpecialityOptions | async" [value]="option.name" >
+                                                            {{option.name}}
+                                                          </mat-option>
+                                                        </mat-autocomplete>
+                                                      </mat-form-field>
+
+                                                    </div>
+                                                  </div>
+                                                  <div class="col-md-2 col-sm-4 col-xs-6">
+                                                    <div class="form-group">
+                                                      <!--<app-cityfilter></app-cityfilter>-->
+                                                      <mat-form-field class="example-full-width ">
+                                                        <input type="text" placeholder="Select City" aria-label="City" matInput [formControl]="myControlCity" [matAutocomplete]="autoCity">
+                                                        <mat-autocomplete #autoCity="matAutocomplete" (optionSelected)="doctorCity($event.option.value)">
+                                                          <mat-option *ngFor="let option of filteredCitiesOptions | async" [value]="option.name">
+                                                            {{ option.name }}
+                                                          </mat-option>
+                                                        </mat-autocomplete>
+                                                      </mat-form-field>
+
+                                                    </div>
+                                                  </div>
+                                                  <div class="col-md-2 col-sm-4 col-xs-6 padd-left">
+                                                    <div class="form-group">
+                                                      <!--<app-areafilter></app-areafilter>-->
+                                                      <mat-form-field class="example-full-width ">
+                                                        <input type="text" placeholder="Select Area" aria-label="Area" matInput [formControl]="myControlArea" [matAutocomplete]="autoArea">
+                                                        <mat-autocomplete #autoArea="matAutocomplete" (optionSelected)="doctorArea($event.option.value)">
+                                                          <mat-option *ngFor="let option of filteredAreaOptions | async" [value]="option.name">
+                                                            {{ option.name }}
+                                                          </mat-option>
+                                                        </mat-autocomplete>
+                                                      </mat-form-field>
+
+                                                    </div>
+                                                  </div>
+                                                  <div class="col-md-2 col-sm-6 col-xs-12 padding-right-none">
+                                                    <div class="form-group">
+                                                      <button type="submit" class="search_banner tg-btn col-xs-12 pull-right"><i class="fa fa-search" aria-hidden="true"></i>  Search</button>
+                                                    </div>
+                                                  </div>
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </form>
+
+                                      </ng-template>
+                                    </ngb-tab>
+                                    <ngb-tab>
+                                      <ng-template ngbTabTitle>
+                                        <i class="icon-blood_icon"></i>
+                                        <span class="tg-category">
+                                            <span class="tg-category-name">Find Blood Donor</span>
+                                        </span>
+                                      </ng-template>
+                                      <ng-template ngbTabContent>
+                                        <form class="form-searchdoctors" (submit)="searchDonor()">
+                                          <div class="col-md-10 col-sm-8 col-xs-12 padding-right-none" style="padding-left: 0">
+                                            <mat-form-field class="example-full-width " style="width: 100%;">
+                                              <input type="text" placeholder="Select Blood Group" aria-label="Blood Group" matInput [formControl]="myControlGroup" [matAutocomplete]="autoGroup">
+                                              <mat-autocomplete #autoGroup="matAutocomplete" (optionSelected)="donorBloodGroup($event.option.value)">
+                                                <mat-option *ngFor="let option of filteredGroupOptions | async" [value]="option.name">
+                                                  {{ option.name }}
+                                                </mat-option>
+                                              </mat-autocomplete>
+                                            </mat-form-field>
+                                          </div>
+                                          <div class="col-md-2 col-sm-6 col-xs-12 padding-right-none padd-top">
+                                            <div class="form-group">
+                                              <button type="submit" class="search_banner tg-btn col-xs-12 pull-right"><i class="fa fa-search" aria-hidden="true"></i>  Search</button>
+                                            </div>
+                                          </div>
+                                        </form>
+                                      </ng-template>
+                                    </ngb-tab>
+                                    <ngb-tab>
+                                      <ng-template ngbTabTitle>
+                                        <i class="icon-emergency_icon"></i>
+                                        <span class="tg-category">
+                                            <span class="tg-category-name">Emergency Center</span>
+                                        </span>
+                                      </ng-template>
+                                      <ng-template ngbTabContent>
+                                        <form class="form-searchdoctors" (submit)="searchEmergency()">
+                                          <div class="col-md-7 col-sm-4 col-xs-12 padding-right-none" style="padding-left: 0;">
+                                            <div class="form-group">
+                                              <mat-form-field class="example-full-width " style="width:100%;">
+                                                <input type="text" placeholder="Select City" aria-label="City" matInput [formControl]="myControlCity" [matAutocomplete]="autoCity">
+                                                <mat-autocomplete #autoCity="matAutocomplete" (optionSelected)="doctorCity($event.option.value)">
+                                                  <mat-option *ngFor="let option of filteredCitiesOptions | async" [value]="option.name">
+                                                    {{ option.name }}
+                                                  </mat-option>
+                                                </mat-autocomplete>
+                                              </mat-form-field>
+                                            </div>
+                                          </div>
+                                          <div class="col-md-3 col-sm-4 col-xs-12 padding-right-none padd-left">
+                                            <div class="form-group">
+                                              <mat-form-field class="example-full-width " style="width:100%;">
+                                                <input type="text" placeholder="Select Area" aria-label="Area" matInput [formControl]="myControlArea" [matAutocomplete]="autoArea">
+                                                <mat-autocomplete #autoArea="matAutocomplete" (optionSelected)="doctorArea($event.option.value)">
+                                                  <mat-option *ngFor="let option of filteredAreaOptions | async" [value]="option.name">
+                                                    {{ option.name }}
+                                                  </mat-option>
+                                                </mat-autocomplete>
+                                              </mat-form-field>
+                                            </div>
+                                          </div>
+                                          <div class="col-md-2 col-sm-4 col-xs-12">
+                                            <div class="form-group">
+                                              <button type="submit" class="search_banner tg-btn col-xs-12 pull-right"><i class="fa fa-search" aria-hidden="true"></i>  Search</button>
+                                            </div>
+                                          </div>
+                                        </form>
+                                      </ng-template>
+                                    </ngb-tab>
+                                    <ngb-tab>
+                                      <ng-template ngbTabTitle>
+                                        <i class="icon-ask_question_icon"></i>
+                                        <span class="tg-category">
+                                            <span class="tg-category-name">Ask Questions</span>
+                                        </span>
+                                      </ng-template>
+                                      <ng-template ngbTabContent>
+                                        <form class="form-searchdoctors" (submit)="searchQuestion()">
+                                          <div class="col-md-10 col-sm-8 padding-right-none" style="padding-left: 0">
+                                            <div class="form-group search-main-header-div">
+                                                <input type="text" name="name" class="form-control" placeholder="Type your Question Here..." #questionSearch (keyup)="questionKeyUp(questionSearch.value)">
+                                            </div>
+                                          </div>
+                                          <div class="col-md-2 col-sm-4">
+                                            <div class="form-group">
+                                              <button type="submit" class="search_banner tg-btn col-xs-12 pull-right"><i class="fa fa-search" aria-hidden="true"></i>  Search</button>
+                                            </div>
+                                          </div>
+                                        </form>
+                                      </ng-template>
+                                    </ngb-tab>
+                                  </ngb-tabset>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="show-search"><i class="fa fa-search"></i></div>
+            </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <main id="main" class="tg-haslayout">
+
+                  <section class="tg-main-section tg-haslayout home-cats">
+                <div class="container">
+                    <div class="row hide">
+
+                        <div class="tg-search-categories">
+                            <div class="col-sm-3 col-xs-3 tg-expectwidth">
+                                <div class="tg-search-category">
+                                    <div class="tg-displaytable">
+                                        <div class="tg-displaytablecell">
+                                            <div class="tg-box">
+                                                <img src="https://hayaat.pk/assets/images/doctor-icon.png" alt="icon">
+                                                <br>
+                                                <h3>find a doctor</h3>
+                                                <p>For a best doctor, view map, check patient’s reviews, see doctor’s available time &amp; click to book instantly.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-3 col-xs-3 tg-expectwidth">
+                                <div class="tg-search-category">
+                                    <div class="tg-displaytable">
+                                        <div class="tg-displaytablecell">
+                                            <div class="tg-box">
+                                                <img src="https://hayaat.pk/assets/images/blood-icon.png" alt="icon">
+                                                <br>
+                                                <h3>find a blood</h3>
+                                                <p>For blood Hayaat connects blood seekers with blood donors in the time of need to save your lives.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-3 col-xs-3 tg-expectwidth">
+                                <div class="tg-search-category">
+                                    <div class="tg-displaytable">
+                                        <div class="tg-displaytablecell">
+                                            <div class="tg-box">
+                                                <img src="https://hayaat.pk/assets/images/emergency-icon.png" alt="icon">
+                                                <br>
+                                                <h3>emergency care</h3>
+                                                <p>By using this app going directly to nearest emergency when you’re ill, injure, or have a critical condition.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                               <div class="col-sm-3 col-xs-3 tg-expectwidth">
+                                <div class="tg-search-category">
+                                    <div class="tg-displaytable">
+                                        <div class="tg-displaytablecell">
+                                            <div class="tg-box">
+                                                <img src="https://hayaat.pk/assets/images/questions-icon.png" alt="icon">
+                                                <br>
+                                                <h3>ask questions</h3>
+                                                <p>Get medical question answer &amp; qualified opinions from certified doctors who fully informed about health care.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row home-features-sec">
+                        <div class="col-md-4 col-sm-6 col-xs-12">
+                             <div class="col-md-3 col-sm-4 col-xs-12">
+                                <img src="https://hayaat.pk/assets/images/find-a-doctor.svg" alt="Find a doctor icon">
+                            </div>
+                            <div class="col-md-9 col-sm-8 col-xs-12 padding-left-0">
+                            <h3>Find Doctor</h3>
+                                <p>Welcome to the leading platform of reliable and verified doctors. Make informed choices with real patient reviews.</p>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4 col-sm-6 col-xs-12">
+                             <div class="col-md-3 col-sm-4 col-xs-12">
+                                <img src="https://hayaat.pk/assets/images/find-a-blood.svg" alt="find blood donor icon">
+                            </div>
+                            <div class="col-md-9 col-sm-8 col-xs-12 padding-left-0">
+                            <h3>Find Blood Donor</h3>
+                                <p>Those who are helpless to find blood in an emergency, Hayaat.pk connects them with volunteer blood donors. </p>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4 col-sm-6 col-xs-12">
+                             <div class="col-md-3 col-sm-4 col-xs-12">
+                                <img src="https://hayaat.pk/assets/images/emergency.svg" alt="find nearest emergency center icon">
+                            </div>
+                            <div class="col-md-9 col-sm-8 col-xs-12 padding-left-0">
+                            <h3>Emergency Center</h3>
+                                <p>Emergencies require urgent intervention and as a service seeker Hayaat.pk plays vital role to spot nearest emergency center. </p>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4 col-sm-6 col-xs-12">
+                             <div class="col-md-3 col-sm-4 col-xs-12">
+                                <img src="https://hayaat.pk/assets/images/ask-question.svg" alt="ask healthcare questions icon">
+                            </div>
+                            <div class="col-md-9 col-sm-8 col-xs-12 padding-left-0">
+                            <h3>ask questions</h3>
+                                <p>Open community for medical questions and answers. Connect with others by symptom, side effect, surgery, or disease.</p>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4 col-sm-6 col-xs-12">
+                             <div class="col-md-3 col-sm-4 col-xs-12">
+                                <img src="https://hayaat.pk/assets/images/medical-report.svg" alt="Patient medical records icon">
+                            </div>
+                            <div class="col-md-9 col-sm-8 col-xs-12 padding-left-0">
+                            <h3>Medical Records</h3>
+                                <p>Hayaat.pk allows people to access and coordinate their lifelong medical history when needed. </p>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4 col-sm-6 col-xs-12">
+                             <div class="col-md-3 col-sm-4 col-xs-12">
+                                <img src="https://hayaat.pk/assets/images/health-blog2.svg" alt="Digital healthcare blogs icon">
+                            </div>
+                            <div class="col-md-9 col-sm-8 col-xs-12 padding-left-0">
+                            <h3>Health Blog</h3>
+                                <p>Our blogs make it easier for anyone to live a healthier life by keeping a check on meals and physical activity.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!--************************************
+                            What to Expect End
+            *************************************-->
+            <!--************************************
+                            Are You A Doctor Start
+            *************************************-->
+            <section class="are-you-doc tg-main-section tg-haslayout parallax-window tg-custom-padding">
+                <div class="container">
+                    <div class="row">
+                        <div class="tg-areuadoctor tg-haslayout">
+                            <div class="col-lg-6 col-md-5 col-sm-12 col-xs-12 pull-right">
+                                <div class="tg-contentbox tg-haslayout">
+                                    <div class="tg-heading-border">
+                                        <h2>are you a doctor?</h2>
+                                        <h3 style="text-transform: none;">Hayaat.pk is potentially beneficial for you.</h3>
+                                    </div>
+                                    <div class="tg-description">
+                                        <p>Appointments, re-bookings, cancellations, follow-ups, reminders and various other services can now be easily managed online with efficiency and without having receptionists for manual appointment scheduling systems.</p>
+                                    </div>
+                                    <button (click)="scrollUp()" class="tg-btn" routerLink="/doctor-sign-up">signup now</button>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-7 col-sm-12 col-xs-12 pull-left">
+                                <figure class="tg-img">
+                                    <img src="https://hayaat.pk/assets/images/docor-img.jpg" alt="Are You a doctor - register as a doctor">
+                                </figure>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!--************************************
+                            Are You A Doctor End
+            *************************************-->
+            <!--************************************
+                            HealthCare on the go Start
+            *************************************-->
+            <section class="tg-padding-top tg-haslayout get-link-sec">
+                    <div class="row">
+                        <div class="tg-healthcareonthego tg-haslayout">
+                            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 col-md-offset-1 col-sm-offset-1 col-xs-offset-0 pull-left">
+                                <div class="tg-contentbox tg-haslayout">
+                                    <div class="tg-heading-border">
+                                        <h2>Get the Hayaat app.</h2>
+                                    </div>
+                                    <div class="tg-description">
+                                        <p>Don’t wait for doctor’s appointment! Download Hayaat App and setup an appointment instantly.</p>
+                                    </div>
+                                    <ul>
+                                        <li><i class="fa fa-check"></i> Confirm your appointment online.</li>
+                                        <li><i class="fa fa-check"></i> Seek healthcare assistance using your smart phone.</li>
+                                        <li><i class="fa fa-check"></i> Connect to blood donors.</li>
+                                        <li><i class="fa fa-check"></i> Access your medical reports. </li>
+                                        <li><i class="fa fa-check"></i> Find nearest emergency center.</li>
+                                    </ul>
+                                    <div class="get-link-div hide">
+                                        <label for="">Share app link</label>
+                                        <input type="text" name="" class="form-control" placeholder="Type Number...">
+                                        <button class="send-link tg-btn"><i class="fa fa-paper-plane-o" aria-hidden="true"></i> Get link</button>
+                                    </div>
+                                    <div class="app-links">
+                                        <a target="_blank" href="https://play.google.com/store/apps/details?id=com.hayaat.pk.healthcare&amp;hl=en"><img src="https://hayaat.pk/assets/images/android-icon.png" alt="Hayaat.pk android app google play download icon"></a>
+                                        <a target="_blank" href="https://itunes.apple.com/us/app/hayaat-pk-find-doctor-online/id1314979921?ls=1&mt=8"><img src="https://hayaat.pk/assets/images/apple-icon.png" alt="Hayaat.pk ios app Appstore download icon"></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-5 col-sm-5 col-xs-12 pull-right">
+                                <figure class="tg-img">
+                                    <img src="https://hayaat.pk/assets/images/app-view.png" alt="Hayaat.pk - Find doctor, Blood donor &amp; Nearest Emergency Center ">
+                                </figure>
+                            </div>
+                    </div>
+                </div>
+            </section>
+            <!--************************************
+                            HealthCare on the go End
+            *************************************-->
+            <!--************************************
+                    Patient Feedback Start
+            *************************************-->
+            <section class="tg-main-section tg-haslayout parallax-window patient-feedback-sec">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-10 col-sm-offset-1 col-xs-12">
+                            <div class="tg-theme-heading">
+                                <h2 class="no-margin">Real Time Feedback</h2>
+                                <div class="tg-description">
+                                    <p>Send your feedback so; we can do betterment for you.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tg-patientfeedbacks tg-haslayout">
+                            <div class="col-md-6 col-sm-6 col-xs-6 tg-feedbackwidht">
+                                <div class="tg-patientfeedback">
+                                    <figure class="tg-patient-pic">
+                                        <img src="https://hayaat.pk/assets/images/testimonial2.jpg" alt="Hayaat.pk - Find doctor, Blood donor &amp; Nearest Emergency Center">
+                                    </figure>
+                                    <div class="tg-patient-message">
+                                        <span class="tg-patient-name"><b>Mian Sheraz</b></span>
+                                        <div class="tg-description">
+                                            <p>Online care solutions are radically changing the health care delivery landscape by providing better patient outcomes and saving costs. Good work team hayaat.pk!</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-sm-6 col-xs-6 tg-feedbackwidht">
+                                <div class="tg-patientfeedback">
+                                    <figure class="tg-patient-pic">
+                                        <img src="https://hayaat.pk/assets/images/testimonial1.jpg" alt="Hayaat.pk - Find doctor, Blood donor &amp; Nearest Emergency Center">
+                                    </figure>
+                                    <div class="tg-patient-message">
+                                        <span class="tg-patient-name"><b>Salman Ali</b></span>
+                                        <div class="tg-description">
+                                            <p>I have used Hayaat.pk to search blood donor for one of my cousin. I am pleased to meet the community out there. They are responsive and willing to donate. </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!--************************************
+                    Patient Feedback End
+            *************************************-->
+            <!--************************************
+                            Find HealthCare By Start
+            *************************************-->
+            <section class="tg-main-section tg-haslayout find-healthcare">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-10 col-sm-offset-1 col-xs-12">
+                            <div class="tg-theme-heading">
+                                <h2 class="no-margin">find healthcare by</h2>
+                                <div class="tg-description">
+                                    <p>Find important access &amp; Stay healthy with healthcare coverage by Hayaat.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tg-findhealthcareby tg-haslayout">
+                            <div class="col-md-6 col-sm-12 col-xs-12 tg-findheatlhwidth">
+                                <div class="tg-findbycategory">
+                                    <div class="tg-box" >
+                                        <div class="tg-heading-border tg-small">
+                                            <i class="fa fa-marker"></i>
+                                            <h3>Area</h3>
+                                        </div>
+                                            <ul>
+                                                <li *ngFor="let area of areasHome"><a routerLink="/find-a-doctor">{{area.name}}</a></li>
+                                                <li id="more-areas"><app-areas></app-areas></li>
+                                              </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-sm-12 col-xs-12 tg-findheatlhwidth">
+                                <div class="tg-findbycategory">
+                                    <div class="tg-box">
+                                        <div class="tg-heading-border tg-small">
+                                            <i class="fa fa-medkit"></i>
+                                            <h3>Speciality</h3>
+                                        </div>
+                                            <ul>
+                                                <li *ngFor="let speciality of homeSpecialities"><a [routerLink]="['/doctors', speciality.slug]">{{speciality.name}}</a></li>
+
+
+                                                <li id="more-speciality"><app-specialities></app-specialities></li>
+                                          </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+              <!-- END CONTENT -->
+
+                </main>
+

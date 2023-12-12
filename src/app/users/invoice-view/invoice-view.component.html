@@ -1,0 +1,111 @@
+
+<a  class="orders-generate-invoice" (click)="openModal(template); invoiceDetailData()" style="cursor: pointer;"> View Invoice</a>
+
+
+<ng-template #template>
+  <div class="modal-width">
+    <div class="tg-modal-content">
+      <div class="inovice-detail-view">
+        <div class="col-sm-12">
+          <div class="invoice-header">
+            <h1>Invoice  #{{customerDetail.invoice_number}}</h1>
+            <!--<span class="invoice-no">-->
+            <!--<a class="btn btn-raised btn-secondary print-invoice" href="javascript:void(0)" onclick="print()"><i class="fa fa-print" aria-hidden="true"></i> Print</a>-->
+            <!--</span>-->
+          </div>
+          <hr>
+          <div class="invoice-person-info invoice-dl">
+            <h2>Customer Info</h2>
+            <dl>
+              <dt>Name:</dt>
+              <dd>{{customerDetail.customer_name}}</dd>
+              <dd *ngIf="!customerDetail.customer_name">...</dd>
+              <dt>Number:</dt>
+              <dd>{{customerDetail.customer_mobile}}</dd>
+              <dd *ngIf="!customerDetail.customer_mobile">...</dd>
+              <dt>Address:</dt>
+              <dd>{{customerDetail.customer_address}}</dd>
+              <dd *ngIf="!customerDetail.customer_address">...</dd>
+            </dl>
+            <div class="invoice-date">
+              <span><b>Invoice Date:</b> {{customerDetail.date}}</span>
+              <span *ngIf="customerDetail.is_homedelivery === 0"><b>Order Type:</b> Pick up</span>
+              <span *ngIf="customerDetail.is_homedelivery === 1"><b>Order Type:</b> Home Delivery</span>
+              <span *ngIf="customerDetail.cash_payment === 1"><b>Payment Type:</b> Cash</span>
+              <span *ngIf="customerDetail.cash_payment === 0"><b>Payment Type:</b> Credit</span>
+              <span><b>Branch Name:</b> {{customerDetail.branch_name}}</span>
+              <!--<span><b>Branch Area:</b> {{customerDetail.customer_area}}</span>-->
+              <!--<span><b>Order Type:</b> {{customerDetail.}}</span>-->
+              <!--<span><b>Payment Type:</b> {{customerDetail.date}}</span>-->
+            </div>
+          </div>
+          <div class="personal-info">
+            <h2>Orders Info</h2>
+            <!--<a routerLink="" (click)="addItem()" class="addmore" ><i class="fa fa-plus-circle" aria-hidden="true"></i> Add more</a>-->
+            <div class="card-body">
+              <div class="card-block">
+                <!--<ng2-smart-table [settings]="settings" [source]="source"></ng2-smart-table>-->
+                <table class="table">
+                  <thead>
+                  <tr>
+                    <th>#</th>
+                    <th>Item Name</th>
+                    <th>Qty</th>
+                    <th>Unit Price</th>
+                    <th>Price</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                  <tr *ngFor="let product of productDetail; let i = index">
+                    <th scope="row">{{i + 1}}</th>
+                    <td>{{product.name}}</td>
+                    <td>{{product.quantity}}</td>
+                    <td>{{product.unit_price}}</td>
+                    <td>{{product.price}}</td>
+                  </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <div class="sub-total">
+              <dl>
+                <dt>Sub - Total amount:</dt>
+                <dd>Rs {{customerDetail.sub_total}}</dd>
+                <span *ngIf="customerDetail.discount">
+              <dt *ngIf="customerDetail.discount.other_promo">Discount:</dt>
+              <dd *ngIf="customerDetail.discount.other_promo">{{customerDetail.discount.other_promo}}%</dd>
+              <dt *ngIf="customerDetail.discount.hayaat_discount">Hayaat Promo:</dt>
+              <dd *ngIf="customerDetail.discount.hayaat_discount">{{customerDetail.discount.hayaat_discount}}%</dd>
+              <dt *ngIf="customerDetail.discount.offer">Offer:</dt>
+              <dd *ngIf="customerDetail.discount.offer">{{customerDetail.discount.offer}}%</dd>
+              </span>
+              </dl>
+            </div>
+          </div>
+          <hr>
+          <div class="proceed-payment">
+            <!--<div class="payment-buttons">-->
+            <!--<a class="btn btn-raised btn-primary" href="javascript:void(0)">Proceed to payment</a>-->
+            <!--<a class="btn btn-raised btn-secondary" href="javascript:void(0)" onclick="print()"><i class="fa fa-print" aria-hidden="true"></i> Print</a>-->
+            <!--</div>-->
+            <h3 class="invoice-total">Total : <span>Rs {{customerDetail.total}}</span><span *ngIf="pathOne" class="hayaat-fee">Hayaat Fee : <b>0%</b></span></h3>
+          </div>
+        </div>
+      </div>
+      <div class="zoom-img">
+        <h2>Prescription</h2>
+        <div class="col-sm-12">
+          <span *ngIf="!imagesNull"><b>Images :</b> {{current_img}}/{{total_img_count}}</span>
+          <h4 *ngIf="imagesNull">No Image</h4>
+          <img *ngIf="!imagesNull" class="zoomer" [imageZoom]="image_src" [src]="image_small" [style.width.px]="300" [style.height.px]="400">
+          <div class="thumbnails">
+            <a *ngFor="let thumbnail of thumbnails, let i = index">
+              <img src = "{{imagePath}}/{{thumbnail.image}}" alt="..." class="img-thumbnail" [style.border-color]="activeImg" (click)="getImgSrc(thumbnail.image,  i);" #imgsrc>
+              <!--<img src = "{{imagePath}}/{{thumbnail.image}}" alt="..." class="img-thumbnail" [style.border-color]="activeImg" (click)="getImgSrc(imgsrc.getAttribute('src'), i);" #imgsrc>-->
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-template>

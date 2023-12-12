@@ -1,0 +1,69 @@
+.doctor-info-tab li.nav-item {
+  width: 33.2%;
+  text-align: center;
+}
+.doctor-info-tab .content-area ul {
+  /*padding: 0 0 0 45px;*/
+}
+.feedback-img {
+  float: left;
+}
+.feedback-img img {
+  display: block;
+  width: 20%;
+}
+.feedback-time{
+  float: right;
+}
+.feedback-msg span {
+  font-size: 14px;
+  color: #554dd5;
+}
+.feebdback-date-img {
+  overflow: hidden;
+  padding: 10px 0;
+}
+.title-feedback {
+  overflow: hidden;
+  background: #f7f7f7;
+  margin: 0 0 15px;
+  padding: 10px 25px;
+}
+.doctor-profile-content .tab-content {
+  background: #fff;
+}
+agm-map {
+  height: 345px;
+}
+.doctor-detail-tab .map-div {
+  margin-top: 0;
+}
+.doctor-info-tab .title{
+  margin:0 0 20px !important;
+}
+
+
+.doctor-info-tab li.nav-item a.active {
+  background: #fff none repeat scroll 0 0;
+  border-color: #1a237e currentcolor currentcolor currentcolor;
+  border-radius: 0;
+  border-style: solid none none none;
+  border-width: medium medium medium 3px;
+  color: #1a237e;
+}
+.doctor-info-tab li.nav-item a {
+  border-bottom: 0 none !important;
+  outline: none !important;
+}
+
+
+.doctor-info-tab li.nav-item a {
+    background: #f7f7f7 none repeat scroll 0 0;
+    border-left: 1px solid #e6e6e6;
+    border-top: 1px solid #ececec;
+    color: #aaa;
+    font-size: 15px;
+    margin-right: -3px;
+    padding: 15px;
+    text-transform: capitalize;
+}

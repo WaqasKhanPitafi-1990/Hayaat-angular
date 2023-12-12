@@ -1,0 +1,58 @@
+
+<ul class="sidebar">
+  <li><a routerLink='/about-us'>About Us</a></li>
+  <li><a routerLink="/contact-us">Contact Us</a></li>
+  <li><a routerLink="/privacy-policy">Policies</a></li>
+  <li class="hide"><a routerLink="terms-conditions">Terms & Conditions</a></li>
+</ul>
+
+
+<ul class="sidebar-mobile">
+  <!--<img src="assets/images/male.png" style=" display:block; margin: 0 auto; width: 130px; border-radius: 50%;"/>-->
+  <li>
+    <a routerLink="/">Home</a>
+  </li>
+  <li>
+    <a routerLink="/find-a-doctor">Find Doctors</a>
+  </li>
+  <li><a routerLink="/blood-donors">Find Blood Donor</a></li>
+  <li><a routerLink="/nearest-emergency-centers">Emergency</a></li>
+  <li><a routerLink="/order">Order</a></li>
+  <li><a routerLink="/ask-questions">Ask questions</a></li>
+  <li class="last-one">
+    <a routerLink="/blog">Health Blog</a>
+  </li>
+  <!--<li class="hidden-md hidden-lg hidden-sm"><a routerLink='/about-us'>About Us</a></li>-->
+  <!--<li class="hidden-md hidden-lg hidden-sm"><a routerLink="/contact-us">Contact Us</a></li>-->
+  <!--<li class="hidden-md hidden-lg hidden-sm"><a routerLink="/privacy-policy">Policies</a></li>-->
+  <li><a routerLink='/about-us'>About Us</a></li>
+  <li><a routerLink="/contact-us">Contact Us</a></li>
+  <li><a routerLink="/privacy-policy">Privacy Policy</a></li>
+  <li class="hide"><a routerLink="terms-conditions">Terms & Conditions</a></li>
+  <li *ngIf="loggedIn"><a routerLink='/user-profile'>Profile</a></li>
+  <li *ngIf="loggedIn"><a (click)="logout()" style="cursor: pointer">Logout</a></li>
+  <li class="last-one log-in" *ngIf="!loggedIn">
+    <app-login></app-login><br>
+    <a routerLink="join-hayaat">Join Hayaat</a>
+    <!--<a href="#" data-toggle="modal" data-target=".tg-user-type-modal"> login</a>-->
+    <!--<span><a href="#" data-toggle="modal" data-target=".tg-user-modal">login/signup</a></span>-->
+  </li>
+
+
+
+  <!--<li class="hidden-xs">-->
+
+
+  <!--<a href="#">-->
+  <!--<i class="fa fa-navicon"></i>-->
+  <!--&lt;!&ndash;<i>pages</i>&ndash;&gt;-->
+  <!--</a>-->
+  <!--&lt;!&ndash;<app-sidebar></app-sidebar>&ndash;&gt;-->
+  <!--<ul>-->
+  <!--<li><a routerLink='/about-us'>About Us</a></li>-->
+  <!--<li><a routerLink="/contact-us">Contact Us</a></li>-->
+  <!--<li><a routerLink="/privacy-policy">Privacy Policy</a></li>-->
+  <!--<li class="hide"><a routerLink="terms-conditions">Terms & Conditions</a></li>-->
+  <!--</ul>-->
+  <!--</li>-->
+</ul>

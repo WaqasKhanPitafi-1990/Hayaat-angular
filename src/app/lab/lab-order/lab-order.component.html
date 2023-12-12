@@ -1,0 +1,295 @@
+<div class="pharmacy-order-container">
+  <div class="container">
+    <div class="order-header">
+      <h1>Book Your Lab Test</h1>
+      <a routerLink="/order-lab-test" class="cancel-popup"><i class="material-icons">cancel</i></a>
+    </div>
+    <div class="col-sm-9">
+      <div class="pharmacy-order-form">
+        <h2 *ngIf="!checkUser && !checkUserReg">Select Lab</h2>
+        <ul *ngIf="!checkUser && !checkUserReg" class="pharmacy-logo-list">
+          <li *ngFor="let pharmacy of pharmacies, let i = index" (click)="activatePharmacyOption(i, pharmacy.id)" [ngClass] = "{ 'active': selectedOption == pharmacy.id}"><a><img src="{{imagePath}}/{{pharmacy.thumb}}"></a></li>
+        </ul>
+        <h2>Personal Information</h2>
+        <form *ngIf="!checkUser && !checkUserReg" class="pharmacy-order" [formGroup]="form" enctype="multipart/form-data" #orderForm="ngForm" (submit)="sendOrder(form.value)" >
+          <div class="row">
+            <div class="col-sm-6">
+              <mat-form-field>
+                <input matInput placeholder="Full Name" maxlength="50"  formControlName="name" [(ngModel)]= "userInfo.name">
+              </mat-form-field>
+              <span class="error" *ngIf="form.get('name').hasError('pattern') && form.get('name').touched">
+               Please enter only Alphabetic Characters
+              </span>
+              <mat-form-field>
+                <input matInput placeholder="Email" maxlength="50" formControlName="email" [(ngModel)]= "userInfo.email" >
+              </mat-form-field>
+              <span class="error" *ngIf="form.get('email').hasError('pattern') && form.get('email').touched">
+               Email must be in correct format. i.e. xyz@yahoo.com
+              </span>
+              <span style="display: inline-block; padding: 7px 0 0;">Default Promo Code:</span>
+              <span style="display: block; font-size: 12px; font-weight: bold" *ngIf="!defaultPromoNull && !notLoginForPromo">
+                 <span *ngIf="!notUndefined">{{defaultPromoCode}} ({{defaultPromoValue[1].value}}%)</span>
+                 <span *ngIf="notUndefined">No Disc On Selected Promo</span>
+              </span>
+              <span style="display: block; font-size: 12px;" *ngIf="defaultPromoNull && !notLoginForPromo" >No Promo Code Selected</span>
+              <span style="display: block; font-size: 12px;" *ngIf="notLoginForPromo;" >Login Required</span>
+            </div>
+            <div class="col-sm-6">
+              <mat-form-field>
+                <input matInput placeholder="Mobile Number"  formControlName="phone"  maxlength="11"  [(ngModel)]= "userInfo.mobile">
+              </mat-form-field>
+              <span class="error" *ngIf="form.get('phone').hasError('pattern') && form.get('phone').touched">
+               Mobile number must be numeric or 11 digits
+              </span>
+              <mat-form-field *ngIf="showDefaultAddress">
+                <input matInput placeholder="Address" maxlength="250" formControlName="address" [(ngModel)]="userInfo.address">
+              </mat-form-field>
+              <mat-form-field style="width: 35%; float: right;" *ngIf="loginUser">
+                <mat-select placeholder="Select Address" #addressId [(value)]="userInfo.id" (change)="addressDropDownId(addressId.value)" >
+                  <mat-option *ngFor="let address of addresses" [value]="address.id">
+                    {{ address.address }}
+                  </mat-option>
+                  <mat-option value ='0'>Other</mat-option>
+                </mat-select>
+              </mat-form-field>
+
+              <mat-form-field *ngIf="other_address || !loginUser" style="width: 30% !important; float: left;" >
+                <mat-select placeholder="Province" #provinceId  (change)="getProvinceId(provinceId.value)" >
+                  <mat-option *ngFor="let province of provinces" [value]="province.id">
+                    {{ province.name }}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+              <mat-form-field *ngIf="other_address || !loginUser" style="width: 30% !important;  margin: 0 0 0 5px;">
+                <mat-select placeholder="City" #cityId  (change)="getCityId(cityId.value)">
+                  <mat-option *ngFor="let city of cities" [value]="city.id">
+                    {{ city.name }}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+              <mat-form-field *ngIf="other_address || !loginUser" style="width: 30% !important;">
+                <input matInput placeholder="Address" formControlName="address_text" maxlength="250">
+              </mat-form-field>
+
+              <mat-form-field>
+                <input matInput placeholder="Add Another Promo (Optional)" formControlName="coupon" [(ngModel)]="anotherPromo" >
+              </mat-form-field>
+            </div>
+          </div>
+          <div class="row" *ngIf="showTests">
+            <div class="col-sm-8">
+              <div class="selected-tests-section">
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th>Test Name</th>
+                      <th>Price</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let test of selectedLab.tests">
+                      <td>{{test.name}}</td>
+                      <td>{{test.price}}</td>
+                    </tr>
+                    <tr>
+                      <td>Total:</td>
+                      <td>{{selectedLab.tests_total}}</td>
+                    </tr>
+                  </tbody>
+                </table>
+                <!--<ul>-->
+                  <!--<li *ngFor="let test of selectedLab.tests">{{test.name}}</li>-->
+                <!--</ul>-->
+              </div>
+            </div>
+          </div>
+          <div class="row" *ngIf="!showTests">
+            <div class="col-sm-8">
+              <div class="upload-image-section">
+                <label class="btn btn-block btn-primary btn-file-upload"  (change)="onFileChange($event)">
+                  <i class="material-icons">folder</i>
+                  Upload Your Prescription
+                  <input [disabled]="uploadMax" type="file" multiple formControlName="image" id="avatar"  style="display: none;" #fileInput >
+                </label>
+                <span>max 5 prescriptions</span>
+                <div class="thumbnails">
+                  <a *ngFor="let url of thumb_url, let i = index">
+                    <img [src] = "url" alt="..." class="img-thumbnail">
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-6">
+              <div class="delivery-container">
+                <h3>Booking Type</h3>
+                <ul>
+                  <li (click)="activateDeliveryOption('1')" [ngClass] = "{ 'active': selectedDeliveryOption == 1}"><span class="done-icon"><i class="material-icons">done</i></span>Home Sample</li>
+                  <li (click)="activateDeliveryOption('0')" [ngClass] = "{ 'active': selectedDeliveryOption == 0}"><span class="done-icon"><i class="material-icons">done</i></span>Lab Visit</li>
+                </ul>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="payment-container">
+                <h3>Payment Type</h3>
+                <ul>
+                  <li (click)="activatePaymentOption('1')" [ngClass] = "{ 'active': selectedPaymentOption == 1}"><span class="done-icon"><i class="material-icons">done</i></span>Cash</li>
+                  <li><span class="done-icon"><i class="material-icons">done</i></span>EasyPay/CC</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="row pharmacy-points" *ngIf="showPoints">
+            <div class="col-sm-12">
+              <ul>
+                <li>Delivery Hours 9 am to 6 pm </li>
+                <li>Home sample collection will be done within 24 Hrs. after receiving the order</li>
+              </ul>
+            </div>
+          </div>
+          <div class="row" *ngIf="showBranch">
+            <div class="col-sm-12">
+              <div class="branches-container">
+                <div class="branch-header">
+                  <h2 style="float: left; padding: 20px 0 0;">Select Branch</h2>
+                  <mat-form-field style="width: 35%; float: right;">
+                    <mat-select placeholder="Select Branch" #branchId (change)="dropDownId(branchId.value)" >
+                      <mat-option *ngFor="let list of dropDownBranches" [value]="list.id">
+                        {{ list.name }}
+                      </mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                </div>
+                <img style="width: 50px; margin: 0 auto; display:block" *ngIf="loginGifBranch" src="../../../assets/images/loader.gif">
+                <ul>
+                  <li *ngFor="let branch of pharmacyBranches, let i = index" (click)="activateBranch(branch.id)" [ngClass] = "{ 'active': branch_id == branch.id}">
+                    <span class="done-icon"><i class="material-icons">done</i></span>
+                    <span class="branch-pin-heading">{{branch.name}}</span>
+                    <address>{{branch.address}}</address>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="order-buttons" >
+                <mat-checkbox [(ngModel)]="checked_default" formControlName="defaultBranch">Set As Default Lab</mat-checkbox>
+                <button type="submit" [disabled] = "loginGif" class="btn btn-primary"><i *ngIf="!loginGif" class="material-icons">send</i><img *ngIf="loginGif" src="../../../assets/images/loader.gif" style="width: 20px">Book Test</button>
+                <button type="button" class="btn btn-info" routerLink="/order">Cancel</button>
+              </div>
+            </div>
+          </div>
+        </form>
+        <form *ngIf="checkUser" class="pharmacy-order" [formGroup]="form" enctype="multipart/form-data" #orderForm="ngForm" (submit)="sendPassword(form.value)" >
+          <div class="row">
+            <div class="col-sm-6">
+              <h2 style="font-size: 12px !important; font-weight: normal;margin: 0;">Please enter your password for Login</h2>
+              <mat-form-field>
+                <input matInput placeholder="Password" maxlength="25"  formControlName="password" type="password">
+
+              </mat-form-field>
+              <span class="error" maxlength="25" *ngIf="!form.get('password').valid && form.get('password').touched">
+                Password must be in following format and at least 6 characters. i.e."abc123"
+              </span>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="order-buttons" >
+                <button type="submit" [disabled] = "loginGif" class="btn btn-primary"><i *ngIf="!loginGif" class="material-icons">send</i><img *ngIf="loginGif" src="../../../assets/images/loader.gif" style="width: 20px">Book Test</button>
+                <button type="button" class="btn btn-info" (click)="mainForm()">Cancel</button>
+              </div>
+            </div>
+          </div>
+        </form>
+        <form *ngIf="checkUserReg" class="pharmacy-order" [formGroup]="form" enctype="multipart/form-data" #orderForm="ngForm" (submit)="signUpUser(form.value)" >
+          <div class="row">
+            <div class="col-sm-6">
+              <h2 style="font-size: 12px !important; font-weight: normal;margin: 0;">Please enter password for sign up</h2>
+              <mat-form-field>
+                <input matInput placeholder="Password" maxlength="25"  formControlName="password" type="password">
+              </mat-form-field>
+              <mat-checkbox formControlName="terms">I accept these terms and conditions</mat-checkbox>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="order-buttons" >
+                <button type="submit" [disabled] = "loginGif" class="btn btn-primary"><i *ngIf="!loginGif" class="material-icons">send</i><img *ngIf="loginGif" src="../../../assets/images/loader.gif" style="width: 20px">Book Test</button>
+                <button type="button" class="btn btn-info" (click)="mainForm()">Cancel</button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div class="col-sm-3">
+      <div class="pharmacy-order-detail">
+        <h2>Your Order Detail</h2>
+        <div class="order-detail-content">
+          <h6>Personal Info</h6>
+          <b>Name: </b>
+          <span>{{userInfo.name}}</span>
+          <b>Email: </b>
+          <span>{{userInfo.email}}</span>
+          <b>Address: </b>
+          <span>{{addressName}}</span>
+          <b>Mobile: </b>
+          <span>{{userInfo.mobile}}</span>
+          <h6>Order Info</h6>
+          <b *ngIf="paymentTypeText">Payment Type: </b>
+          <span *ngIf="paymentTypeText">{{paymentTypeText}}</span>
+          <b>Booking Type: </b>
+          <span> {{deliveryTypeText}}</span>
+          <b *ngIf="!defaultPromoNull">Default Promo Code:</b>
+          <span *ngIf="!defaultPromoNull">
+            <span *ngIf="!notUndefined"> {{defaultPromoCode}}: ({{defaultPromoValue[1].value}}%)</span>
+            <span *ngIf="notUndefined"> No Discount</span>
+          </span>
+          <b *ngIf="anotherPromo">Another Promo Code: </b>
+          <span *ngIf="anotherPromo">{{anotherPromo}}</span>
+          <h6 >Lab Info</h6>
+          <b *ngIf="pharmacyNameText">Lab Name:</b>
+          <span *ngIf="pharmacyNameText">{{pharmacyNameText}}</span>
+          <b *ngIf="branchNameText">Branch Name:</b>
+          <span *ngIf="branchNameText">{{branchNameText}}</span>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

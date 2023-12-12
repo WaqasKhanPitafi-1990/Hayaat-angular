@@ -1,0 +1,8 @@
+<a class="view-report-detail" *ngFor="let report of reports, let i = index" (click)="openModal(template)" (mouseenter)="getIndex(i)" style="cursor: pointer;"><i class="material-icons">assignment</i></a>
+
+
+<ng-template #template>
+  <div class="tg-modal-content">
+    <object width="600" height="800" [data]="getSrc()"></object>
+  </div>
+</ng-template>

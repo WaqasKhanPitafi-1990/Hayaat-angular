@@ -1,0 +1,42 @@
+<agm-map [latitude]="lat" [longitude]="lng" >
+  <agm-direction *ngIf="dir" [origin]="dir.origin" [destination]="dir.destination"></agm-direction>
+  <agm-marker
+    [iconUrl]="'https://hayaat.pk/assets/images/pins.png'"
+    *ngFor="let m of markers; let i = index"
+    [latitude]="m.lat"
+    [longitude]="m.lng">
+    <agm-info-window>
+      <div class="map-popup-details">
+        <div class="col-md-5 no-padding">
+          <img src="{{imagepath + '/' + m.image}}" class="img-responsive" alt="Hayaat.pk - Find doctor, Blood donor &amp; Nearest Emergency Center">
+        </div>
+        <div class="no-padding col-md-7">
+          <h6 class="name">
+            <a href="">{{m.name}}</a></h6>
+            <p class="phone"><i class="fa fa-phone" aria-hidden="true"></i><span> {{m.phone}}</span></p>
+            <p class="address"><i class="fa fa-map-marker" aria-hidden="true"></i><span> {{m.address}}</span></p>
+          <!--<button type="button" class="get-direction-btn" data-lat="31.4660965" data-lng="74.27387449999992"><i class="fa fa-location-arrow" aria-hidden="true"></i><span>Get Direction</span></button>-->
+          <button type="button" class="get-direction-btn" (click)="getDirection(m.lat,m.lng)">Get Direction</button>
+          </div><p class="status"><span>Available</span></p></div>
+    </agm-info-window>
+  </agm-marker>
+</agm-map>
+
+<!--<div class="pull-right" *ngFor="let m of markers;">-->
+  <!--<div class="map-popup-details">-->
+    <!--<div class="col-md-5 no-padding">-->
+      <!--<img src="{{m.image}}" class="img-responsive" alt="Hayaat.pk - Find doctor, Blood donor &amp; Nearest Emergency Center">-->
+    <!--</div>-->
+    <!--<div class="no-padding col-md-7">-->
+      <!--<h6 class="name">-->
+        <!--<a href="">{{m.name}}</a></h6>-->
+      <!--<p class="phone"><i class="fa fa-phone" aria-hidden="true"></i><span> {{m.phone}}</span></p>-->
+      <!--<p class="address"><i class="fa fa-map-marker" aria-hidden="true"></i><span> {{m.address}}</span></p>-->
+      <!--<button type="button" class="get-direction-btn">-->
+        <!--<i class="fa fa-location-arrow" aria-hidden="true"></i>-->
+        <!--<span>Get Direction{{m.lat+', '+m.long}}</span>-->
+      <!--</button>-->
+    <!--</div>-->
+    <!--<p class="status"><span>Available</span></p>-->
+  <!--</div>-->
+<!--</div>-->

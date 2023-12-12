@@ -1,0 +1,24 @@
+<main id="main" class="tg-haslayout">
+  <!-- START CONTENT -->
+
+  <div id="tg-innerbanner" class="tg-innerbanner tg-bglight user-profile tg-haslayout" style="background:url('https://hayaat.pk/assets/images/user-cover.jpg') no-repeat scroll center bottom / cover;height:270px;">
+    <div class="tg-searcharea tg-haslayout">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4 col-md-offset-4 text-center">
+            <div class="col-sm-12">
+              <br><img *ngIf="noImageFound" src="../../../assets/images/male.png" width="150px" alt="Hayaat.pk - Find doctor, Blood donor &amp; Nearest Emergency Center">
+              <br><img *ngIf="!noImageFound" src="{{imagePath}}/{{profileData.avatar}}" width="150px" alt="Hayaat.pk - Find doctor, Blood donor &amp; Nearest Emergency Center">
+            </div>
+            <h5>{{profileData.name}}</h5>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+<app-userprofileinfo (childEvent)="checkEvent($event)"></app-userprofileinfo>
+
+
+  </main>

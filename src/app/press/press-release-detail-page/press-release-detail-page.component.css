@@ -1,0 +1,32 @@
+#login-blog-form {
+  padding: 28px 71px ;
+  text-align: center ;
+}
+#login-blog-form .mat-form-field{
+  width:100%;
+}
+#login-blog-form .mat-form-field input {
+  border: none !important;
+}
+#login-blog-form .blog-login-btn,
+#login-blog-form .blog-signup-btn{
+  width: 40% ;
+}
+#login-blog-form .blog-signup-btn:hover{
+  background: #1A237E !important;
+  transition: none !important;
+  color: #fff !important;
+}
+.comment-description .date{
+  color: #7a7a7a;
+}
+.blog-comment img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  float: left;
+  margin: 0 30px 0 0;
+}
+.comment-description {
+  overflow: hidden;
+}

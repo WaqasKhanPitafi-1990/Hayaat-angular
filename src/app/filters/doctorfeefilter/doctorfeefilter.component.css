@@ -1,0 +1,10 @@
+.doctor-fee-filter .mat-form-field-infix{
+  padding: 0;
+  border: 0;
+}
+.doctor-fee-filter .mat-form-field-infix input{
+  border:none;
+}
+.doctor-fee-filter {
+  width: 100% !important;
+}

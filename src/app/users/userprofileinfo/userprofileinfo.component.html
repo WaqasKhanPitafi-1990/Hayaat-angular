@@ -1,0 +1,366 @@
+<main id="main" class="tg-main-section tg-haslayout user-detail-content" style="background-color:#fff;min-height:500px;">
+  <div class="container">
+    <div class="row">
+      <div>
+        <ngb-tabset class="doctor-detail-tab">
+          <ngb-tab>
+            <ng-template ngbTabTitle>
+              Upcoming Appointments
+            </ng-template>
+            <ng-template ngbTabContent>
+              <div class="tab-pane active" id="appointment" role="tabpanel">
+                <h4 class="title">Upcoming Appointments</h4>
+                <style type="text/css">
+                  #dataTable_length, #dataTable_filter {
+                    display: none;
+                  }
+                  #doctor-search{
+                    border:none;
+                    border-radius:5px;
+                  }
+                  .appointments-tables td {
+                    padding: 5px;
+                    text-align:center;
+                    vertical-align: middle !important;
+                  }
+                </style>
+                <div class="col-sm-12">
+                  <div class="table-responsive">
+                    <table class="table table-hover table-striped appointments-tables dataTable no-footer" cellspacing="0" width="100%" id="DataTables_Table_0">
+                      <thead>
+                      <tr>
+                        <th>Appt #</th>
+                        <th>Name</th>
+                        <th>Doctor</th>
+                        <th>Address</th>
+                        <th>Date/Time</th>
+                        <th>Status</th>
+                        <th>Action</th>
+                      </tr>
+                      </thead>
+                      <tbody *ngIf="userAppointment.length !== 0">
+                      <tr *ngFor="let appointment of userAppointment">
+                        <td>{{appointment.appointment_number}}</td>
+                        <td>{{appointment.name}}</td>
+                        <td>{{appointment.doctor}}</td>
+                        <td style="width: 190px;">{{appointment.address}}</td>
+                        <td>{{appointment.date}}/{{appointment.time}}</td>
+                        <td ><span class="order-{{appointment.status}}">{{appointment.status}}</span></td>
+                        <td><a class="cancel-appointment" (click)="deleteAppointment(appointment.id)">Cancel</a></td>
+                      </tr>
+                      </tbody>
+                    </table>
+                    <div *ngIf="userAppointment.length === 0">
+                      <h3 style="text-align: center; padding: 12% 0 0; font-weight: normal;">No Record Found ...</h3>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </ng-template>
+          </ngb-tab>
+          <ngb-tab>
+            <ng-template ngbTabTitle>
+              Appointments History
+            </ng-template>
+
+            <ng-template ngbTabContent >
+              <div class="tab-pane" id="history" role="tabpanel">
+                <h4 class="title">Appointments History</h4>
+                <style type="text/css">
+                  #dataTable_length, #dataTable_filter {
+                    display: none;
+                  }
+                  #doctor-search{
+                    border:none;
+                    border-radius:5px;
+                  }
+                  .appointments-tables td {
+                    padding: 5px;
+                    text-align:center;
+                    vertical-align: middle !important;
+                  }
+                </style>
+                <div class="col-sm-12">
+                  <div class="table-responsive">
+                    <table class="table table-hover table-striped appointments-tables" cellspacing="0" width="100%">
+                      <thead>
+                      <tr>
+                        <th>Appt #</th>
+                        <th>Name</th>
+                        <th>Doctor</th>
+                        <th style="width: 190px;">Address</th>
+                        <th>Date/Time</th>
+                        <th>Status</th>
+                        <th>Action</th>
+                      </tr>
+                      </thead>
+                      <tbody>
+                      <tr *ngFor="let appointmentHistory of pastAppointment">
+                        <td>{{appointmentHistory.appointment_number}}</td>
+                        <td>{{appointmentHistory.name}}</td>
+                        <td>{{appointmentHistory.doctor}}</td>
+                        <td>{{appointmentHistory.address}}</td>
+                        <td>{{appointmentHistory.date}}/{{appointmentHistory.time}}</td>
+                        <td ><span class="order-{{appointmentHistory.status}}">{{appointmentHistory.status}}</span></td>
+                        <td><a class="cancel-appointment" (click)="archiveRequest(appointmentHistory.id)">Archive</a></td>
+                      </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </ng-template>
+
+          </ngb-tab>
+          <ngb-tab>
+            <ng-template ngbTabTitle>
+              User Info
+            </ng-template>
+
+            <ng-template ngbTabContent>
+              <div class="tab-pane" id="profile" role="tabpanel">
+                <h4 class="title">Profile Setting</h4>
+                <form class="form profile-form" [formGroup]="form" (submit)="saveProfile(form.value)" enctype="multipart/form-data">
+
+                  <fieldset>
+                    <div class="col-md-6">
+                      <mat-form-field class="example-full-width" >
+                        <input matInput placeholder="Name" formControlName="name" [(ngModel)]= userInfo.name>
+                      </mat-form-field>
+                      <mat-form-field class="example-full-width" >
+                        <input matInput placeholder="Phone" formControlName="phone" [(ngModel)]= userInfo.mobile>
+                      </mat-form-field>
+                      <mat-form-field class="example-full-width" >
+                        <input matInput placeholder="Email" formControlName="email" [(ngModel)]= userInfo.email>
+                      </mat-form-field>
+                      <!--<mat-form-field class="example-full-width" >-->
+                        <!--<input matInput placeholder="Date of Birth" formControlName="birthDate" [(ngModel)]= userInfo.date_of_birth>-->
+                      <!--</mat-form-field>-->
+                      <mat-form-field>
+                        <input matInput [matDatepicker]="picker" #dateVal placeholder="Date Of Birth" >
+                        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                        <mat-datepicker #picker (selectedChanged)="getDateOfBirth($event)"></mat-datepicker>
+                      </mat-form-field>
+                      <mat-form-field class="example-full-width" >
+                        <input matInput placeholder="Address" formControlName="address" [(ngModel)]= userInfo.address>
+                      </mat-form-field>
+                    </div>
+                    <div class="col-md-6">
+                      <mat-form-field >
+                        <mat-select placeholder="Select City" formControlName="city" [(ngModel)]="userCity">
+                          <mat-option *ngFor="let city of cities" [value]="city.id">
+                            {{ city.name }}
+                          </mat-option>
+                        </mat-select>
+                      </mat-form-field>
+                      <mat-form-field >
+                        <mat-select placeholder="Select Gender" formControlName="gender" [(ngModel)]="userGender">
+                          <mat-option *ngFor="let gen of gender" [value]="gen.id">
+                            {{ gen.name }}
+                          </mat-option>
+                        </mat-select>
+                      </mat-form-field>
+
+                      <div class="form-group">
+                        <label class="btn btn-block btn-primary btn-file-upload" style="width: 33%; float: right;"  (change)="onFileChange($event)">
+                          Choose Image&hellip;
+                          <input type="file" multiple formControlName="image" id="avatar"  style="display: none;" #fileInput >
+                        </label>
+                      </div>
+                    </div>
+                    <div class="col-md-12">
+                      <button class="tg-btn tg-btn-xs blog-login-btn" type="submit" id="login-button"><img *ngIf="loginGif" src="../../../assets/images/loader.gif" style="width: 28px">Save</button>
+                      <a class="tg-btn tg-btn-xs blog-signup-btn"  routerLink="/join-hayaat" id="signup-button">Cancel</a>
+                    </div>
+                  </fieldset>
+                </form>
+              </div>
+            </ng-template>
+
+          </ngb-tab>
+          <ngb-tab>
+            <ng-template ngbTabTitle>
+              Donor Detail
+            </ng-template>
+
+            <ng-template ngbTabContent>
+              <div class="tab-pane" id="donor" role="tabpanel">
+                <form class="tg-form-signup user-tab-content" [formGroup]="form" (submit)="updateDonor(form.value)" enctype="multipart/form-data">
+                  <input type="hidden" name="hayaat_csrf_tokens" value="1b84a20b17b919fd99c9c07a82d32032">
+                  <fieldset>
+                    <h4 class="title">Update Donor Detail</h4>
+                    <div class="col-md-6">
+                      <mat-form-field >
+                        <mat-select placeholder="Select Blood Group" formControlName="group">
+                          <mat-option *ngFor="let group of bloodGroups" [value]="group.id">
+                            {{ group.name }}
+                          </mat-option>
+                        </mat-select>
+                      </mat-form-field>
+
+                      <mat-form-field >
+                        <mat-select placeholder="Select Area" formControlName="area" [(ngModel)]= userInfo.area_name>
+                          <mat-option *ngFor="let area of areas" [value]="area.id">
+                            {{ area.name }}
+                          </mat-option>
+                        </mat-select>
+                      </mat-form-field>
+
+                      <!--<mat-form-field class="example-full-width" >-->
+                        <!--<input matInput placeholder="Area" formControlName="area"  [(ngModel)]= userInfo.area_name>-->
+                      <!--</mat-form-field>-->
+                      <button class="tg-btn create-account-btn pull-right" type="submit"><img *ngIf="loginGif" src="../../../assets/images/loader.gif" style="width: 28px">Save</button>
+                    </div>
+                  </fieldset>
+                </form>
+              </div>
+            </ng-template>
+
+          </ngb-tab>
+          <ngb-tab>
+            <ng-template ngbTabTitle>
+              Change Password
+            </ng-template>
+
+            <ng-template ngbTabContent>
+              <div class="tab-pane" id="change_password" role="tabpanel">
+                <h4 class="title">Change Password</h4>
+                <form class="tg-form-signup user-tab-content" [formGroup]="form" (submit)="updatePass(form.value)" >
+                  <input type="hidden" name="hayaat_csrf_tokens" value="1b84a20b17b919fd99c9c07a82d32032">
+                  <fieldset>
+                    <div class="col-md-6">
+                      <mat-form-field class="example-full-width" >
+                        <input matInput  type="password" placeholder="Old Password" formControlName="oldPass" >
+                      </mat-form-field>
+                      <mat-form-field class="example-full-width" >
+                        <input matInput type="password" placeholder="Password" formControlName="newPass" >
+                      </mat-form-field>
+                      <mat-form-field class="example-full-width" >
+                        <input matInput type="password" placeholder="Confirm Password" formControlName="confirmPass" >
+                      </mat-form-field>
+                      <div class="form-group">
+                        <button class="tg-btn create-account-btn" type="submit"><img *ngIf="loginGif" src="../../../assets/images/loader.gif" style="width: 28px">Save</button>
+                        <a  class="tg-btn cancel create-account-btn ">Cancel</a>
+                      </div>
+                    </div>
+                  </fieldset>
+                </form>
+              </div>
+            </ng-template>
+
+          </ngb-tab>
+          <ngb-tab>
+            <ng-template ngbTabTitle>
+              Medical Records
+            </ng-template>
+
+            <ng-template ngbTabContent>
+             <!--<app-medical-record-card></app-medical-record-card>-->
+              <h3 style="text-align: center;font-size: 25px;padding: 22% 0 0;">Coming Soon ...</h3>
+            </ng-template>
+
+          </ngb-tab>
+          <ngb-tab activeId="">
+            <ng-template ngbTabTitle>
+              My Orders
+            </ng-template>
+
+            <ng-template ngbTabContent>
+              <app-pharmacy-order-listing></app-pharmacy-order-listing>
+            </ng-template>
+
+          </ngb-tab>
+          <ngb-tab activeId="">
+            <ng-template ngbTabTitle>
+              Report
+            </ng-template>
+
+            <ng-template ngbTabContent>
+              <app-report></app-report>
+            </ng-template>
+
+          </ngb-tab>
+          <!--<ngb-tab>-->
+            <!--<ng-template ngbTabTitle>-->
+              <!--Lab Orders-->
+            <!--</ng-template>-->
+
+            <!--<ng-template ngbTabContent>-->
+              <!--<app-pharmacy-order-listing></app-pharmacy-order-listing>-->
+            <!--</ng-template>-->
+
+          <!--</ngb-tab>-->
+          <ngb-tab>
+            <ng-template ngbTabTitle>
+              Promo Codes
+            </ng-template>
+
+            <ng-template ngbTabContent>
+              <div class="promo-code-container">
+                <h2>Add Promo Codes</h2>
+                <div class="promo-code-field" class="col-md-4">
+                  <form class="form promo-code-form" [formGroup]="form" (submit)="savePromoCode(form.value)" enctype="multipart/form-data">
+
+                    <fieldset>
+                      <div >
+                        <mat-form-field class="example-full-width" >
+                          <input matInput placeholder="Promo Code" formControlName="promoCode">
+                        </mat-form-field>
+                        <button class="tg-btn tg-btn-xs save-promo-code" type="submit" id="save-promo-code"><img *ngIf="loginGif" src="../../../assets/images/loader.gif" style="width: 28px">Save</button>
+                      </div>
+                    </fieldset>
+                  </form>
+
+                </div>
+                <div class="col-md-8">
+                  <div class="promo-code-list">
+                    <table class="table">
+                      <thead class="thead-default">
+                      <tr>
+                        <th>Promo Code</th>
+                        <th>limit</th>
+                        <th>Pharmacy Disc</th>
+                        <th>Lab Disc</th>
+                        <th>Remove</th>
+                      </tr>
+                      </thead>
+                      <tbody >
+                      <tr *ngFor="let code of promoCodes, let i = index"  >
+                        <td>{{code.code}}</td>
+                        <td >{{code.valid_till}}</td>
+                        <td *ngIf="code.promocodePercentages[0]" >{{code.promocodePercentages[0].value}}% </td>
+                        <td *ngIf="!code.promocodePercentages[0]" >No Disc </td>
+                        <td *ngIf="code.promocodePercentages[1]">{{code.promocodePercentages[1].value}}% </td>
+                        <td *ngIf="!code.promocodePercentages[1]">No Disc </td>
+                        <td><a (click)="deletePromo(code.id)"><i class="material-icons">delete_forever</i></a></td>
+                      </tr>
+                      </tbody>
+                    </table>
+                    <div class="promo-codes">
+                      <h4>Set Default</h4>
+                      <mat-radio-group (change)="setDefault()" [(ngModel)]="promoId">
+                        <mat-radio-button  [value]="code.id" *ngFor="let code of promoCodes, let i = index"></mat-radio-button>
+                      </mat-radio-group>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </ng-template>
+
+          </ngb-tab>
+        </ngb-tabset>
+      </div>
+    </div>
+  </div>
+</main>
+
+
+
+
+
+
+
+
+
+
+

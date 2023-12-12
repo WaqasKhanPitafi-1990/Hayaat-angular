@@ -1,0 +1,37 @@
+<div id="tg-innerbanner" class="tg-innerbanner tg-bglight tg-haslayout emergency-map">
+	<div class="row">
+	   <div id="mapdiv" class="col-md-12 pull">
+		    <!--<button id="find_btn" (click)="currentLocation()">Get Your Location</button>-->
+	      <div class="map-filters col-md-3 col-sm-3 col-xs-12 pull-left">
+	        <div class="col-md-12 col-sm-12 col-xs-12">
+	          <h2>Find Nearest <strong>Emergency Center</strong></h2></div>
+	        <div class="col-sm-12 col-xs-6">
+            <mat-form-field class="example-full-width custom-filters">
+              <input type="text" placeholder="Select City" aria-label="City" matInput [formControl]="myControlCity" [matAutocomplete]="autoCity">
+              <mat-autocomplete #autoCity="matAutocomplete" (optionSelected)="emergencyCity($event.option.value)">
+                <mat-option *ngFor="let option of filteredCitiesOptions | async" [value]="option.name">
+                  {{ option.name }}
+                </mat-option>
+              </mat-autocomplete>
+            </mat-form-field>
+		      </div>
+		      <div class="col-sm-12 col-xs-6">
+            <mat-form-field class="example-full-width custom-filters">
+              <input type="text" placeholder="Select Area" aria-label="Area" matInput [formControl]="myControlArea" [matAutocomplete]="autoArea">
+              <mat-autocomplete #autoArea="matAutocomplete" (optionSelected)="emergencyArea($event.option.value)">
+                <mat-option *ngFor="let option of filteredAreaOptions | async" [value]="option.name">
+                  {{ option.name }}
+                </mat-option>
+              </mat-autocomplete>
+            </mat-form-field>
+		      </div>
+	      </div>
+       <app-emergencymap></app-emergencymap>
+     </div>
+	</div>
+</div>
+<main id="main" class="tg-main-section tg-haslayout padding-30-top" style="background: #f7f7f7;">
+	<div class="container">
+    <app-emergencycard></app-emergencycard>
+  </div>
+</main>

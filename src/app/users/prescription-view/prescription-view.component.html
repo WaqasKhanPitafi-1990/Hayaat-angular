@@ -1,0 +1,18 @@
+<a class="view-img" (click)="openModal(template)" style="cursor: pointer;"><img src="{{imagePath}}/{{prescriptions[0].image}}"> </a>
+
+
+<ng-template #template>
+  <div class="tg-modal-content">
+    <div class="prescription-img">
+      <h2>Prescriptions</h2>
+      <div class="col-sm-12">
+        <img class="zoomer" [imageZoom]="image_src" [src]="image_small" [style.width.px]="300" [style.height.px]="400">
+        <a *ngFor="let thumbnail of prescriptions">
+          <img src = "{{imagePath}}/{{thumbnail.image}}" alt="..." class="img-thumbnail" [style.border-color]="activeImg" (click)="getImgSrc(imgsrc.getAttribute('src'), i);" #imgsrc>
+        </a>
+        <!--<a class="next-img" (click)="next()"><i class="fa fa-chevron-right" aria-hidden="true"></i></a>-->
+        <!--<a class="previous-img" (click)="previous()"><i class="fa fa-chevron-left" aria-hidden="true"></i></a>-->
+      </div>
+    </div>
+  </div>
+</ng-template>

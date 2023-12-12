@@ -1,0 +1,70 @@
+
+<!--<a class="ask-doctor" (click)="openModal(template)" style="cursor: pointer;"> Ask Doctor</a>-->
+<button (click)="saveQuestionLogin(template, templateLogin)" class="q-popup-btn col-md-12"><img src="https://hayaat.pk/assets/images/ask-question-btn.png" alt="Hayaat.pk - Find doctor, Blood donor &amp; Nearest Emergency Center" class="img-responsive"></button>
+
+<ng-template #template>
+  <div class="tg-modal-content">
+    <form class="tg-form-modal tg-form-signin ask-question-form" id="askquestion-form" [formGroup]="form" (submit)="saveQuestion(form.value)">
+      <h3 class="text-center footer-feedback-title">Ask Your Question Here.</h3>
+      <fieldset>
+        <div class="col-md-12 text-center">
+          <p id="question-msg"></p>
+        </div>
+
+          <mat-form-field class="example-full-width" >
+            <input matInput placeholder="Title" formControlName="title">
+          </mat-form-field>
+
+          <mat-form-field >
+            <mat-select placeholder="Select Speciality" formControlName="specialityName">
+              <mat-option *ngFor="let speciality of specialities" [value]="speciality.id">
+                {{ speciality.name }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+
+          <mat-form-field class="example-full-width" >
+            <textarea matInput placeholder="Type Description" formControlName="message"></textarea>
+          </mat-form-field>
+          <span style="display: block;"><b>Who Can See ?</b></span>
+          <mat-radio-group formControlName="questionType" style="float: left; padding: 7px 0 0;" >
+            <mat-radio-button  *ngFor="let question of questionFor, let i = index"  [value]="i + 1">{{question.name}}</mat-radio-button>
+          </mat-radio-group>
+
+          <label class="btn btn-block btn-primary btn-file-upload" style="width: 25%; float: right;"  (change)="onFileChange($event)">
+            Choose Image&hellip;
+            <input type="file" multiple formControlName="image" id="avatar"  style="display: none;" #fileInput >
+          </label>
+
+        <button [disabled]="loginGif" class="tg-btn tg-btn-lg" type="submit"><i *ngIf="!loginGif" class="fa fa-paper-plane-o" aria-hidden="true"></i><img *ngIf="loginGif" src="../../../assets/images/loader.gif" style="width: 28px"> Submit</button>
+      </fieldset>
+    </form>
+  </div>
+</ng-template>
+<ng-template #templateLogin>
+  <div class="tg-modal-content">
+    <form class="login-form form" id="login-question-form" [formGroup] = "form" #loginForm="ngForm" (submit)="userLogin(form.value)">
+      <h3 class="text-center footer-feedback-title">Please Login First.</h3>
+      <fieldset>
+        <mat-form-field>
+          <input matInput  type="text"  formControlName="username" class="form-control" placeholder="Mobile Number or Email"  >
+        </mat-form-field>
+
+        <mat-form-field>
+          <input matInput type="password" formControlName="password" class="form-control" placeholder="Password"   >
+        </mat-form-field>
+
+        <div class="form-group tg-checkbox">
+          <!--<label>-->
+            <!--<input type="checkbox" formControlName="remember" class="form-control"  >-->
+            <!--Remember Me-->
+          <!--</label>-->
+          <app-forgetpassword></app-forgetpassword>
+        </div>
+        <button [disabled]="loginGif" class="tg-btn tg-btn-lg blog-login-btn" type="submit" id="login-button"><img *ngIf="loginGif" src="../../../assets/images/loader.gif" style="width: 28px">Login</button>
+        <span>OR</span>
+        <a class="tg-btn tg-btn-lg blog-signup-btn" (click)="modalRef.hide()"  routerLink="/join-hayaat" id="signup-button">Join Hayaat</a>
+      </fieldset>
+    </form>
+  </div>
+</ng-template>

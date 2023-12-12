@@ -1,0 +1,45 @@
+<!--<button (click)="openModal(template)" class="q-popup-btn col-md-12"><img src="https://hayaat.pk/assets/images/ask-question-btn.png" alt="Hayaat.pk - Find doctor, Blood donor &amp; Nearest Emergency Center" class="img-responsive"></button>-->
+<a data-toggle="modal" (click)="openModal(template)" data-target=".user-login" class="view-map">View Map</a>
+<ng-template #template>
+  <div class="tg-modal-content emergency-view">
+    <h3>Hospital Location</h3>
+    <div class="col-sm-12">
+      <dl>
+        <dt>Name:</dt>
+        <dd>{{markers.name}}</dd>
+        <dt>Area:</dt>
+        <dd>{{markers.area}}</dd>
+        <dt>Address:</dt>
+        <dd>{{markers.address}}</dd>
+        <dt>Phone:</dt>
+        <dd *ngIf="markers.phone">{{markers.phone}}</dd>
+        <dd *ngIf="!markers.phone">Not Available</dd>
+      </dl>
+    </div>
+    <div class="col-sm-12">
+       <agm-map [latitude]="lat" [longitude]="lng" >
+         <agm-direction *ngIf="dir" [origin]="dir.origin" [destination]="dir.destination"></agm-direction>
+      <agm-marker
+        [iconUrl]="'https://hayaat.pk/assets/images/pins.png'"
+        (markerClick)="clickedMarker(markers.name, i)"
+        [latitude]="markers.lat"
+        [longitude]="markers.lng">
+        <agm-info-window>
+          <div class="map-popup-details">
+            <div class="col-md-5 no-padding">
+              <img src="{{imagepath + '/' + markers.image}}" class="img-responsive" alt="Hayaat.pk - Find doctor, Blood donor &amp; Nearest Emergency Center">
+            </div>
+            <div class="no-padding col-md-7">
+              <h6 class="name">
+                <a href="">{{markers.name}}</a></h6>
+              <p class="phone"><i class="fa fa-phone" aria-hidden="true"></i><span> {{markers.phone}}</span></p>
+              <p class="address"><i class="fa fa-map-marker" aria-hidden="true"></i><span> {{markers.address}}</span></p>
+              <!--<button type="button" class="get-direction-btn" data-lat="31.4660965" data-lng="74.27387449999992"><i class="fa fa-location-arrow" aria-hidden="true"></i><span>Get Direction</span></button>-->
+              <button type="button" class="get-direction-btn" (click)="getDirection(markers.lat, markers.lng)">Get Direction</button>
+            </div><p class="status"><span>Available</span></p></div>
+        </agm-info-window>
+      </agm-marker>
+    </agm-map>
+    </div>
+  </div>
+</ng-template>

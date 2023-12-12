@@ -1,0 +1,150 @@
+
+<main class="tg-haslayout hayaat-service-section" id="main">
+  <div class="container">
+  <div class="row">
+    <div class="pharmacy-detail-view">
+      <div class="col-sm-12">
+        <div class="pharmacy-detail-blocks">
+          <div class="rating-block">
+            <img src="{{imagePath}}/{{pharmacyDetail.logo}}">
+            <app-doctorratings [doctorFeedback]="pharmacyDetail.rating" [colorFeedback]="'negative'"></app-doctorratings>
+            <app-read-pharmacy-reviews [reviewsDetail]="pharmacyDetail"></app-read-pharmacy-reviews>
+          </div>
+          <div class="pharmacy-content-block">
+            <h3>{{pharmacyDetail.name}}</h3>
+            <article>
+              {{pharmacyDetail.bio}}
+            </article>
+            <a *ngIf="!orderNow" routerLink ="/order-pharmacy">Order Now</a>
+            <a *ngIf="orderNow" href="https://sehat.com.pk/" target="_blank">Order Now</a>
+            <!--<app-write-pharmacy-reviews (childEvent)="reviewCall($event)"></app-write-pharmacy-reviews>-->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+</main>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--<div class="container">-->
+<!--<div class="search-results"-->
+<!--infinite-scroll-->
+<!--[infiniteScrollDistance]= "scrollDistance"-->
+<!--[infiniteScrollThrottle]="300"-->
+<!--(scrolled)="onScrollDown()">-->
+<!--<div class="row">-->
+<!--<div class="col-md-9 col-sm-9 col-xs-12 tg-verticalmiddle padding-30-top" *ngIf="!noPharmacy">-->
+<!--<h2 style="text-align: center; padding:50px 0" *ngIf="noPharmacy">No Pharmacy Found....!!</h2>-->
+<!--<div  *ngIf="!loggedIn" >-->
+<!--<div class="row">-->
+<!--<div class="col-sm-3 col-xs-12" *ngFor="let pharmacy of pharmacies, let i = index" (mouseenter)="getPharmacyId(pharmacy.slug, i)">-->
+<!--<a class="pharmacy-box-list" [routerLink]="['/pharmacy', pharmacy.slug]">-->
+<!--<div class="pharmacy-logo">-->
+<!--<img src="{{imagePath}}/{{pharmacy.logo}}">-->
+<!--</div>-->
+<!--<h2>{{pharmacy.name | truncate : 7 : ".."}}<br> <span class="pharmacy-slog">Pharmacy</span></h2>-->
+<!--<span>Select Area></span>-->
+<!--</a>-->
+<!--</div>-->
+<!--</div>-->
+<!--</div>-->
+<!--<div class="col-md-9 col-sm-9 col-xs-12 tg-verticalmiddle padding-30-top" *ngIf="loggedIn">-->
+<!--<div class="row">-->
+<!--<div class="col-sm-4 col-xs-12"  (mouseenter)="getDefaultPharmacyId(pharmacies.pharmacy_info.id)">-->
+<!--<a class="pharmacy-branchlist-box">-->
+<!--<div class="pharmacy-logo">-->
+<!--&lt;!&ndash;<img src="{{imageUrl}}/{{pharmacy.logo}}">&ndash;&gt;-->
+<!--&lt;!&ndash;<span class="pharmacy-van" *ngIf="branch.home_delivery">&ndash;&gt;-->
+<!--&lt;!&ndash;<img src="./assets/images/home-delivery-van.png">&ndash;&gt;-->
+<!--&lt;!&ndash;</span>&ndash;&gt;-->
+<!--</div>-->
+<!--<h2>{{pharmacies.pharmacy_info.name}}</h2>-->
+<!--<span class="pharmacy-area">Area: <b>{{pharmacies.pharmacy_info.area}}</b></span>-->
+<!--<address>{{pharmacies.pharmacy_info.address}}</address>-->
+<!--<app-pharmacyorder [branchList]="pharmacies"></app-pharmacyorder>-->
+<!--</a>-->
+<!--</div>-->
+<!--</div>-->
+<!--</div>-->
+<!--</div>-->
+<!--</div>-->
+<!--</div>-->
+<!--</div>-->
+
+
+
+
+
+
+
+
+
+
+
+
+<!--<div class="container">-->
+  <!--<div class="row">-->
+    <!--<div class="col-md-9 col-sm-9 col-xs-12 tg-verticalmiddle padding-30-top">-->
+      <!--<div class="row">-->
+        <!--<div class="col-sm-4 col-xs-12" *ngFor="let branch of branches, let i= index" (mouseenter)="branchId(branch.id)">-->
+          <!--<a class="pharmacy-branchlist-box">-->
+            <!--<div class="home-pickup-service">-->
+              <!--<span>Home Delivery<i class="material-icons">check</i></span>-->
+              <!--<span>Pickup<i class="material-icons">check</i></span>-->
+            <!--</div>-->
+            <!--<div class="pharmacy-logo">-->
+              <!--<img src="{{imagePath}}/{{pharmacyBranchLogo}}">-->
+              <!--<span class="pharmacy-van" *ngIf="branch.home_delivery">-->
+                <!--<img src="./assets/images/home-delivery-van.png">-->
+              <!--</span>-->
+            <!--</div>-->
+            <!--<h2>{{branch.name | truncate : 18 : '...'}}</h2>-->
+            <!--<span class="pharmacy-area">Area: <b>{{branch.area.area}}</b></span>-->
+            <!--<address>{{branch.address}}</address>-->
+            <!--&lt;!&ndash;<app-pharmacyorder [branchList]="branch"></app-pharmacyorder>&ndash;&gt;-->
+          <!--</a>-->
+        <!--</div>-->
+      <!--</div>-->
+    <!--</div>-->
+  <!--</div>-->
+<!--</div>-->
+

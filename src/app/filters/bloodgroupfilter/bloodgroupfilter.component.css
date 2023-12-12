@@ -1,0 +1,10 @@
+.blood-group .mat-form-field-infix{
+  padding: 0;
+  border: 0;
+}
+.blood-group .mat-form-field-infix input{
+  border:none;
+}
+.blood-group {
+  width: 100% !important;
+}

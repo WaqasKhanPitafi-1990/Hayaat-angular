@@ -1,0 +1,102 @@
+.doctor-detail-tab .nav-tabs{
+  float: left;
+  width: 25%;
+}
+.doctor-detail-tab .tab-content {
+  overflow: hidden;
+  width: 75%;
+  /*text-align: center;*/
+  background: white;
+}
+.doctor-detail-tab .tab-content h4 {
+  text-align: center;
+}
+.cancel-appointment{
+  color: #1A237E;
+  cursor: pointer;
+}
+/*.profile-form .blog-login-btn,*/
+/*.profile-form .blog-signup-btn{*/
+  /*width: 40% ;*/
+/*}*/
+#profile{
+  padding:15px 0;
+}
+.profile-form .blog-signup-btn:hover{
+  background: #1A237E !important;
+  transition: none !important;
+  color: #fff !important;
+}
+.profile-form .mat-form-field,
+#donor .mat-form-field,
+#change_password .mat-form-field {
+  width: 100%;
+}
+.promo-code-container {
+  padding: 15px 0;
+}
+.promo-code-container h2 {
+  text-align: center;
+  font-size: 22px !important;
+}
+.save-promo-code{
+  padding:0 43px !important;
+  line-height: 38px !important;
+}
+.promo-code-list {
+  margin: 0 0 0 35px;
+  padding: 15px 0 0;
+}
+.promo-codes {
+  float: right;
+  text-align: center;
+}
+.promo-codes h4 {
+  font-size: 14px !important;
+  margin: 0 0 5px;
+}
+.promo-code-container table {
+  float: left;
+  width: 80%;
+}
+.promo-code-container table td a {
+  cursor: pointer;
+  color: red;
+}
+.promo-code-container table tr td,
+.promo-code-container table tr th{
+  border: none !important;
+  padding:0 0 5px;
+}
+.promo-code-list .mat-radio-button {
+  display: block;
+  margin: 0 0 9px;
+}
+.order-Attended {
+  background: #3F51B5;
+}
+.order-Pending,
+.order-Canceled,
+.order-Rejected,
+.order-Approved,
+.order-Attended{
+  color: #fff;
+  padding: 7px 0;
+  border-radius: 25px;
+  width: 100px;
+  height: 35px;
+  display: inline-block;
+}
+.order-Pending {
+  background: #FF9800;
+}
+.order-Canceled {
+  background: #607D8B;
+}
+.order-Rejected {
+  background: #f44336;
+}
+.order-Approved {
+  background: #4CAF50;
+}
+

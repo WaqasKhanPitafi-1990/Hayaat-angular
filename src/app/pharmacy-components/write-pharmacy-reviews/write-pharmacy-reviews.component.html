@@ -1,0 +1,32 @@
+
+<!--<a class="ask-doctor" (click)="openModal(template)" style="cursor: pointer;"> Ask Doctor</a>-->
+<a class="pharmacy-detail-blocks" (click)="openModal(template)" style="cursor: pointer;"><i class="fa fa-commenting" aria-hidden="true"></i> Write a review</a>
+
+
+
+<ng-template #template>
+  <div class="tg-modal-content">
+    <form class="tg-form-modal tg-form-signin" id="write-feedback-form" [formGroup]="form" (submit)="writePharmacyFeedback(form.value)">
+      <h3 class="text-center footer-feedback-title">Write a Review.</h3>
+      <fieldset>
+        <div class="col-md-12 text-center">
+          <p id="question-msg"></p>
+        </div>
+        <span class="rating-text">Rating:</span>
+        <star-rating-comp   [starType]="'svg'"
+                            [hoverEnabled]="true"
+                            (onClick)="onClick($event)"
+                            (onRatingChange)="onRatingChange($event)"
+                            (onHoverRatingChange)="onHoverRatingChange($event)">
+        </star-rating-comp>
+        <!--<mat-form-field class="example-full-width" >-->
+        <!--<input type="number" matInput placeholder="Rating" formControlName="rating">-->
+        <!--</mat-form-field>-->
+        <mat-form-field class="example-full-width">
+          <textarea matInput placeholder="Type Feedback" formControlName="feedback"></textarea>
+        </mat-form-field>
+        <button class="tg-btn tg-btn-lg" type="submit"><i *ngIf="!loginGif" class="fa fa-paper-plane-o" aria-hidden="true"></i><img *ngIf="loginGif" style="width: 25px;" src="../../../assets/images/loader.gif"> Submit</button>
+      </fieldset>
+    </form>
+  </div>
+</ng-template>

@@ -1,0 +1,45 @@
+<div class="search-results"
+     infinite-scroll
+     [infiniteScrollDistance]= "scrollDistance"
+     [infiniteScrollThrottle]="300"
+     (scrolled)="onScrollDown()">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-9 padding-right-0" *ngIf="noDoctor" >
+        <h2 style="text-align: center; padding:50px 0">No Doctor Found....!!</h2>
+      </div>
+
+        <div class="col-sm-9 padding-right-0" *ngIf="!noDoctor" >
+          <ul>
+            <li *ngFor = 'let doctor of doctorData' class="col-sm-4 col-md-3" (mouseenter)="saveId(doctor.slug)">
+              <div class=" doctor-card">
+                <div class='outerclass'>
+                    <div class='doctor-img'>
+                      <img src="{{imagePath}}/{{doctor.avatar}}" class="img-responsive img-circle" alt="Hayaat.pk - Find doctor, Blood donor &amp; Nearest Emergency Center">
+                    </div>
+                    <div class='doctor-content'>
+                      <div class="doctor-detail">
+                        <h3><a (click)="saveDoctorIdClick(doctor.id)" [routerLink]="['/doctors',doctor.locations[0].city_slug, doctor.specialities[0].slug ,doctor.slug]">{{doctor.name | truncate : 34 : '...'}}</a></h3>
+                        <span class="speciality">{{doctor.specialities[0].name}}</span>
+                        <span class="rating">
+                          <app-doctorratings [doctorFeedback]="doctor.rating" [colorFeedback]="'orange'"></app-doctorratings>
+                        </span>
+                        <!--<address><i class="fa fa-map-marker"></i>{{doctor.address}}</address>-->
+                        <div class='appointment-btn'>
+                          <a [routerLink]="['/doctors',doctor.locations[0].city_slug, doctor.specialities[0].slug ,doctor.slug]" (click)="saveDoctorIdClick(doctor.id)" class="book-now"> Book Appointment</a>
+                          <!--<app-askquestionmodal></app-askquestionmodal>-->
+                          <!--<a routerLink="" class="ask-doctor" > Ask Doctor</a>-->
+                        </div>
+                      </div>
+                    </div>
+                </div>
+                    <!--<div class="fee-section">Fee: Rs.1500</div>-->
+              </div>
+            </li>
+          </ul>
+        </div>
+      <app-sidebar-signup></app-sidebar-signup>
+      <!--<app-sidebar-blog></app-sidebar-blog>-->
+      </div>
+    </div>
+</div>

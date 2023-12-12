@@ -1,0 +1,49 @@
+<div class="search-results"
+     infinite-scroll
+     [infiniteScrollDistance]= "scrollDistance"
+     [infiniteScrollThrottle]="300"
+     (scrolled)="onScrollDown()">
+  <div class="row">
+    <h2 style="text-align: center; padding:50px 0" *ngIf="noBlog">No Blog Found....!!</h2>
+    <div *ngIf="!noBlog">
+      <div class="col-md-4 col-sm-6 col-xs-12" *ngFor="let blog of blogData" (mouseenter)="blogId(blog.slug)" >
+    <article class="tg-post blog-post ">
+      <a  [routerLink] = "['/blog', blog.slug]" class="tg-box blog-box">
+        <figure class="">
+          <!--<img class="blog-img" src="{{imagePath}}/{{blog.thumbnail}}">-->
+          <span class="blog-img" [ngStyle]="{ 'background-image': 'url('+ imagePath + '/' + blog.thumbnail + ')'}"></span>
+        </figure>
+        <div class="tg-contentbox blog-content-box">
+          <div class="tg-displaytable">
+            <div class="tg-displaytablecell">
+              <div class="tg-small health-blog-heading">
+                <ul class="tg-metadata">
+                  <li><i class="fa fa-clock-o"></i><time date="">{{blog.date}}</time> </li>
+                  <!--<li><i class="fa fa-comment-o"></i>{{blog.comments}} Comments</li>-->
+                </ul>
+                <h2><a [routerLink] = "['/blog', blog.slug]">{{blog.title | truncate: 45 : '...'}} </a></h2>
+              </div>
+              <!--<div class="tg-description blog-listing-desc">-->
+                <!--<p [innerHTML] = blog.description></p>-->
+              <!--</div>-->
+            </div>
+            <!--<a [routerLink] = "['/blog', blog.slug]" class="tg-btn">Read More</a>-->
+            <!--<span class="share-icon hide">Share: <i class="fa fa-share-alt" aria-hidden="true"></i></span>-->
+          </div>
+        </div>
+
+        <span class="social-links hide" style="display:none;">
+          <ul>
+            <li class="facebook"><a class="fb-share-button" href="javascript:void(0)" title="Facebook Share" onclick="javascript:genericSocialShare('http://www.facebook.com/sharer.php?u=https://hayaat.pk/blog/detail/17')"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+            <li class="twitter"><a href="www.test.com"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+            <li class="google-plus"><a href="www.test.com"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
+            <li class="linkedin"><a href="www.test.com"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+          </ul>
+        </span>
+      </a>
+
+    </article>
+  </div>
+    </div>
+  </div>
+</div>

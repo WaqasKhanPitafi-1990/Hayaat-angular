@@ -1,0 +1,66 @@
+<main id="main" class="tg-main-section tg-haslayout askquestion padding-30-top" style='background:#f7f7f7;'>
+
+  <div class="search-results"
+       infinite-scroll
+       [infiniteScrollDistance]= "scrollDistance"
+       [infiniteScrollThrottle]="300"
+       (scrolled)="onScrollDown()">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-9 col-sm-9 col-xs-12" >
+          <div class="tg-haslayout" id="questions">
+            <div class="tg-heading-border tg-small">
+              <h3>Questions</h3>
+              <ngb-tabset>
+                <ngb-tab>
+                  <ng-template ngbTabTitle> Public Questions </ng-template>
+                  <ng-template ngbTabContent>
+                    <h2 style="text-align: center; padding:50px 0 0; font-size: 15px !important; display: block;" *ngIf="noQuestion">No Question Found....!!</h2>
+                    <ul class="question-card" *ngIf="!noQuestion">
+                      <li *ngFor="let question of questionsPublic, let i = index" (mouseenter)="questionSlug(question.slug)" style="display: block; border-bottom: 1px solid #f7f7f7; padding: 23px 39px 19px; margin:0 0 15px">
+                        <div class="question-head">
+                          <h4><a [routerLink]="['/question-detail', question.slug]">{{question.title}}</a></h4>
+                        </div>
+                        <span>{{question.questioner_age}},{{question.questioner_gender}},{{question.questioner_city}} |</span>
+                        <span class="date"> {{question.posted_date}}, {{question.posted_time}}</span>
+                        <p>{{question.description}}</p>
+                        <div class="question-bottom">
+                          <span class="reply"><i class="fa fa-comment-o"></i>{{question.replies_count}} Replies</span>
+                        </div>
+                      </li>
+                    </ul>
+                  </ng-template>
+                </ngb-tab>
+                <ngb-tab>
+                  <ng-template ngbTabTitle> My Questions</ng-template>
+                  <ng-template ngbTabContent>
+                    <h2 style="text-align: center; padding:50px 0 0; font-size: 15px !important; display:block;" *ngIf="noQuestionMy && !loginFirst">No Question Found....!!</h2>
+                    <h2 style="text-align: center; padding:50px 0 0; font-size: 15px !important; display:block;" *ngIf="noQuestionMy && loginFirst">Login First ....!!</h2>
+                    <ul class="question-card" *ngIf="!noQuestionMy">
+                      <li *ngFor="let question of questionsMy, let i = index" (mouseenter)="questionSlug(question.slug)" style="display: block; /*box-shadow: 0 0 17px -1px rgba(0,0,0,0.2); background: #f7f7f7 !important;*/ border-bottom: 1px solid #ccc; padding: 23px 39px 19px; margin:0 0 15px">
+                        <div class="question-head">
+                          <h4><a [routerLink]="['/question-detail', question.slug]">{{question.title}}</a></h4>
+                        </div>
+                        <span>{{question.questioner_age}},{{question.questioner_gender}},{{question.questioner_city}} |</span>
+                        <span class="date"> {{question.posted_date}}, {{question.posted_time}}</span>
+                        <p>{{question.description}}</p>
+                        <div class="question-bottom">
+                          <span class="reply"><i class="fa fa-comment-o"></i>{{question.replies_count}} Replies</span>
+                        </div>
+                      </li>
+                    </ul>
+                  </ng-template>
+                </ngb-tab>
+              </ngb-tabset>
+            </div>
+          </div>
+
+        </div>
+        <div class="col-md-3 col-sm-12 col-xs-12" style="background:#f7f7f7; float: right">
+          <app-askquestionmodal (childEvent)="reloadCall($event)"></app-askquestionmodal>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
